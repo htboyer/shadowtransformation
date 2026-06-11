@@ -370,9 +370,16 @@ const ContactSection = () => (
 const SiteFooter = () => (
   <footer className="border-t border-hairline/60 bg-abyss">
     <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-10 text-xs text-muted-foreground/80 md:flex-row md:items-center lg:px-10">
-      <div className="flex items-center gap-3">
-        <span aria-hidden className="block h-1.5 w-1.5 rotate-45 bg-ice-blue/60" />
-        <span className="tracking-[0.18em] text-glacier/80">SHADOW TRANSFORMATION</span>
+      <div className="flex items-center">
+        <div className="rounded-md bg-white p-2">
+          <img
+            src="/__l5e/assets-v1/f1e9f10d-38a0-46a9-88ee-149bcc44b77b/shadow-transformation-logo.png"
+            alt="Shadow Transformation"
+            width={140}
+            height={40}
+            className="h-9 w-auto object-contain"
+          />
+        </div>
       </div>
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2 tracking-wide">
         <span>www.shadowtransformation.fr</span>
