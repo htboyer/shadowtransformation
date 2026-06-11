@@ -45,8 +45,8 @@ export default Index;
    ========================================================= */
 const NAV = [
   { href: "#approche", label: "Approche" },
-  { href: "#module-1", label: "Module 1" },
-  { href: "#livrables", label: "Livrables" },
+  { href: "#module-1", label: "Diagnostic de maturité" },
+  { href: "#livrables", label: "Ce que vous obtenez" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -247,9 +247,9 @@ const ModuleOneSection = () => (
     <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
       <div className="grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
-          <p className="eyebrow">03 — Module 1</p>
+          <p className="eyebrow">03 — Diagnostic</p>
           <h2 className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
-            La porte d’entrée.
+            Découvrez notre module de diagnostic de maturité.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
             Le Module 1 est conçu comme un préalable rigoureux : il instruit la
@@ -271,9 +271,9 @@ const ModuleOneSection = () => (
 
       {/* Sous-bloc très visible : ce que le module 1 n'est pas */}
       <div className="mt-16 rounded-2xl border border-ice-blue/30 bg-[hsl(var(--petrol)/0.08)] p-8 lg:p-12">
-        <p className="eyebrow text-ice-blue">Cadre du Module 1</p>
+        <p className="eyebrow text-ice-blue">Cadre du diagnostic</p>
         <p className="mt-5 font-display text-xl font-light leading-relaxed text-glacier lg:text-2xl">
-          Le module 1 ne produit pas le plan détaillé de transformation. Il
+          Ce module ne produit pas le plan détaillé de transformation. Il
           permet de décider si les conditions sont réunies pour engager la
           suite, et ce qu’il faut rendre suffisamment mûr avant cela.
         </p>
@@ -297,9 +297,9 @@ const DeliverablesSection = () => (
   <section id="livrables" className="relative border-t border-hairline/60 bg-night/40">
     <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
       <div className="max-w-2xl">
-        <p className="eyebrow">04 — Livrables</p>
+        <p className="eyebrow">04 — Ce que vous obtenez</p>
         <h2 className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
-          Ce que le client obtient.
+          Ce qui vous est remis.
         </h2>
         <p className="mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
           Des livrables sobres, exploitables en comité exécutif, conçus pour
