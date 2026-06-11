@@ -16,6 +16,8 @@
  * (design system : couleurs, typo, cartes, filets).
  */
 
+import logo from "@/assets/logo.png";
+
 const CONTACT_EMAIL = "contact@shadowtransformation.fr";
 const MAILTO = `mailto:${CONTACT_EMAIL}`;
 
