@@ -121,7 +121,7 @@ const HeroSection = () => (
       </h1>
 
       <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
-        Shadow Transformation aide à objectiver la maturité pré-transformation,
+        Shadow Transformation© aide à objectiver la maturité pré-transformation,
         à lire les écarts de perception et à identifier les travaux préparatoires
         avant engagement.
       </p>
