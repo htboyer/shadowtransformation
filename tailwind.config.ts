@@ -13,7 +13,25 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        display: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      backgroundImage: {
+        'gradient-hero': 'var(--gradient-hero)',
+        'gradient-rule': 'var(--gradient-rule)',
+      },
       colors: {
+        night: '#071326',
+        abyss: '#020817',
+        petrol: '#0D6E96',
+        'ice-blue': '#5FA8CF',
+        glacier: '#EAF6FB',
+        pearl: '#D8D6DC',
+        silver: '#C7CCD4',
+        surface: 'hsl(var(--surface))',
+        'surface-elev': 'hsl(var(--surface-elev))',
+        hairline: 'hsl(var(--hairline))',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
