@@ -66,7 +66,7 @@ const SiteNav = () => (
             Shadow
           </span>
           <span className="mt-1 font-display text-[11px] font-light tracking-[0.22em] text-ice-blue">
-            TRANSFORMATION
+            TRANSFORMATION<sup className="ml-0.5 text-[8px]">©</sup>
           </span>
         </span>
       </a>
@@ -121,7 +121,7 @@ const HeroSection = () => (
       </h1>
 
       <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
-        Shadow Transformation aide à objectiver la maturité pré-transformation,
+        Shadow Transformation© aide à objectiver la maturité pré-transformation,
         à lire les écarts de perception et à identifier les travaux préparatoires
         avant engagement.
       </p>
