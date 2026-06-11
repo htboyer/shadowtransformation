@@ -19,47 +19,51 @@
     --pearl:      260 5% 85%;    /* #D8D6DC gris perle */
     --silver:     217 9% 80%;    /* #C7CCD4 argent doux */
 
-    /* Tokens sémantiques (mode sombre par défaut) */
-    --background: 222 79% 6%;
-    --foreground: 197 30% 92%;
+    /* Tokens sémantiques (mode sombre par défaut) — V2 : plus de respiration lumineuse */
+    --background: 220 60% 8%;
+    --foreground: 197 30% 94%;
 
-    --surface:        218 60% 11%;
-    --surface-elev:   218 55% 14%;
-    --hairline:       210 25% 22%;
+    --surface:        216 50% 13%;
+    --surface-elev:   214 45% 17%;
+    --hairline:       208 28% 26%;
 
-    --card: 218 60% 11%;
-    --card-foreground: 197 30% 92%;
+    --card: 216 50% 13%;
+    --card-foreground: 197 30% 94%;
 
-    --popover: 222 79% 6%;
-    --popover-foreground: 197 30% 92%;
+    --popover: 220 60% 8%;
+    --popover-foreground: 197 30% 94%;
 
-    --primary: 199 84% 32%;
+    --primary: 199 84% 36%;
     --primary-foreground: 197 67% 95%;
 
-    --secondary: 218 55% 14%;
+    --secondary: 214 45% 17%;
     --secondary-foreground: 197 30% 92%;
 
-    --muted: 218 40% 16%;
-    --muted-foreground: 210 15% 70%;
+    --muted: 216 35% 19%;
+    --muted-foreground: 208 18% 78%;
 
-    --accent: 202 56% 59%;
+    --accent: 202 56% 62%;
     --accent-foreground: 222 79% 6%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 210 25% 22%;
-    --input: 210 25% 22%;
+    --border: 208 28% 26%;
+    --input: 208 28% 26%;
     --ring: 202 56% 59%;
 
     --radius: 0.875rem;
 
-    /* Gradients & ombres premium */
-    --gradient-hero: radial-gradient(ellipse at 20% 0%, hsl(199 84% 32% / 0.18), transparent 55%),
-                     radial-gradient(ellipse at 80% 20%, hsl(202 56% 59% / 0.10), transparent 60%),
-                     linear-gradient(180deg, hsl(var(--abyss)), hsl(var(--night)));
-    --gradient-rule: linear-gradient(90deg, transparent, hsl(var(--ice-blue) / 0.4), transparent);
-    --shadow-card: 0 1px 0 0 hsl(var(--ice-blue) / 0.04) inset,
+    /* Gradients & ombres premium — V2 : davantage de profondeur lumineuse */
+    --gradient-hero: radial-gradient(ellipse at 18% -10%, hsl(202 70% 55% / 0.18), transparent 55%),
+                     radial-gradient(ellipse at 88% 12%, hsl(199 84% 40% / 0.22), transparent 60%),
+                     radial-gradient(ellipse at 50% 115%, hsl(202 60% 50% / 0.10), transparent 60%),
+                     linear-gradient(180deg, hsl(220 65% 9%), hsl(218 58% 12%));
+    --gradient-page: radial-gradient(1200px 700px at 85% -5%, hsl(202 60% 45% / 0.10), transparent 60%),
+                     radial-gradient(900px 600px at -5% 45%, hsl(199 84% 32% / 0.08), transparent 65%),
+                     radial-gradient(900px 700px at 60% 110%, hsl(202 56% 50% / 0.07), transparent 70%);
+    --gradient-rule: linear-gradient(90deg, transparent, hsl(var(--ice-blue) / 0.5), transparent);
+    --shadow-card: 0 1px 0 0 hsl(var(--ice-blue) / 0.05) inset,
                    0 30px 60px -30px hsl(0 0% 0% / 0.6);
     --shadow-soft: 0 20px 40px -24px hsl(0 0% 0% / 0.5);
 
