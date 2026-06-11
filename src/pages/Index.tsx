@@ -53,11 +53,14 @@ const NAV = [
 const SiteNav = () => (
   <header className="sticky top-0 z-40 border-b border-hairline/60 bg-abyss/70 backdrop-blur-md">
     <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-10">
-      <a href="#top" className="group flex items-center gap-3">
-        <span aria-hidden className="block h-2 w-2 rotate-45 border border-ice-blue/70 bg-petrol/40" />
-        <span className="font-display text-sm font-medium tracking-[0.18em] text-glacier">
-          SHADOW <span className="text-ice-blue">TRANSFORMATION</span>
-        </span>
+      <a href="#top" className="group flex items-center gap-3" aria-label="Shadow Transformation — Accueil">
+        <img
+          src={logo}
+          alt="Shadow Transformation"
+          width={40}
+          height={40}
+          className="h-9 w-9 object-contain transition-opacity group-hover:opacity-90"
+        />
       </a>
       <nav className="hidden items-center gap-9 md:flex">
         {NAV.map((item) => (
