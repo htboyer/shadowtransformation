@@ -1,19 +1,14 @@
 /**
- * Shadow Transformation — Landing page statique premium
- * ------------------------------------------------------
+ * Shadow Transformation — Landing page premium (V2)
+ * --------------------------------------------------
  * Page unique, 6 sections clairement identifiables et modifiables.
- * Chaque section est encapsulée dans son propre composant, juste en dessous.
  *
  *   1. <HeroSection />          → Section 1 : Hero
  *   2. <ProblemSection />       → Section 2 : Le problème
  *   3. <ApproachSection />      → Section 3 : L'approche (4 temps)
- *   4. <ModuleOneSection />     → Section 4 : Module 1
- *   5. <DeliverablesSection />  → Section 5 : Ce que le client obtient
+ *   4. <ModuleOneSection />     → Section 4 : Diagnostic
+ *   5. <DeliverablesSection />  → Section 5 : Ce que le diagnostic rend possible
  *   6. <ContactSection />       → Section 6 : Contact / closing
- *
- * Pour modifier le texte d'une section, éditer directement le composant
- * correspondant ci-dessous. Les styles globaux vivent dans src/index.css
- * (design system : couleurs, typo, cartes, filets).
  */
 
 import logo from "@/assets/logo-mark.png";
@@ -21,49 +16,10 @@ import logo from "@/assets/logo-mark.png";
 const CONTACT_EMAIL = "contact@shadowtransformation.fr";
 const MAILTO = `mailto:${CONTACT_EMAIL}`;
 
-const LOGO_URL = "/__l5e/assets-v1/f1e9f10d-38a0-46a9-88ee-149bcc44b77b/shadow-transformation-logo.png";
-
 const Index = () => {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
-      {/* Watermark / arrière-plan rappelant le logo */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-      >
-        <div
-          className="absolute right-[-10%] top-[8%] h-[70vh] w-[70vh] opacity-[0.07]"
-          style={{
-            backgroundImage: `url(${LOGO_URL})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-          }}
-        />
-        <div
-          className="absolute left-[-15%] top-[55%] h-[55vh] w-[55vh] opacity-[0.05]"
-          style={{
-            backgroundImage: `url(${LOGO_URL})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-          }}
-        />
-        <div
-          className="absolute -left-40 -bottom-40 h-[60vh] w-[60vh] rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, hsl(var(--petrol) / 0.22), transparent 70%)",
-          }}
-        />
-        <div
-          className="absolute right-0 top-0 h-[60vh] w-[60vh] rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, hsl(var(--ice-blue) / 0.14), transparent 70%)",
-          }}
-        />
-      </div>
+      <PageBackdrop />
       <div className="relative z-10">
         <SiteNav />
         <main>
@@ -83,32 +39,143 @@ const Index = () => {
 export default Index;
 
 /* =========================================================
-   Navigation simple, ancres internes
+   Arrière-plan : nappes lumineuses + courbes "fantômes"
+   inspirées du langage graphique du logo
+   ========================================================= */
+const PageBackdrop = () => (
+  <div
+    aria-hidden
+    className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+    style={{ background: "var(--gradient-page)" }}
+  >
+    {/* Halo haut-droit (ascendance) */}
+    <div
+      className="absolute -right-40 -top-32 h-[70vh] w-[70vh] rounded-full"
+      style={{
+        background:
+          "radial-gradient(circle, hsl(var(--ice-blue) / 0.16), transparent 65%)",
+      }}
+    />
+    {/* Halo bas-gauche (profondeur) */}
+    <div
+      className="absolute -left-48 top-[55%] h-[65vh] w-[65vh] rounded-full"
+      style={{
+        background:
+          "radial-gradient(circle, hsl(var(--petrol) / 0.22), transparent 70%)",
+      }}
+    />
+
+    {/* Orbites / courbes ascendantes inspirées du logo */}
+    <svg
+      className="absolute inset-0 h-full w-full"
+      viewBox="0 0 1600 2400"
+      preserveAspectRatio="xMidYMid slice"
+      fill="none"
+    >
+      <defs>
+        <linearGradient id="orbitA" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="hsl(202 56% 59%)" stopOpacity="0" />
+          <stop offset="50%" stopColor="hsl(202 56% 59%)" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="hsl(202 56% 59%)" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="orbitB" x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="hsl(199 84% 50%)" stopOpacity="0" />
+          <stop offset="50%" stopColor="hsl(199 84% 50%)" stopOpacity="0.28" />
+          <stop offset="100%" stopColor="hsl(199 84% 50%)" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+
+      {/* Orbite ascendante (zone hero) */}
+      <path
+        d="M -200 700 C 300 350, 900 250, 1700 520"
+        stroke="url(#orbitA)"
+        strokeWidth="1"
+        opacity="0.55"
+      />
+      <path
+        d="M -200 780 C 350 430, 950 330, 1700 600"
+        stroke="url(#orbitA)"
+        strokeWidth="1"
+        opacity="0.30"
+      />
+
+      {/* Trainée milieu de page */}
+      <path
+        d="M -100 1300 C 500 1100, 1100 1400, 1800 1180"
+        stroke="url(#orbitB)"
+        strokeWidth="1"
+        opacity="0.4"
+      />
+
+      {/* Orbite basse */}
+      <path
+        d="M -200 2050 C 400 1800, 1100 1900, 1800 1700"
+        stroke="url(#orbitA)"
+        strokeWidth="1"
+        opacity="0.35"
+      />
+
+      {/* Cercles fantômes (rappel symbole) */}
+      <circle
+        cx="1320"
+        cy="380"
+        r="280"
+        stroke="hsl(202 56% 59%)"
+        strokeOpacity="0.10"
+        strokeWidth="1"
+      />
+      <circle
+        cx="1320"
+        cy="380"
+        r="380"
+        stroke="hsl(202 56% 59%)"
+        strokeOpacity="0.06"
+        strokeWidth="1"
+      />
+      <circle
+        cx="220"
+        cy="1700"
+        r="240"
+        stroke="hsl(199 84% 50%)"
+        strokeOpacity="0.08"
+        strokeWidth="1"
+      />
+    </svg>
+  </div>
+);
+
+/* =========================================================
+   Navigation
    ========================================================= */
 const NAV = [
   { href: "#approche", label: "Approche" },
-  { href: "#module-1", label: "Diagnostic de maturité" },
+  { href: "#module-1", label: "Diagnostic" },
   { href: "#livrables", label: "Ce que vous obtenez" },
   { href: "#contact", label: "Contact" },
 ];
 
 const SiteNav = () => (
-  <header className="sticky top-0 z-40 border-b border-hairline/60 bg-abyss/70 backdrop-blur-md">
-    <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-10">
-      <a href="#top" className="group flex items-center gap-3" aria-label="Shadow Transformation — Accueil">
+  <header className="sticky top-0 z-40 border-b border-hairline/50 bg-background/75 backdrop-blur-xl">
+    <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-10 lg:py-6">
+      <a
+        href="#top"
+        className="group flex items-center gap-4"
+        aria-label="Shadow Transformation — Accueil"
+      >
         <img
           src={logo}
           alt="Shadow Transformation"
-          width={48}
-          height={48}
-          className="h-10 w-10 object-contain transition-opacity group-hover:opacity-90"
+          width={56}
+          height={56}
+          className="h-12 w-12 object-contain drop-shadow-[0_2px_12px_hsl(202_56%_59%/0.35)] transition-opacity group-hover:opacity-95 lg:h-14 lg:w-14"
         />
         <span className="hidden leading-none sm:flex sm:flex-col">
-          <span className="font-display text-base font-semibold tracking-tight text-glacier">
+          <span className="font-display text-lg font-semibold tracking-tight text-glacier lg:text-xl">
             Shadow
           </span>
-          <span className="mt-1 font-display text-[11px] font-light tracking-[0.22em] text-ice-blue">
-            TRANSFORMATION<sup className="ml-0.5 text-[8px]">©</sup>
+          <span className="mt-1.5 font-display text-[12px] font-medium uppercase tracking-[0.28em] text-ice-blue lg:text-[13px]">
+            Transformation
+            <sup className="ml-0.5 text-[8px] font-normal">©</sup>
           </span>
         </span>
       </a>
@@ -131,7 +198,7 @@ const SiteNav = () => (
       </nav>
       <a
         href={MAILTO}
-        className="md:hidden rounded-full border border-ice-blue/40 px-3 py-1.5 text-[11px] font-medium tracking-[0.12em] text-glacier transition-colors hover:border-ice-blue hover:bg-ice-blue/10"
+        className="rounded-full border border-ice-blue/40 px-3 py-1.5 text-[11px] font-medium tracking-[0.12em] text-glacier transition-colors hover:border-ice-blue hover:bg-ice-blue/10 md:hidden"
       >
         CONTACT
       </a>
@@ -148,7 +215,10 @@ const HeroSection = () => (
     <div
       aria-hidden
       className="pointer-events-none absolute inset-x-0 top-0 h-px"
-      style={{ background: "linear-gradient(90deg, transparent, hsl(var(--ice-blue) / 0.4), transparent)" }}
+      style={{
+        background:
+          "linear-gradient(90deg, transparent, hsl(var(--ice-blue) / 0.4), transparent)",
+      }}
     />
     <div className="relative mx-auto max-w-6xl px-6 pb-28 pt-16 lg:px-10 lg:pb-40 lg:pt-24">
       <p className="text-center font-display text-2xl font-light italic tracking-tight text-glacier sm:text-3xl lg:text-4xl">
@@ -163,9 +233,10 @@ const HeroSection = () => (
       </h1>
 
       <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
-        Shadow Transformation<sup className="ml-0.5 text-[0.6em]">©</sup> aide à objectiver la maturité pré-transformation,
-        à lire les écarts de perception et à identifier les travaux préparatoires
-        avant engagement.
+        Shadow Transformation<sup className="ml-0.5 text-[0.6em]">©</sup>{" "}
+        instruit la décision de transformation : lecture objective de la
+        maturité réelle, écarts de perception entre niveaux, conditions
+        minimales d’engagement et travaux à mener avant tout dispositif.
       </p>
 
       <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -185,7 +256,6 @@ const HeroSection = () => (
         </a>
       </div>
 
-      {/* Bloc de synthèse premium */}
       <div className="mt-20 max-w-3xl border-l border-ice-blue/40 pl-6">
         <p className="font-display text-lg font-light leading-relaxed text-glacier/90 lg:text-xl">
           Lire le réel. <span className="text-muted-foreground">·</span> Objectiver les écarts.{" "}
@@ -194,7 +264,6 @@ const HeroSection = () => (
       </div>
     </div>
 
-    {/* Filet de fin de hero */}
     <div className="hairline mx-auto max-w-6xl" />
   </section>
 );
@@ -203,10 +272,10 @@ const HeroSection = () => (
    SECTION 2 — Le problème
    ========================================================= */
 const PROBLEMS = [
-  "Lancer trop vite, sans avoir lu le terrain.",
+  "Lancer la transformation trop vite, sans avoir lu le terrain.",
   "Confondre intention de transformation et maturité réelle de l’organisation.",
   "Engager une transformation sans que les conditions minimales soient réunies.",
-  "Sous-estimer les écarts de perception et les fragilités structurantes.",
+  "Sous-estimer les écarts de perception entre niveaux, fonctions et récits internes.",
 ];
 
 const ProblemSection = () => (
@@ -216,7 +285,7 @@ const ProblemSection = () => (
         <div className="lg:col-span-4">
           <p className="eyebrow">01 — Le problème</p>
           <h2 className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
-            Les transformations échouent souvent avant même d’avoir commencé.
+            Beaucoup de transformations échouent avant même d’avoir commencé.
           </h2>
         </div>
         <div className="lg:col-span-7 lg:col-start-6">
@@ -249,7 +318,14 @@ const STEPS = [
 ];
 
 const ApproachSection = () => (
-  <section id="approche" className="relative border-t border-hairline/60 bg-night/40">
+  <section
+    id="approche"
+    className="relative border-t border-hairline/60"
+    style={{
+      background:
+        "linear-gradient(180deg, hsl(218 60% 11% / 0.55), hsl(218 60% 11% / 0.25))",
+    }}
+  >
     <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
       <div className="max-w-2xl">
         <p className="eyebrow">02 — L’approche</p>
@@ -262,7 +338,6 @@ const ApproachSection = () => (
         </p>
       </div>
 
-      {/* Progression visuelle sobre */}
       <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline lg:grid-cols-4">
         {STEPS.map((step) => (
           <div
@@ -283,7 +358,7 @@ const ApproachSection = () => (
 );
 
 /* =========================================================
-   SECTION 4 — Module 1
+   SECTION 4 — Diagnostic
    ========================================================= */
 const MODULE_ONE_POINTS = [
   "Diagnostic pré-transformation",
@@ -291,7 +366,7 @@ const MODULE_ONE_POINTS = [
   "Écarts de perception",
   "Voix de l’organisation",
   "Travaux préparatoires avant engagement",
-  "Décision de sortie",
+  "Décision instruite : passage, temporisation, préparation",
 ];
 
 const ModuleOneSection = () => (
@@ -301,11 +376,12 @@ const ModuleOneSection = () => (
         <div className="lg:col-span-5">
           <p className="eyebrow">03 — Diagnostic</p>
           <h2 className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
-            Découvrez notre module de diagnostic de maturité.
+            Décider lucidement, avant d’engager.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
-            Le Module 1 est conçu comme un préalable rigoureux : il instruit la
-            décision, il ne la précipite pas.
+            Un préalable rigoureux à toute transformation : objectiver la
+            maturité réelle, révéler ce qui porte ou fragilise, et instruire la
+            décision plutôt que de la précipiter.
           </p>
         </div>
 
@@ -321,13 +397,12 @@ const ModuleOneSection = () => (
         </div>
       </div>
 
-      {/* Sous-bloc très visible : ce que le module 1 n'est pas */}
-      <div className="mt-16 rounded-2xl border border-ice-blue/30 bg-[hsl(var(--petrol)/0.08)] p-8 lg:p-12">
+      <div className="mt-16 rounded-2xl border border-ice-blue/30 bg-[hsl(var(--petrol)/0.10)] p-8 lg:p-12">
         <p className="eyebrow text-ice-blue">Cadre du diagnostic</p>
         <p className="mt-5 font-display text-xl font-light leading-relaxed text-glacier lg:text-2xl">
-          Ce module ne produit pas le plan détaillé de transformation. Il
-          permet de décider si les conditions sont réunies pour engager la
-          suite, et ce qu’il faut rendre suffisamment mûr avant cela.
+          Ce diagnostic ne produit pas le plan de transformation. Il permet de
+          décider si les conditions sont réunies pour l’engager — et ce qu’il
+          faut rendre suffisamment mûr avant cela.
         </p>
       </div>
     </div>
@@ -335,23 +410,45 @@ const ModuleOneSection = () => (
 );
 
 /* =========================================================
-   SECTION 5 — Ce que le client obtient
+   SECTION 5 — Ce que le diagnostic rend possible
    ========================================================= */
 const DELIVERABLES = [
-  { title: "Lecture de maturité", text: "État réel de l’organisation au regard de la transformation envisagée." },
-  { title: "Écarts de perception", text: "Mise en évidence des décalages entre niveaux, fonctions et récits internes." },
-  { title: "Appuis et fragilités structurantes", text: "Identification de ce qui peut porter le mouvement, et de ce qui le fragiliserait." },
-  { title: "Travaux préparatoires", text: "Liste précise des chantiers à mener avant tout engagement de transformation." },
-  { title: "Décision instruite", text: "Passage, temporisation ou préparation : trois issues claires, argumentées, assumées." },
+  {
+    title: "Lecture de maturité",
+    text: "État réel de l’organisation au regard de la transformation envisagée.",
+  },
+  {
+    title: "Écarts de perception",
+    text: "Mise en évidence des décalages entre niveaux, fonctions et récits internes.",
+  },
+  {
+    title: "Appuis et fragilités structurantes",
+    text: "Ce qui peut porter le mouvement — et ce qui le fragiliserait s’il était engagé en l’état.",
+  },
+  {
+    title: "Conditions préalables à réunir",
+    text: "Les points de maturité à consolider avant tout engagement, sans verser dans le plan de transformation.",
+  },
+  {
+    title: "Décision instruite",
+    text: "Passage, temporisation ou préparation : trois issues claires, argumentées, assumées.",
+  },
 ];
 
 const DeliverablesSection = () => (
-  <section id="livrables" className="relative border-t border-hairline/60 bg-night/40">
+  <section
+    id="livrables"
+    className="relative border-t border-hairline/60"
+    style={{
+      background:
+        "linear-gradient(180deg, hsl(218 60% 11% / 0.55), hsl(218 60% 11% / 0.25))",
+    }}
+  >
     <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
       <div className="max-w-2xl">
         <p className="eyebrow">04 — Ce que vous obtenez</p>
         <h2 className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
-          Ce qui vous est remis.
+          Ce que le diagnostic vous permet de décider.
         </h2>
         <p className="mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
           Des livrables sobres, exploitables en comité exécutif, conçus pour
@@ -363,7 +460,9 @@ const DeliverablesSection = () => (
         {DELIVERABLES.map((d, i) => (
           <article key={d.title} className="premium-card p-8">
             <div className="flex items-baseline justify-between">
-              <span className="step-number text-[11px]">{String(i + 1).padStart(2, "0")} / {String(DELIVERABLES.length).padStart(2, "0")}</span>
+              <span className="step-number text-[11px]">
+                {String(i + 1).padStart(2, "0")} / {String(DELIVERABLES.length).padStart(2, "0")}
+              </span>
               <span aria-hidden className="h-px w-8 bg-ice-blue/40" />
             </div>
             <h3 className="mt-8 font-display text-lg font-medium leading-snug text-glacier">
@@ -417,26 +516,33 @@ const ContactSection = () => (
 );
 
 /* =========================================================
-   Pied de page : domaines + mentions discrètes
+   Pied de page : épuré, cohérent avec le header
    ========================================================= */
 const SiteFooter = () => (
-  <footer className="border-t border-hairline/60 bg-abyss">
+  <footer className="border-t border-hairline/60 bg-background/60">
     <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-10 text-xs text-muted-foreground/80 md:flex-row md:items-center lg:px-10">
-      <div className="flex items-center">
-        <div className="rounded-md bg-white p-2">
-          <img
-            src="/__l5e/assets-v1/f1e9f10d-38a0-46a9-88ee-149bcc44b77b/shadow-transformation-logo.png"
-            alt="Shadow Transformation"
-            width={140}
-            height={40}
-            className="h-9 w-auto object-contain"
-          />
-        </div>
-      </div>
+      <a href="#top" className="flex items-center gap-3" aria-label="Shadow Transformation">
+        <img
+          src={logo}
+          alt="Shadow Transformation"
+          width={32}
+          height={32}
+          className="h-8 w-8 object-contain"
+        />
+        <span className="font-display text-[11px] uppercase tracking-[0.28em] text-ice-blue">
+          Shadow Transformation
+          <sup className="ml-0.5 text-[7px]">©</sup>
+        </span>
+      </a>
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2 tracking-wide">
-        <span>www.shadowtransformation.fr</span>
+        <a
+          href={MAILTO}
+          className="transition-colors hover:text-glacier"
+        >
+          {CONTACT_EMAIL}
+        </a>
         <span aria-hidden className="hidden h-3 w-px bg-hairline md:inline-block" />
-        <span>www.shadowtransformation.com</span>
+        <span>shadowtransformation.fr</span>
       </div>
       <div>© {new Date().getFullYear()}</div>
     </div>
