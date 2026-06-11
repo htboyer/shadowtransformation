@@ -29,10 +29,10 @@ const Index = () => {
       {/* Watermark / arrière-plan rappelant le logo */}
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
       >
         <div
-          className="absolute -right-32 top-1/4 h-[80vh] w-[80vh] opacity-[0.04] blur-[1px]"
+          className="absolute right-[-10%] top-[8%] h-[70vh] w-[70vh] opacity-[0.07]"
           style={{
             backgroundImage: `url(${LOGO_URL})`,
             backgroundSize: "contain",
@@ -41,30 +41,41 @@ const Index = () => {
           }}
         />
         <div
-          className="absolute -left-40 -bottom-40 h-[60vh] w-[60vh] rounded-full opacity-60"
+          className="absolute left-[-15%] top-[55%] h-[55vh] w-[55vh] opacity-[0.05]"
           style={{
-            background:
-              "radial-gradient(circle, hsl(var(--petrol) / 0.18), transparent 70%)",
+            backgroundImage: `url(${LOGO_URL})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
           }}
         />
         <div
-          className="absolute right-0 top-0 h-[50vh] w-[50vh] rounded-full opacity-60"
+          className="absolute -left-40 -bottom-40 h-[60vh] w-[60vh] rounded-full"
           style={{
             background:
-              "radial-gradient(circle, hsl(var(--ice-blue) / 0.10), transparent 70%)",
+              "radial-gradient(circle, hsl(var(--petrol) / 0.22), transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute right-0 top-0 h-[60vh] w-[60vh] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, hsl(var(--ice-blue) / 0.14), transparent 70%)",
           }}
         />
       </div>
-      <SiteNav />
-      <main>
-        <HeroSection />
-        <ProblemSection />
-        <ApproachSection />
-        <ModuleOneSection />
-        <DeliverablesSection />
-        <ContactSection />
-      </main>
-      <SiteFooter />
+      <div className="relative z-10">
+        <SiteNav />
+        <main>
+          <HeroSection />
+          <ProblemSection />
+          <ApproachSection />
+          <ModuleOneSection />
+          <DeliverablesSection />
+          <ContactSection />
+        </main>
+        <SiteFooter />
+      </div>
     </div>
   );
 };
