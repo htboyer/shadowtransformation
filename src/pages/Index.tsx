@@ -70,19 +70,19 @@ const SiteNav = () => (
           </span>
         </span>
       </a>
-      <nav className="hidden items-center gap-9 md:flex">
+      <nav className="hidden items-center gap-6 md:flex ml-auto">
         {NAV.map((item) => (
           <a
             key={item.href}
             href={item.href}
-            className="text-[13px] font-medium tracking-wide text-muted-foreground transition-colors hover:text-glacier"
+            className="text-[12px] font-medium tracking-wide text-muted-foreground transition-colors hover:text-glacier"
           >
             {item.label}
           </a>
         ))}
         <a
           href={MAILTO}
-          className="rounded-full border border-ice-blue/40 px-4 py-1.5 text-[12px] font-medium tracking-[0.12em] text-glacier transition-colors hover:border-ice-blue hover:bg-ice-blue/10"
+          className="rounded-full border border-ice-blue/40 px-3.5 py-1.5 text-[11px] font-medium tracking-[0.12em] text-glacier transition-colors hover:border-ice-blue hover:bg-ice-blue/10"
         >
           PRENDRE CONTACT
         </a>
