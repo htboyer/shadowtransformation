@@ -61,8 +61,13 @@ const SiteNav = () => (
           height={48}
           className="h-10 w-10 object-contain transition-opacity group-hover:opacity-90"
         />
-        <span className="hidden font-display text-sm font-medium tracking-[0.18em] text-glacier sm:inline">
-          SHADOW <span className="text-ice-blue">TRANSFORMATION</span>
+        <span className="hidden leading-none sm:flex sm:flex-col">
+          <span className="font-display text-base font-semibold tracking-tight text-glacier">
+            Shadow
+          </span>
+          <span className="mt-1 font-display text-[11px] font-light tracking-[0.22em] text-ice-blue">
+            TRANSFORMATION
+          </span>
         </span>
       </a>
       <nav className="hidden items-center gap-9 md:flex">
