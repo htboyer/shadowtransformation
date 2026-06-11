@@ -21,9 +21,40 @@ import logo from "@/assets/logo-mark.png";
 const CONTACT_EMAIL = "contact@shadowtransformation.fr";
 const MAILTO = `mailto:${CONTACT_EMAIL}`;
 
+const LOGO_URL = "/__l5e/assets-v1/f1e9f10d-38a0-46a9-88ee-149bcc44b77b/shadow-transformation-logo.png";
+
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen bg-background text-foreground">
+      {/* Watermark / arrière-plan rappelant le logo */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+      >
+        <div
+          className="absolute -right-32 top-1/4 h-[80vh] w-[80vh] opacity-[0.04] blur-[1px]"
+          style={{
+            backgroundImage: `url(${LOGO_URL})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        />
+        <div
+          className="absolute -left-40 -bottom-40 h-[60vh] w-[60vh] rounded-full opacity-60"
+          style={{
+            background:
+              "radial-gradient(circle, hsl(var(--petrol) / 0.18), transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute right-0 top-0 h-[50vh] w-[50vh] rounded-full opacity-60"
+          style={{
+            background:
+              "radial-gradient(circle, hsl(var(--ice-blue) / 0.10), transparent 70%)",
+          }}
+        />
+      </div>
       <SiteNav />
       <main>
         <HeroSection />
