@@ -271,7 +271,7 @@ const ModuleOneSection = () => (
 
       {/* Sous-bloc très visible : ce que le module 1 n'est pas */}
       <div className="mt-16 rounded-2xl border border-ice-blue/30 bg-[hsl(var(--petrol)/0.08)] p-8 lg:p-12">
-        <p className="eyebrow text-ice-blue">Cadre du Module 1</p>
+        <p className="eyebrow text-ice-blue">Cadre du diagnostic</p>
         <p className="mt-5 font-display text-xl font-light leading-relaxed text-glacier lg:text-2xl">
           Ce module ne produit pas le plan détaillé de transformation. Il
           permet de décider si les conditions sont réunies pour engager la
