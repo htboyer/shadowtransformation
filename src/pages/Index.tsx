@@ -87,6 +87,12 @@ const SiteNav = () => (
           PRENDRE CONTACT
         </a>
       </nav>
+      <a
+        href={MAILTO}
+        className="md:hidden rounded-full border border-ice-blue/40 px-3 py-1.5 text-[11px] font-medium tracking-[0.12em] text-glacier transition-colors hover:border-ice-blue hover:bg-ice-blue/10"
+      >
+        CONTACT
+      </a>
     </div>
   </header>
 );
