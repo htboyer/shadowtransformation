@@ -57,10 +57,13 @@ const SiteNav = () => (
         <img
           src={logo}
           alt="Shadow Transformation"
-          width={40}
-          height={40}
-          className="h-9 w-9 object-contain transition-opacity group-hover:opacity-90"
+          width={48}
+          height={48}
+          className="h-10 w-10 object-contain transition-opacity group-hover:opacity-90"
         />
+        <span className="hidden font-display text-sm font-medium tracking-[0.18em] text-glacier sm:inline">
+          SHADOW <span className="text-ice-blue">TRANSFORMATION</span>
+        </span>
       </a>
       <nav className="hidden items-center gap-9 md:flex">
         {NAV.map((item) => (
