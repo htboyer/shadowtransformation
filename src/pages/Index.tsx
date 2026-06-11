@@ -66,7 +66,7 @@ const SiteNav = () => (
             Shadow
           </span>
           <span className="mt-1 font-display text-[11px] font-light tracking-[0.22em] text-ice-blue">
-            TRANSFORMATION
+            TRANSFORMATION<sup className="ml-0.5 text-[8px]">©</sup>
           </span>
         </span>
       </a>
