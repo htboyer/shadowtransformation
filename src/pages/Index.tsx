@@ -109,10 +109,10 @@ const HeroSection = () => (
       style={{ background: "linear-gradient(90deg, transparent, hsl(var(--ice-blue) / 0.4), transparent)" }}
     />
     <div className="relative mx-auto max-w-6xl px-6 pb-28 pt-16 lg:px-10 lg:pb-40 lg:pt-24">
-      <p className="font-display text-2xl font-light tracking-tight text-glacier sm:text-3xl lg:text-4xl">
-        Passez de l’ombre à la lumière.
+      <p className="text-center font-display text-2xl font-light italic tracking-tight text-glacier sm:text-3xl lg:text-4xl">
+        «&nbsp;Passez de l’ombre à la lumière.&nbsp;»
       </p>
-      <div className="mt-8 h-px w-16 bg-ice-blue/50" aria-hidden />
+      <div className="mx-auto mt-8 h-px w-16 bg-ice-blue/50" aria-hidden />
       <p className="eyebrow mt-8">Cabinet · Transformation</p>
 
       <h1 className="mt-8 max-w-4xl font-display text-4xl font-light leading-[1.1] text-glacier sm:text-5xl lg:text-[64px]">
