@@ -16,7 +16,7 @@
 import logo from "@/assets/logo-mark.png";
 
 const CONTACT_EMAIL = "contact@shadowtransformation.fr";
-const MAILTO = `mailto:${CONTACT_EMAIL}`;
+const MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Premier échange confidentiel — Shadow Transformation")}&body=${encodeURIComponent("Bonjour, je souhaite échanger au sujet d’une transformation à sécuriser, structurer ou accompagner.")}`;
 
 const Index = () => {
   return (
@@ -173,7 +173,6 @@ const SiteNav = () => (
           </span>
           <span className="mt-1.5 font-display text-[12px] font-medium uppercase tracking-[0.28em] text-ice-blue lg:text-[13px]">
             Transformation
-            <sup className="ml-0.5 text-[8px] font-normal">©</sup>
           </span>
         </span>
       </a>
@@ -191,7 +190,7 @@ const SiteNav = () => (
           href={MAILTO}
           className="rounded-full border border-ice-blue/40 px-4 py-2 text-xs font-medium tracking-[0.14em] text-glacier transition-colors hover:border-ice-blue hover:bg-ice-blue/10"
         >
-          PRENDRE CONTACT
+          ÉCHANGE CONFIDENTIEL
         </a>
       </nav>
       <a
@@ -219,11 +218,11 @@ const HeroSection = () => (
       }}
     />
     <div className="relative mx-auto max-w-6xl px-6 pb-28 pt-16 lg:px-10 lg:pb-40 lg:pt-24">
-      <p className="text-center font-display text-2xl font-light italic tracking-tight text-glacier sm:text-3xl lg:text-4xl">
+      <p className="text-center font-display text-xs font-light italic tracking-[0.12em] text-muted-foreground/60 sm:text-sm">
         «&nbsp;Passez de l’ombre à la lumière.&nbsp;»
       </p>
-      <div className="mx-auto mt-8 h-px w-16 bg-ice-blue/50" aria-hidden />
-      <p className="eyebrow mt-8">Cabinet · Transformation</p>
+      <div className="mx-auto mt-5 h-px w-12 bg-ice-blue/40" aria-hidden />
+      <p className="eyebrow mt-7">Cabinet · Transformation</p>
 
       <h1 className="mt-8 max-w-4xl font-display text-4xl font-light leading-[1.1] text-glacier sm:text-5xl lg:text-[58px]">
         Sécuriser la décision, structurer la{" "}
@@ -232,10 +231,9 @@ const HeroSection = () => (
       </h1>
 
       <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
-        Shadow Transformation<sup className="ml-0.5 text-[0.6em]">©</sup> aide
-        les dirigeants à objectiver la maturité réelle de leur organisation, à
-        décider lucidement de la suite, puis à construire et accompagner une
-        trajectoire de transformation crédible.
+        Shadow Transformation aide les dirigeants à objectiver la maturité réelle
+        de leur organisation, à décider lucidement de la suite, puis à construire
+        et accompagner une trajectoire de transformation crédible.
       </p>
 
       <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -286,8 +284,7 @@ const ProblemSection = () => (
         <div className="lg:col-span-4">
           <p className="eyebrow">01 — Le problème</p>
           <h2 className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
-            Beaucoup de transformations échouent parce qu’elles sont lancées
-            avant d’être réellement portées.
+            Une transformation échoue souvent avant même d’avoir commencé.
           </h2>
         </div>
         <div className="lg:col-span-7 lg:col-start-6">
@@ -334,7 +331,7 @@ const ApproachSection = () => (
       <div className="max-w-2xl">
         <p className="eyebrow">02 — L’approche</p>
         <h2 className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
-          Une méthode en quatre temps.
+          De la lecture du réel à l’exécution accompagnée.
         </h2>
         <p className="mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
           Structurée, séquentielle, refusant le mouvement pour le mouvement.
@@ -356,6 +353,16 @@ const ApproachSection = () => (
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
           </div>
         ))}
+      </div>
+
+      <div className="mt-10 rounded-2xl border border-ice-blue/25 bg-[hsl(var(--petrol)/0.10)] p-8 lg:p-10">
+        <p className="text-sm leading-relaxed text-glacier/90 lg:text-base">
+          <span className="font-medium text-ice-blue">Shadow Transformation</span>{" "}
+          n’est ni un audit RH, ni un questionnaire de climat social, ni un plan de
+          transformation prématuré. C’est une démarche de lecture, d’arbitrage et
+          d’accompagnement destinée à rendre la transformation plus lucide, plus
+          structurée et plus tenable.
+        </p>
       </div>
     </div>
   </section>
@@ -454,11 +461,10 @@ const AccompagnementSection = () => (
         </div>
         <div className="lg:col-span-7">
           <p className="text-base leading-relaxed text-muted-foreground lg:text-lg">
-            Shadow Transformation<sup className="ml-0.5 text-[0.6em]">©</sup> ne
-            s’arrête pas à la lecture du réel. La démarche accompagne les
-            dirigeants dans la traduction des enseignements en trajectoire, en
-            priorités de transformation, en gouvernance de pilotage et en
-            actions concrètes.
+            Shadow Transformation ne s’arrête pas à la lecture du réel. La
+            démarche accompagne les dirigeants dans la traduction des enseignements
+            en trajectoire, en priorités de transformation, en gouvernance de
+            pilotage et en actions concrètes.
           </p>
 
           <div className="mt-12 flex flex-wrap items-center gap-x-4 gap-y-3">
@@ -606,7 +612,6 @@ const SiteFooter = () => (
         />
         <span className="font-display text-[11px] uppercase tracking-[0.28em] text-ice-blue">
           Shadow Transformation
-          <sup className="ml-0.5 text-[7px]">©</sup>
         </span>
       </a>
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2 tracking-wide">
@@ -619,7 +624,7 @@ const SiteFooter = () => (
         <span aria-hidden className="hidden h-3 w-px bg-hairline md:inline-block" />
         <span>shadowtransformation.fr</span>
       </div>
-      <div>© {new Date().getFullYear()}</div>
+      <div>{new Date().getFullYear()}</div>
     </div>
   </footer>
 );
