@@ -1,14 +1,16 @@
 /**
- * Shadow Transformation — Landing page premium (V2)
+ * Shadow Transformation — Landing page premium (V3)
  * --------------------------------------------------
- * Page unique, 6 sections clairement identifiables et modifiables.
+ * Positionnement : dispositif complet — diagnostic, décision,
+ * structuration, accompagnement, réévaluation.
  *
  *   1. <HeroSection />          → Section 1 : Hero
  *   2. <ProblemSection />       → Section 2 : Le problème
  *   3. <ApproachSection />      → Section 3 : L'approche (4 temps)
- *   4. <ModuleOneSection />     → Section 4 : Diagnostic
- *   5. <DeliverablesSection />  → Section 5 : Ce que le diagnostic rend possible
- *   6. <ContactSection />       → Section 6 : Contact / closing
+ *   4. <ModulesSection />       → Section 4 : Une intervention progressive (5 modules)
+ *   5. <AccompagnementSection />→ Section 5 : Du diagnostic à la mise en œuvre
+ *   6. <DeliverablesSection />  → Section 6 : Livrables
+ *   7. <ContactSection />       → Section 7 : Contact / closing
  */
 
 import logo from "@/assets/logo-mark.png";
@@ -26,7 +28,8 @@ const Index = () => {
           <HeroSection />
           <ProblemSection />
           <ApproachSection />
-          <ModuleOneSection />
+          <ModulesSection />
+          <AccompagnementSection />
           <DeliverablesSection />
           <ContactSection />
         </main>
@@ -85,7 +88,6 @@ const PageBackdrop = () => (
         </linearGradient>
       </defs>
 
-      {/* Orbite ascendante (zone hero) */}
       <path
         d="M -200 700 C 300 350, 900 250, 1700 520"
         stroke="url(#orbitA)"
@@ -98,16 +100,12 @@ const PageBackdrop = () => (
         strokeWidth="1"
         opacity="0.30"
       />
-
-      {/* Trainée milieu de page */}
       <path
         d="M -100 1300 C 500 1100, 1100 1400, 1800 1180"
         stroke="url(#orbitB)"
         strokeWidth="1"
         opacity="0.4"
       />
-
-      {/* Orbite basse */}
       <path
         d="M -200 2050 C 400 1800, 1100 1900, 1800 1700"
         stroke="url(#orbitA)"
@@ -115,7 +113,6 @@ const PageBackdrop = () => (
         opacity="0.35"
       />
 
-      {/* Cercles fantômes (rappel symbole) */}
       <circle
         cx="1320"
         cy="380"
@@ -149,8 +146,9 @@ const PageBackdrop = () => (
    ========================================================= */
 const NAV = [
   { href: "#approche", label: "Approche" },
-  { href: "#module-1", label: "Diagnostic" },
-  { href: "#livrables", label: "Ce que vous obtenez" },
+  { href: "#modules", label: "Modules" },
+  { href: "#accompagnement", label: "Accompagnement" },
+  { href: "#livrables", label: "Livrables" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -179,7 +177,7 @@ const SiteNav = () => (
           </span>
         </span>
       </a>
-      <nav className="hidden items-center gap-8 md:flex lg:gap-10">
+      <nav className="hidden items-center gap-6 md:flex lg:gap-8">
         {NAV.map((item) => (
           <a
             key={item.href}
@@ -227,16 +225,17 @@ const HeroSection = () => (
       <div className="mx-auto mt-8 h-px w-16 bg-ice-blue/50" aria-hidden />
       <p className="eyebrow mt-8">Cabinet · Transformation</p>
 
-      <h1 className="mt-8 max-w-4xl font-display text-4xl font-light leading-[1.1] text-glacier sm:text-5xl lg:text-[64px]">
-        Préparer une transformation{" "}
-        <span className="text-ice-blue">crédible</span> avant d’aller plus loin.
+      <h1 className="mt-8 max-w-4xl font-display text-4xl font-light leading-[1.1] text-glacier sm:text-5xl lg:text-[58px]">
+        Sécuriser la décision, structurer la{" "}
+        <span className="text-ice-blue">trajectoire</span>, accompagner la
+        transformation.
       </h1>
 
       <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
-        Shadow Transformation<sup className="ml-0.5 text-[0.6em]">©</sup>{" "}
-        instruit la décision de transformation : lecture objective de la
-        maturité réelle, écarts de perception entre niveaux, conditions
-        minimales d’engagement et travaux à mener avant tout dispositif.
+        Shadow Transformation<sup className="ml-0.5 text-[0.6em]">©</sup> aide
+        les dirigeants à objectiver la maturité réelle de leur organisation, à
+        décider lucidement de la suite, puis à construire et accompagner une
+        trajectoire de transformation crédible.
       </p>
 
       <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -244,7 +243,7 @@ const HeroSection = () => (
           href={MAILTO}
           className="group inline-flex items-center gap-3 rounded-full bg-petrol px-7 py-3.5 text-sm font-medium tracking-wide text-glacier shadow-soft transition-all hover:bg-petrol/90 hover:shadow-[0_10px_30px_-10px_hsl(199_84%_32%/0.6)]"
         >
-          Prendre contact
+          Demander un échange confidentiel
           <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
         </a>
         <a
@@ -258,8 +257,9 @@ const HeroSection = () => (
 
       <div className="mt-20 max-w-3xl border-l border-ice-blue/40 pl-6">
         <p className="font-display text-lg font-light leading-relaxed text-glacier/90 lg:text-xl">
-          Lire le réel. <span className="text-muted-foreground">·</span> Objectiver les écarts.{" "}
-          <span className="text-muted-foreground">·</span> Décider lucidement.
+          Lire le réel. <span className="text-muted-foreground">·</span> Décider lucidement.{" "}
+          <span className="text-muted-foreground">·</span> Structurer la suite.{" "}
+          <span className="text-muted-foreground">·</span> Accompagner l’exécution.
         </p>
       </div>
     </div>
@@ -276,6 +276,7 @@ const PROBLEMS = [
   "Confondre intention de transformation et maturité réelle de l’organisation.",
   "Engager une transformation sans que les conditions minimales soient réunies.",
   "Sous-estimer les écarts de perception entre niveaux, fonctions et récits internes.",
+  "Produire un plan sans capacité réelle d’exécution.",
 ];
 
 const ProblemSection = () => (
@@ -285,13 +286,16 @@ const ProblemSection = () => (
         <div className="lg:col-span-4">
           <p className="eyebrow">01 — Le problème</p>
           <h2 className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
-            Beaucoup de transformations échouent avant même d’avoir commencé.
+            Beaucoup de transformations échouent parce qu’elles sont lancées
+            avant d’être réellement portées.
           </h2>
         </div>
         <div className="lg:col-span-7 lg:col-start-6">
           <p className="text-base leading-relaxed text-muted-foreground lg:text-lg">
-            Avant tout dispositif, certaines situations sont à éviter. Elles
-            ne relèvent pas du jugement, mais de la lucidité opérationnelle.
+            Une transformation ne se résume pas à une intention stratégique, un
+            plan projet ou une annonce de direction. Elle suppose un terrain
+            lisible, des écarts nommés, des conditions minimales réunies et une
+            capacité réelle de portage dans l’organisation.
           </p>
           <ul className="mt-10 divide-y divide-hairline/70 border-y border-hairline/70">
             {PROBLEMS.map((p, i) => (
@@ -311,10 +315,10 @@ const ProblemSection = () => (
    SECTION 3 — L'approche (4 temps)
    ========================================================= */
 const STEPS = [
-  { n: "I",   title: "Lire",     text: "Observer le réel de l’organisation, sans filtre, sans récit imposé." },
-  { n: "II",  title: "Nommer",   text: "Mettre des mots justes sur les écarts, les appuis et les fragilités." },
-  { n: "III", title: "Décider",  text: "Établir si les conditions minimales d’engagement sont réunies." },
-  { n: "IV",  title: "Préparer", text: "Identifier les travaux préparatoires à mener avant tout dispositif." },
+  { n: "I",   title: "Lire",       text: "Objectiver la maturité, les écarts de perception, les appuis et les fragilités." },
+  { n: "II",  title: "Décider",    text: "Arbitrer entre passage, temporisation, préparation complémentaire ou engagement de la suite." },
+  { n: "III", title: "Structurer", text: "Transformer les enseignements en chantiers, priorités, gouvernance et trajectoire pilotable." },
+  { n: "IV",  title: "Accompagner",text: "Soutenir la mise en œuvre, ajuster les actions et réévaluer ce qui bouge, résiste ou se diffuse." },
 ];
 
 const ApproachSection = () => (
@@ -358,63 +362,129 @@ const ApproachSection = () => (
 );
 
 /* =========================================================
-   SECTION 4 — Diagnostic
+   SECTION 4 — Modules : une intervention progressive
    ========================================================= */
-const MODULE_ONE_POINTS = [
-  "Diagnostic pré-transformation",
-  "Lecture de maturité",
-  "Écarts de perception",
-  "Voix de l’organisation",
-  "Travaux préparatoires avant engagement",
-  "Décision instruite : passage, temporisation, préparation",
+const MODULES = [
+  {
+    title: "Diagnostic organisationnel",
+    text: "Lire le fonctionnement réel et qualifier la robustesse d’une suite.",
+  },
+  {
+    title: "Élan vital",
+    text: "Identifier ce qui mobilise encore, ce qui fatigue et ce qui peut être réinvesti.",
+  },
+  {
+    title: "Futurs possibles",
+    text: "Explorer des directions crédibles et un futur souhaitable.",
+  },
+  {
+    title: "Dilemmes et leviers",
+    text: "Rendre visibles les tensions à arbitrer et les leviers activables.",
+  },
+  {
+    title: "Trajectoire",
+    text: "Traduire la suite en plan de transformation pilotable.",
+  },
 ];
 
-const ModuleOneSection = () => (
-  <section id="module-1" className="relative border-t border-hairline/60">
+const ModulesSection = () => (
+  <section id="modules" className="relative border-t border-hairline/60">
     <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
-      <div className="grid gap-16 lg:grid-cols-12">
-        <div className="lg:col-span-5">
-          <p className="eyebrow">03 — Diagnostic</p>
-          <h2 className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
-            Décider lucidement, avant d’engager.
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
-            Un préalable rigoureux à toute transformation : objectiver la
-            maturité réelle, révéler ce qui porte ou fragilise, et instruire la
-            décision plutôt que de la précipiter.
-          </p>
-        </div>
-
-        <div className="lg:col-span-7">
-          <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline sm:grid-cols-2">
-            {MODULE_ONE_POINTS.map((point, i) => (
-              <li key={point} className="flex items-start gap-4 bg-surface p-6">
-                <span className="step-number mt-0.5 text-xs">{String(i + 1).padStart(2, "0")}</span>
-                <span className="text-[15px] leading-relaxed text-glacier/90">{point}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="max-w-2xl">
+        <p className="eyebrow">03 — Modules</p>
+        <h2 className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
+          Une intervention progressive.
+        </h2>
+        <p className="mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
+          Cinq modules qui se succèdent, de la lecture du réel à la trajectoire
+          pilotable. Chacun éclaire et conditionne le suivant.
+        </p>
       </div>
 
-      <div className="mt-16 rounded-2xl border border-ice-blue/30 bg-[hsl(var(--petrol)/0.10)] p-8 lg:p-12">
-        <p className="eyebrow text-ice-blue">Cadre du diagnostic</p>
-        <p className="mt-5 font-display text-xl font-light leading-relaxed text-glacier lg:text-2xl">
-          Ce diagnostic ne produit pas le plan de transformation. Il permet de
-          décider si les conditions sont réunies pour l’engager — et ce qu’il
-          faut rendre suffisamment mûr avant cela.
-        </p>
+      <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {MODULES.map((m, i) => (
+          <article key={m.title} className="premium-card p-8">
+            <div className="flex items-baseline justify-between">
+              <span className="step-number text-[11px]">
+                {String(i + 1).padStart(2, "0")} / {String(MODULES.length).padStart(2, "0")}
+              </span>
+              <span aria-hidden className="h-px w-8 bg-ice-blue/40" />
+            </div>
+            <h3 className="mt-8 font-display text-lg font-medium leading-snug text-glacier">
+              {m.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.text}</p>
+          </article>
+        ))}
+
+        {/* Carte-cadre */}
+        <article className="rounded-2xl border border-ice-blue/30 bg-[hsl(var(--petrol)/0.10)] p-8">
+          <p className="eyebrow text-ice-blue">Cadre</p>
+          <p className="mt-5 font-display text-lg font-light leading-relaxed text-glacier">
+            Le diagnostic est la porte d’entrée. Il ne remplace pas le plan de
+            transformation : il en sécurise la construction.
+          </p>
+        </article>
       </div>
     </div>
   </section>
 );
 
 /* =========================================================
-   SECTION 5 — Ce que le diagnostic rend possible
+   SECTION 5 — Accompagnement
+   ========================================================= */
+const CHAIN = ["Diagnostic", "Décision", "Trajectoire", "Mise en œuvre", "Réévaluation"];
+
+const AccompagnementSection = () => (
+  <section
+    id="accompagnement"
+    className="relative border-t border-hairline/60"
+    style={{
+      background:
+        "linear-gradient(180deg, hsl(218 60% 11% / 0.55), hsl(218 60% 11% / 0.25))",
+    }}
+  >
+    <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-28">
+      <div className="grid gap-12 lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <p className="eyebrow">04 — Accompagnement</p>
+          <h2 className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
+            Du diagnostic à la mise en œuvre.
+          </h2>
+        </div>
+        <div className="lg:col-span-7">
+          <p className="text-base leading-relaxed text-muted-foreground lg:text-lg">
+            Shadow Transformation<sup className="ml-0.5 text-[0.6em]">©</sup> ne
+            s’arrête pas à la lecture du réel. La démarche accompagne les
+            dirigeants dans la traduction des enseignements en trajectoire, en
+            priorités de transformation, en gouvernance de pilotage et en
+            actions concrètes.
+          </p>
+
+          <div className="mt-12 flex flex-wrap items-center gap-x-4 gap-y-3">
+            {CHAIN.map((step, i) => (
+              <div key={step} className="flex items-center gap-4">
+                <span className="rounded-full border border-ice-blue/30 px-4 py-2 text-xs font-medium tracking-[0.08em] text-glacier/90">
+                  {step}
+                </span>
+                {i < CHAIN.length - 1 && (
+                  <span aria-hidden className="text-ice-blue/70">→</span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* =========================================================
+   SECTION 6 — Livrables
    ========================================================= */
 const DELIVERABLES = [
   {
-    title: "Lecture de maturité",
+    title: "Lecture de maturité pré-transformation",
     text: "État réel de l’organisation au regard de la transformation envisagée.",
   },
   {
@@ -426,46 +496,51 @@ const DELIVERABLES = [
     text: "Ce qui peut porter le mouvement — et ce qui le fragiliserait s’il était engagé en l’état.",
   },
   {
-    title: "Conditions préalables à réunir",
-    text: "Les points de maturité à consolider avant tout engagement, sans verser dans le plan de transformation.",
+    title: "Priorités de sécurisation",
+    text: "Les points à consolider avant tout engagement, sans verser dans le plan de transformation.",
   },
   {
-    title: "Décision instruite",
-    text: "Passage, temporisation ou préparation : trois issues claires, argumentées, assumées.",
+    title: "Feuille de route de transformation",
+    text: "Une trajectoire pilotable : chantiers, priorités, séquencement.",
+  },
+  {
+    title: "Gouvernance de pilotage",
+    text: "Les instances, rôles et rythmes qui tiennent la transformation dans la durée.",
+  },
+  {
+    title: "Accompagnement de mise en œuvre",
+    text: "Un soutien à l’exécution, ajusté à ce qui bouge, résiste ou se diffuse.",
+  },
+  {
+    title: "Points de réévaluation",
+    text: "Des temps de lecture intermédiaires pour mesurer l’avancement réel et réajuster.",
   },
 ];
 
 const DeliverablesSection = () => (
-  <section
-    id="livrables"
-    className="relative border-t border-hairline/60"
-    style={{
-      background:
-        "linear-gradient(180deg, hsl(218 60% 11% / 0.55), hsl(218 60% 11% / 0.25))",
-    }}
-  >
+  <section id="livrables" className="relative border-t border-hairline/60">
     <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
       <div className="max-w-2xl">
-        <p className="eyebrow">04 — Ce que vous obtenez</p>
+        <p className="eyebrow">05 — Livrables</p>
         <h2 className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
-          Ce que le diagnostic vous permet de décider.
+          Ce que la démarche met entre vos mains.
         </h2>
         <p className="mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
           Des livrables sobres, exploitables en comité exécutif, conçus pour
-          éclairer une décision — pas pour la décorer.
+          éclairer une décision et tenir une trajectoire — pas pour décorer.
         </p>
       </div>
 
-      <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {DELIVERABLES.map((d, i) => (
-          <article key={d.title} className="premium-card p-8">
+          <article key={d.title} className="premium-card p-7">
             <div className="flex items-baseline justify-between">
               <span className="step-number text-[11px]">
                 {String(i + 1).padStart(2, "0")} / {String(DELIVERABLES.length).padStart(2, "0")}
               </span>
               <span aria-hidden className="h-px w-8 bg-ice-blue/40" />
             </div>
-            <h3 className="mt-8 font-display text-lg font-medium leading-snug text-glacier">
+            <h3 className="mt-7 font-display text-base font-medium leading-snug text-glacier">
               {d.title}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d.text}</p>
@@ -477,16 +552,16 @@ const DeliverablesSection = () => (
 );
 
 /* =========================================================
-   SECTION 6 — Contact / closing
+   SECTION 7 — Contact / closing
    ========================================================= */
 const ContactSection = () => (
   <section id="contact" className="relative border-t border-hairline/60">
     <div className="mx-auto max-w-4xl px-6 py-28 text-center lg:px-10 lg:py-40">
-      <p className="eyebrow justify-center">05 — Contact</p>
+      <p className="eyebrow justify-center">06 — Contact</p>
 
       <h2 className="mt-8 font-display text-3xl font-light leading-[1.2] text-glacier sm:text-4xl lg:text-[44px]">
-        Avant d’engager une transformation, il faut savoir si le terrain peut
-        la porter.
+        Avant d’engager une transformation, il faut savoir si le terrain peut la
+        porter — puis construire la trajectoire qui permettra de la tenir.
       </h2>
 
       <div className="mx-auto mt-12 h-px w-24 bg-ice-blue/50" />
@@ -503,7 +578,7 @@ const ContactSection = () => (
           href={MAILTO}
           className="inline-flex items-center gap-3 rounded-full bg-petrol px-8 py-3.5 text-sm font-medium tracking-wide text-glacier shadow-soft transition-all hover:bg-petrol/90"
         >
-          Prendre contact
+          Demander un échange confidentiel
           <span aria-hidden>→</span>
         </a>
       </div>
