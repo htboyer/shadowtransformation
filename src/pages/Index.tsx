@@ -236,6 +236,11 @@ const HeroSection = () => (
         et accompagner une trajectoire de transformation crédible.
       </p>
 
+      {/* Signature stratégique */}
+      <p className="mt-6 font-display text-sm font-light italic tracking-wide text-ice-blue/90">
+        Mieux voir avant d’agir.
+      </p>
+
       <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
         <a
           href={MAILTO}
@@ -258,6 +263,11 @@ const HeroSection = () => (
           Lire le réel. <span className="text-muted-foreground">·</span> Décider lucidement.{" "}
           <span className="text-muted-foreground">·</span> Structurer la suite.{" "}
           <span className="text-muted-foreground">·</span> Accompagner l’exécution.
+        </p>
+        {/* Ligne de crédibilité — discrète, non promotionnelle */}
+        <p className="mt-6 text-xs leading-relaxed tracking-[0.08em] text-muted-foreground/70">
+          25+ ans d’expérience · 50+ contextes pays · Public, santé, éducation,
+          entreprise · Un constat : le réel est sous-lu
         </p>
       </div>
     </div>
