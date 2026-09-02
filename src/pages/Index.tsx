@@ -408,6 +408,18 @@ const ApproachSection = () => (
           structurée et plus tenable.
         </p>
       </div>
+
+      {/* Méthode augmentée — encadré sobre */}
+      <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-hairline bg-surface p-8 sm:flex-row sm:items-baseline sm:gap-8 lg:px-10">
+        <p className="shrink-0 font-display text-base font-medium text-glacier">
+          Une méthode augmentée, pas automatisée.
+        </p>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          L’IA aide à structurer les données, les écarts, les verbatims et les
+          visualisations. L’interprétation reste humaine. La décision reste
+          dirigeante.
+        </p>
+      </div>
     </div>
   </section>
 );
@@ -476,6 +488,16 @@ const ModulesSection = () => (
             transformation : il en sécurise la construction.
           </p>
         </article>
+      </div>
+
+      {/* Clé de lecture des modules */}
+      <div className="mt-10 flex items-start gap-5">
+        <span aria-hidden className="mt-3 h-px w-10 shrink-0 bg-ice-blue/50" />
+        <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          Le Module 1 sécurise l’entrée dans la démarche. Les modules 2 à 5
+          permettent d’approfondir, arbitrer, projeter et traduire la
+          transformation en trajectoire pilotable.
+        </p>
       </div>
     </div>
   </section>
