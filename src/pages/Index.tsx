@@ -533,15 +533,21 @@ const AccompagnementSection = () => (
             pilotage et en actions concrètes.
           </p>
 
-          <div className="mt-12 flex flex-wrap items-center gap-x-4 gap-y-3">
+          <div className="mt-14 flex flex-col gap-0 sm:flex-row sm:flex-wrap sm:items-center">
             {CHAIN.map((step, i) => (
-              <div key={step} className="flex items-center gap-4">
-                <span className="rounded-full border border-ice-blue/30 px-4 py-2 text-xs font-medium tracking-[0.08em] text-glacier/90">
-                  {step}
-                </span>
-                {i < CHAIN.length - 1 && (
-                  <span aria-hidden className="text-ice-blue/70">→</span>
+              <div key={step} className="flex items-center gap-4 sm:gap-5">
+                {/* Connecteur vertical sur mobile */}
+                {i > 0 && (
+                  <span aria-hidden className="ml-5 h-6 w-px bg-ice-blue/30 sm:hidden" />
                 )}
+                <span className="flex items-center gap-4 sm:gap-5">
+                  {i > 0 && (
+                    <span aria-hidden className="hidden h-px w-5 bg-ice-blue/40 sm:inline-block" />
+                  )}
+                  <span className="rounded-full border border-ice-blue/30 bg-surface/60 px-4 py-2 text-xs font-medium tracking-[0.08em] text-glacier/90 transition-colors hover:border-ice-blue/60">
+                    {step}
+                  </span>
+                </span>
               </div>
             ))}
           </div>
