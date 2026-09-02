@@ -619,6 +619,28 @@ const DeliverablesSection = () => (
           </article>
         ))}
       </div>
+
+      {/* Six familles de signaux + sortie décisionnelle */}
+      <div className="mt-12 grid gap-6 rounded-2xl border border-hairline bg-surface p-8 lg:grid-cols-2 lg:p-10">
+        <div>
+          <p className="eyebrow">Signaux rendus visibles</p>
+          <p className="mt-5 text-sm leading-relaxed tracking-wide text-glacier/85">
+            Identité vécue <span className="text-ice-blue/60">·</span> Cohérence{" "}
+            <span className="text-ice-blue/60">·</span> Coopération{" "}
+            <span className="text-ice-blue/60">·</span> Changement{" "}
+            <span className="text-ice-blue/60">·</span> Sens &amp; énergie{" "}
+            <span className="text-ice-blue/60">·</span> Maturité
+          </p>
+        </div>
+        <div>
+          <p className="eyebrow">Sortie décisionnelle</p>
+          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+            Le diagnostic ne produit pas une note : il ouvre une décision.
+            Passage direct, passage avec précautions, travaux complémentaires ou
+            recadrage.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 );
