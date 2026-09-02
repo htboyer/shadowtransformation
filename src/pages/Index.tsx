@@ -287,6 +287,12 @@ const PROBLEMS = [
   "Produire un plan sans capacité réelle d’exécution.",
 ];
 
+const ALIGNMENT_POLES = [
+  { title: "Stratégie", question: "Où veut-on aller ? Pourquoi maintenant ?" },
+  { title: "Humains", question: "Qui porte, comprend et s’approprie la transformation ?" },
+  { title: "Exécution", question: "Quelles conditions rendent la suite praticable ?" },
+];
+
 const ProblemSection = () => (
   <section id="probleme" className="relative">
     <div className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
@@ -312,6 +318,34 @@ const ProblemSection = () => (
               </li>
             ))}
           </ul>
+
+          {/* Trois pôles de l'alignement — visuel sobre, lignes fines */}
+          <div className="mt-12">
+            <p className="text-base font-medium leading-relaxed text-glacier/90 lg:text-lg">
+              La transformation échoue quand stratégie, humains et exécution ne
+              sont pas alignés.
+            </p>
+            <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline sm:grid-cols-3">
+              {ALIGNMENT_POLES.map((pole) => (
+                <div key={pole.title} className="bg-surface p-6">
+                  <p className="font-display text-[11px] font-medium uppercase tracking-[0.24em] text-ice-blue">
+                    {pole.title}
+                  </p>
+                  <span aria-hidden className="mt-4 block h-px w-8 bg-ice-blue/40" />
+                  <p className="mt-4 text-sm font-light leading-relaxed text-muted-foreground">
+                    {pole.question}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex items-center gap-4">
+              <span aria-hidden className="h-px flex-1 bg-ice-blue/30" />
+              <p className="font-display text-sm font-light italic tracking-wide text-glacier/90">
+                Alignement = capacité réelle à transformer
+              </p>
+              <span aria-hidden className="h-px flex-1 bg-ice-blue/30" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
