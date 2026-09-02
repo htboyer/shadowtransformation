@@ -236,6 +236,11 @@ const HeroSection = () => (
         et accompagner une trajectoire de transformation crédible.
       </p>
 
+      {/* Signature stratégique */}
+      <p className="mt-6 font-display text-sm font-light italic tracking-wide text-ice-blue/90">
+        Mieux voir avant d’agir.
+      </p>
+
       <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
         <a
           href={MAILTO}
@@ -259,6 +264,11 @@ const HeroSection = () => (
           <span className="text-muted-foreground">·</span> Structurer la suite.{" "}
           <span className="text-muted-foreground">·</span> Accompagner l’exécution.
         </p>
+        {/* Ligne de crédibilité — discrète, non promotionnelle */}
+        <p className="mt-6 text-xs leading-relaxed tracking-[0.08em] text-muted-foreground/70">
+          25+ ans d’expérience · 50+ contextes pays · Public, santé, éducation,
+          entreprise · Un constat : le réel est sous-lu
+        </p>
       </div>
     </div>
 
@@ -275,6 +285,12 @@ const PROBLEMS = [
   "Engager une transformation sans que les conditions minimales soient réunies.",
   "Sous-estimer les écarts de perception entre niveaux, fonctions et récits internes.",
   "Produire un plan sans capacité réelle d’exécution.",
+];
+
+const ALIGNMENT_POLES = [
+  { title: "Stratégie", question: "Où veut-on aller ? Pourquoi maintenant ?" },
+  { title: "Humains", question: "Qui porte, comprend et s’approprie la transformation ?" },
+  { title: "Exécution", question: "Quelles conditions rendent la suite praticable ?" },
 ];
 
 const ProblemSection = () => (
@@ -302,6 +318,34 @@ const ProblemSection = () => (
               </li>
             ))}
           </ul>
+
+          {/* Trois pôles de l'alignement — visuel sobre, lignes fines */}
+          <div className="mt-12">
+            <p className="text-base font-medium leading-relaxed text-glacier/90 lg:text-lg">
+              La transformation échoue quand stratégie, humains et exécution ne
+              sont pas alignés.
+            </p>
+            <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline sm:grid-cols-3">
+              {ALIGNMENT_POLES.map((pole) => (
+                <div key={pole.title} className="bg-surface p-6">
+                  <p className="font-display text-[11px] font-medium uppercase tracking-[0.24em] text-ice-blue">
+                    {pole.title}
+                  </p>
+                  <span aria-hidden className="mt-4 block h-px w-8 bg-ice-blue/40" />
+                  <p className="mt-4 text-sm font-light leading-relaxed text-muted-foreground">
+                    {pole.question}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex items-center gap-4">
+              <span aria-hidden className="h-px flex-1 bg-ice-blue/30" />
+              <p className="font-display text-sm font-light italic tracking-wide text-glacier/90">
+                Alignement = capacité réelle à transformer
+              </p>
+              <span aria-hidden className="h-px flex-1 bg-ice-blue/30" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -362,6 +406,18 @@ const ApproachSection = () => (
           transformation prématuré. C’est une démarche de lecture, d’arbitrage et
           d’accompagnement destinée à rendre la transformation plus lucide, plus
           structurée et plus tenable.
+        </p>
+      </div>
+
+      {/* Méthode augmentée — encadré sobre */}
+      <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-hairline bg-surface p-8 sm:flex-row sm:items-baseline sm:gap-8 lg:px-10">
+        <p className="shrink-0 font-display text-base font-medium text-glacier">
+          Une méthode augmentée, pas automatisée.
+        </p>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          L’IA aide à structurer les données, les écarts, les verbatims et les
+          visualisations. L’interprétation reste humaine. La décision reste
+          dirigeante.
         </p>
       </div>
     </div>
@@ -433,6 +489,16 @@ const ModulesSection = () => (
           </p>
         </article>
       </div>
+
+      {/* Clé de lecture des modules */}
+      <div className="mt-10 flex items-start gap-5">
+        <span aria-hidden className="mt-3 h-px w-10 shrink-0 bg-ice-blue/50" />
+        <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          Le Module 1 sécurise l’entrée dans la démarche. Les modules 2 à 5
+          permettent d’approfondir, arbitrer, projeter et traduire la
+          transformation en trajectoire pilotable.
+        </p>
+      </div>
     </div>
   </section>
 );
@@ -467,15 +533,15 @@ const AccompagnementSection = () => (
             pilotage et en actions concrètes.
           </p>
 
-          <div className="mt-12 flex flex-wrap items-center gap-x-4 gap-y-3">
+          <div className="mt-14 flex flex-col items-start gap-5 border-l border-ice-blue/25 pl-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-4 sm:border-l-0 sm:pl-0">
             {CHAIN.map((step, i) => (
-              <div key={step} className="flex items-center gap-4">
-                <span className="rounded-full border border-ice-blue/30 px-4 py-2 text-xs font-medium tracking-[0.08em] text-glacier/90">
+              <div key={step} className="flex items-center gap-5">
+                {i > 0 && (
+                  <span aria-hidden className="hidden h-px w-5 bg-ice-blue/40 sm:inline-block" />
+                )}
+                <span className="rounded-full border border-ice-blue/30 bg-surface/60 px-4 py-2 text-xs font-medium tracking-[0.08em] text-glacier/90 transition-colors hover:border-ice-blue/60">
                   {step}
                 </span>
-                {i < CHAIN.length - 1 && (
-                  <span aria-hidden className="text-ice-blue/70">→</span>
-                )}
               </div>
             ))}
           </div>
@@ -552,6 +618,28 @@ const DeliverablesSection = () => (
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d.text}</p>
           </article>
         ))}
+      </div>
+
+      {/* Six familles de signaux + sortie décisionnelle */}
+      <div className="mt-12 grid gap-6 rounded-2xl border border-hairline bg-surface p-8 lg:grid-cols-2 lg:p-10">
+        <div>
+          <p className="eyebrow">Signaux rendus visibles</p>
+          <p className="mt-5 text-sm leading-relaxed tracking-wide text-glacier/85">
+            Identité vécue <span className="text-ice-blue/60">·</span> Cohérence{" "}
+            <span className="text-ice-blue/60">·</span> Coopération{" "}
+            <span className="text-ice-blue/60">·</span> Changement{" "}
+            <span className="text-ice-blue/60">·</span> Sens &amp; énergie{" "}
+            <span className="text-ice-blue/60">·</span> Maturité
+          </p>
+        </div>
+        <div>
+          <p className="eyebrow">Sortie décisionnelle</p>
+          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+            Le diagnostic ne produit pas une note : il ouvre une décision.
+            Passage direct, passage avec précautions, travaux complémentaires ou
+            recadrage.
+          </p>
+        </div>
       </div>
     </div>
   </section>
