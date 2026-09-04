@@ -13,7 +13,10 @@
  *   7. <ContactSection />       → Section 7 : Contact / closing
  */
 
+import { useEffect, useRef } from "react";
 import logo from "@/assets/logo-mark.png";
+import FounderSection from "@/components/FounderSection";
+import { ANALYTICS_EVENTS, trackEvent } from "@/lib/analytics";
 
 const CONTACT_EMAIL = "contact@shadowtransformation.fr";
 const MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Premier échange confidentiel — Shadow Transformation")}&body=${encodeURIComponent("Bonjour, je souhaite échanger au sujet d’une transformation à sécuriser, structurer ou accompagner.")}`;
@@ -31,6 +34,7 @@ const Index = () => {
           <ModulesSection />
           <AccompagnementSection />
           <DeliverablesSection />
+          <FounderSection />
           <ContactSection />
         </main>
         <SiteFooter />
