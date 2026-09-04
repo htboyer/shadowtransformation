@@ -689,6 +689,7 @@ const ContactSection = () => {
 
       <a
         href={MAILTO}
+        onClick={() => trackEvent(ANALYTICS_EVENTS.EMAIL_CLICK)}
         className="mt-12 inline-block font-display text-lg text-ice-blue transition-colors hover:text-glacier"
       >
         {CONTACT_EMAIL}
@@ -697,6 +698,7 @@ const ContactSection = () => {
       <div className="mt-10">
         <a
           href={MAILTO}
+          onClick={() => trackEvent(ANALYTICS_EVENTS.CTA_CONTACT)}
           className="inline-flex items-center gap-3 rounded-full bg-petrol px-8 py-3.5 text-sm font-medium tracking-wide text-glacier shadow-soft transition-all hover:bg-petrol/90"
         >
           Demander un échange confidentiel
@@ -709,7 +711,8 @@ const ContactSection = () => {
       </p>
     </div>
   </section>
-);
+  );
+};
 
 /* =========================================================
    Pied de page : épuré, cohérent avec le header
