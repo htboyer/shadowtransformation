@@ -735,6 +735,7 @@ const SiteFooter = () => (
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2 tracking-wide">
         <a
           href={MAILTO}
+          onClick={() => trackEvent(ANALYTICS_EVENTS.EMAIL_CLICK)}
           className="transition-colors hover:text-glacier"
         >
           {CONTACT_EMAIL}
