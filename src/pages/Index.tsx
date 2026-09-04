@@ -655,10 +655,30 @@ const DeliverablesSection = () => (
 /* =========================================================
    SECTION 7 — Contact / closing
    ========================================================= */
-const ContactSection = () => (
-  <section id="contact" className="relative border-t border-hairline/60">
+const ContactSection = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  // Mesure d'audience : signale l'arrivée sur la section Contact (une fois).
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          trackEvent(ANALYTICS_EVENTS.CONTACT_VIEW);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+  <section id="contact" ref={sectionRef} className="relative border-t border-hairline/60">
     <div className="mx-auto max-w-4xl px-6 py-28 text-center lg:px-10 lg:py-40">
-      <p className="eyebrow justify-center">06 — Contact</p>
+      <p className="eyebrow justify-center">07 — Contact</p>
 
       <h2 className="mt-8 font-display text-3xl font-light leading-[1.2] text-glacier sm:text-4xl lg:text-[44px]">
         Avant d’engager une transformation, il faut savoir si le terrain peut la
