@@ -192,6 +192,7 @@ const SiteNav = () => (
         ))}
         <a
           href={MAILTO}
+          onClick={() => trackEvent(ANALYTICS_EVENTS.CTA_HEADER)}
           className="rounded-full border border-ice-blue/40 px-4 py-2 text-xs font-medium tracking-[0.14em] text-glacier transition-colors hover:border-ice-blue hover:bg-ice-blue/10"
         >
           ÉCHANGE CONFIDENTIEL
@@ -199,6 +200,7 @@ const SiteNav = () => (
       </nav>
       <a
         href={MAILTO}
+        onClick={() => trackEvent(ANALYTICS_EVENTS.CTA_HEADER)}
         className="rounded-full border border-ice-blue/40 px-3 py-1.5 text-[11px] font-medium tracking-[0.12em] text-glacier transition-colors hover:border-ice-blue hover:bg-ice-blue/10 md:hidden"
       >
         CONTACT
@@ -248,6 +250,7 @@ const HeroSection = () => (
       <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
         <a
           href={MAILTO}
+          onClick={() => trackEvent(ANALYTICS_EVENTS.CTA_HERO)}
           className="group inline-flex items-center gap-3 rounded-full bg-petrol px-7 py-3.5 text-sm font-medium tracking-wide text-glacier shadow-soft transition-all hover:bg-petrol/90 hover:shadow-[0_10px_30px_-10px_hsl(199_84%_32%/0.6)]"
         >
           Demander un échange confidentiel
