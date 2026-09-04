@@ -1,4 +1,4 @@
-import founderPhoto from "@/assets/founder.jpg.asset.json";
+import founderPhoto from "@/assets/founder.jpg";
 
 /* =========================================================
    SECTION — À propos du fondateur
@@ -44,7 +44,7 @@ const FounderSection = () => (
               }}
             />
             <img
-              src={founderPhoto.url}
+              src={founderPhoto}
               alt="Portrait de Hugues Temple-Boyer, fondateur de Shadow Transformation"
               width={480}
               height={560}
