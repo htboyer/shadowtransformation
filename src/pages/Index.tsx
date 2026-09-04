@@ -13,7 +13,10 @@
  *   7. <ContactSection />       → Section 7 : Contact / closing
  */
 
+import { useEffect, useRef } from "react";
 import logo from "@/assets/logo-mark.png";
+import FounderSection from "@/components/FounderSection";
+import { ANALYTICS_EVENTS, trackEvent } from "@/lib/analytics";
 
 const CONTACT_EMAIL = "contact@shadowtransformation.fr";
 const MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Premier échange confidentiel — Shadow Transformation")}&body=${encodeURIComponent("Bonjour, je souhaite échanger au sujet d’une transformation à sécuriser, structurer ou accompagner.")}`;
@@ -31,6 +34,7 @@ const Index = () => {
           <ModulesSection />
           <AccompagnementSection />
           <DeliverablesSection />
+          <FounderSection />
           <ContactSection />
         </main>
         <SiteFooter />
@@ -188,6 +192,7 @@ const SiteNav = () => (
         ))}
         <a
           href={MAILTO}
+          onClick={() => trackEvent(ANALYTICS_EVENTS.CTA_HEADER)}
           className="rounded-full border border-ice-blue/40 px-4 py-2 text-xs font-medium tracking-[0.14em] text-glacier transition-colors hover:border-ice-blue hover:bg-ice-blue/10"
         >
           ÉCHANGE CONFIDENTIEL
@@ -195,6 +200,7 @@ const SiteNav = () => (
       </nav>
       <a
         href={MAILTO}
+        onClick={() => trackEvent(ANALYTICS_EVENTS.CTA_HEADER)}
         className="rounded-full border border-ice-blue/40 px-3 py-1.5 text-[11px] font-medium tracking-[0.12em] text-glacier transition-colors hover:border-ice-blue hover:bg-ice-blue/10 md:hidden"
       >
         CONTACT
@@ -244,6 +250,7 @@ const HeroSection = () => (
       <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
         <a
           href={MAILTO}
+          onClick={() => trackEvent(ANALYTICS_EVENTS.CTA_HERO)}
           className="group inline-flex items-center gap-3 rounded-full bg-petrol px-7 py-3.5 text-sm font-medium tracking-wide text-glacier shadow-soft transition-all hover:bg-petrol/90 hover:shadow-[0_10px_30px_-10px_hsl(199_84%_32%/0.6)]"
         >
           Demander un échange confidentiel
@@ -648,10 +655,30 @@ const DeliverablesSection = () => (
 /* =========================================================
    SECTION 7 — Contact / closing
    ========================================================= */
-const ContactSection = () => (
-  <section id="contact" className="relative border-t border-hairline/60">
+const ContactSection = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  // Mesure d'audience : signale l'arrivée sur la section Contact (une fois).
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          trackEvent(ANALYTICS_EVENTS.CONTACT_VIEW);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+  <section id="contact" ref={sectionRef} className="relative border-t border-hairline/60">
     <div className="mx-auto max-w-4xl px-6 py-28 text-center lg:px-10 lg:py-40">
-      <p className="eyebrow justify-center">06 — Contact</p>
+      <p className="eyebrow justify-center">07 — Contact</p>
 
       <h2 className="mt-8 font-display text-3xl font-light leading-[1.2] text-glacier sm:text-4xl lg:text-[44px]">
         Avant d’engager une transformation, il faut savoir si le terrain peut la
@@ -662,6 +689,7 @@ const ContactSection = () => (
 
       <a
         href={MAILTO}
+        onClick={() => trackEvent(ANALYTICS_EVENTS.EMAIL_CLICK)}
         className="mt-12 inline-block font-display text-lg text-ice-blue transition-colors hover:text-glacier"
       >
         {CONTACT_EMAIL}
@@ -670,6 +698,7 @@ const ContactSection = () => (
       <div className="mt-10">
         <a
           href={MAILTO}
+          onClick={() => trackEvent(ANALYTICS_EVENTS.CTA_CONTACT)}
           className="inline-flex items-center gap-3 rounded-full bg-petrol px-8 py-3.5 text-sm font-medium tracking-wide text-glacier shadow-soft transition-all hover:bg-petrol/90"
         >
           Demander un échange confidentiel
@@ -682,7 +711,8 @@ const ContactSection = () => (
       </p>
     </div>
   </section>
-);
+  );
+};
 
 /* =========================================================
    Pied de page : épuré, cohérent avec le header
@@ -705,6 +735,7 @@ const SiteFooter = () => (
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2 tracking-wide">
         <a
           href={MAILTO}
+          onClick={() => trackEvent(ANALYTICS_EVENTS.EMAIL_CLICK)}
           className="transition-colors hover:text-glacier"
         >
           {CONTACT_EMAIL}
