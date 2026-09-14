@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { FileText, Maximize2 } from "lucide-react";
 import dashboardImage from "@/assets/module-one/dashboard.webp";
 import monitoringImage from "@/assets/module-one/monitoring.webp";
@@ -50,7 +51,7 @@ const PreviewDialog = ({
   title: string;
   description: string;
   images: string[];
-  trigger: React.ReactNode;
+  trigger: ReactNode;
 }) => (
   <Dialog>
     <DialogTrigger asChild>{trigger}</DialogTrigger>
@@ -112,9 +113,10 @@ const ModuleOneShowcase = () => (
               description="Aperçu illustratif de l’outil d’intervention du Module 1."
               images={[screen.image]}
               trigger={
-                <button
+                <Button
                   type="button"
-                  className="group overflow-hidden rounded-lg border border-hairline bg-surface text-left shadow-soft transition-colors hover:border-ice-blue/50"
+                  variant="outline"
+                  className="group h-auto w-full flex-col items-stretch gap-0 overflow-hidden rounded-lg border-hairline bg-surface p-0 text-left shadow-soft hover:border-ice-blue/50 hover:bg-surface"
                   aria-label={`Agrandir l’aperçu : ${screen.title}`}
                 >
                   <span className="relative block aspect-[16/9] overflow-hidden bg-card">
@@ -131,7 +133,7 @@ const ModuleOneShowcase = () => (
                   <span className="block border-t border-hairline px-5 py-4 font-display text-sm font-medium text-glacier">
                     {screen.title}
                   </span>
-                </button>
+                </Button>
               }
             />
           ))}
