@@ -1,1 +1,4 @@
-- [ ] Intégrer la capture Tableau de bord comme quatrième aperçu du Module 1.
+- [x] Intégrer la capture Tableau de bord comme quatrième aperçu du Module 1.
+- [x] Ajouter les trois preuves chiffrées sur la maturité.
+- [x] Ajouter l’accès direct au Module 1 depuis l’ouverture de page.
+- [x] Renforcer la frise Accompagnement sur mobile et desktop.
