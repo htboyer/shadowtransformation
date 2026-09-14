@@ -1,0 +1,1 @@
+- [ ] Intégrer la capture Tableau de bord comme quatrième aperçu du Module 1.
