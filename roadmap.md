@@ -2,5 +2,5 @@
 - [x] Ajouter les trois preuves chiffrées sur la maturité.
 - [x] Ajouter l’accès direct au Module 1 depuis l’ouverture de page.
 - [x] Renforcer la frise Accompagnement sur mobile et desktop.
-- [ ] Ajouter des icônes linéaires sobres aux preuves, à l’approche, aux modules et à la frise.
-- [ ] Aligner les textes statistiques sur la dernière formulation validée.
+- [x] Ajouter des icônes linéaires sobres aux preuves, à l’approche, aux modules et à la frise.
+- [x] Aligner les textes statistiques sur la dernière formulation validée.
