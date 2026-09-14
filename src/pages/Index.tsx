@@ -16,6 +16,7 @@
 import { useEffect, useRef } from "react";
 import logo from "@/assets/logo-mark.png";
 import FounderSection from "@/components/FounderSection";
+import ModuleOneShowcase from "@/components/ModuleOneShowcase";
 import { ANALYTICS_EVENTS, trackEvent } from "@/lib/analytics";
 
 const CONTACT_EMAIL = "contact@shadowtransformation.fr";
@@ -32,6 +33,7 @@ const Index = () => {
           <ProblemSection />
           <ApproachSection />
           <ModulesSection />
+          <ModuleOneShowcase />
           <AccompagnementSection />
           <DeliverablesSection />
           <FounderSection />
