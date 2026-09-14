@@ -78,7 +78,7 @@ const PreviewDialog = ({
 const ModuleOneShowcase = () => (
   <section
     id="module-1-pratique"
-    className="relative border-t border-hairline/60"
+    className="relative scroll-mt-24 border-t border-hairline/60"
     style={{
       background:
         "linear-gradient(180deg, hsl(218 60% 11% / 0.55), hsl(218 60% 11% / 0.25))",
