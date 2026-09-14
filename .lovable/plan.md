@@ -1,20 +1,22 @@
-# Section « Module 1 en pratique »
+# Renforcement graphique et éditorial
 
 ## Objectif
-Ajouter une seule section compacte après « Modules » et avant « Accompagnement », sans modifier le positionnement ni le reste du parcours.
+Ajouter une preuve chiffrée courte, une frise d’accompagnement plus expressive et un accès direct au Module 1, sans modifier le positionnement premium ni alourdir la page.
 
-## Contenu
-- Présenter les trois captures disponibles : suivi de la collecte, analyse et rapport. La grille restera équilibrée et sobre sans inventer un tableau de bord manquant.
-- Permettre l’agrandissement simple de chaque capture dans une fenêtre accessible, sans carrousel.
-- Présenter deux cartes de livrables : rapport détaillé et synthèse dirigeante.
-- Ouvrir quelques pages clés anonymisées sous forme d’images dans la même fenêtre, sans lien PDF ni téléchargement.
-- Ajouter le microtexte de confidentialité demandé.
+## Changements prévus
+- Insérer entre « Le problème » et « L’approche » un bloc compact « Pourquoi commencer par la maturité ? » avec trois cartes statistiques, leurs sources McKinsey en micro-typographie et la phrase de liaison fournie.
+- Ajouter dans le hero un bouton secondaire « Voir le Module 1 en pratique » menant à la section existante, aux côtés du CTA confidentiel principal.
+- Remplacer la présentation actuelle de l’accompagnement par une frise responsive : Diagnostic → Décision → Structuration → Mise en œuvre → Réévaluation.
+- Donner à la frise une progression lumineuse très discrète, uniquement avec les couleurs, traits fins et surfaces déjà présents dans la charte.
 
-## Traitement visuel
-- Optimiser les captures et extraits en images légères adaptées au web.
-- Reprendre les bordures, surfaces, couleurs et typographies existantes.
-- Limiter la hauteur des aperçus et utiliser une grille responsive pour préserver le rythme de page.
+## Principes de mise en page
+- La preuve chiffrée restera une séquence courte et éditoriale, sans compteur animé ni effet promotionnel.
+- Sur mobile, les cartes s’empileront et la frise deviendra verticale afin de préserver la lisibilité.
+- Le diagnostic restera présenté comme le point d’entrée d’un accompagnement qui va jusqu’à la mise en œuvre et à la réévaluation.
+- La section Contact restera le dernier grand appel à l’action.
 
 ## Contrôles
-- Vérifier desktop et mobile, l’ouverture/fermeture des aperçus, la section Contact en dernière conversion et l’absence des termes interdits.
-- Vérifier que les documents sources ne sont jamais exposés ni téléchargeables depuis la page.
+- Vérifier la hiérarchie, les espacements et l’absence de débordement sur desktop et mobile.
+- Vérifier le défilement du nouveau bouton vers « Module 1 en pratique ».
+- Vérifier que les CTA email et leur contenu prérempli restent inchangés.
+- Vérifier que les statistiques restent sobres, que la lecture demeure fluide et que la page conserve son ton de cabinet exécutif.
