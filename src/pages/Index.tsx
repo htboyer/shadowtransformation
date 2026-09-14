@@ -14,6 +14,21 @@
  */
 
 import { useEffect, useRef } from "react";
+import type { LucideIcon } from "lucide-react";
+import {
+  Activity,
+  ChartNoAxesCombined,
+  CheckCircle2,
+  Compass,
+  Eye,
+  GitBranch,
+  Layers3,
+  Map,
+  Network,
+  ScanSearch,
+  Target,
+  Users,
+} from "lucide-react";
 import logo from "@/assets/logo-mark.png";
 import FounderSection from "@/components/FounderSection";
 import ModuleOneShowcase from "@/components/ModuleOneShowcase";
@@ -378,18 +393,21 @@ const MATURITY_STATS = [
     value: "< 30 %",
     text: "des transformations organisationnelles améliorent durablement la performance et maintiennent leurs gains dans le temps.",
     source: "McKinsey",
+    icon: ChartNoAxesCombined,
   },
   {
     value: "16 %",
     text: "des transformations digitales réussissent à la fois sur la performance et dans la durée.",
     source: "McKinsey",
+    icon: Network,
   },
   {
     value: "49 % vs 1 %",
-    text: "de taux de succès selon que les dirigeants sont pleinement alignés sur les objectifs… ou non.",
+    text: "de réussite selon que les dirigeants sont pleinement alignés sur les objectifs… ou peu ou pas alignés.",
     source: "McKinsey",
+    icon: Target,
   },
-];
+] satisfies Array<{ value: string; text: string; source: string; icon: LucideIcon }>;
 
 const MaturityProofSection = () => (
   <section className="relative border-t border-hairline/60" aria-labelledby="maturity-proof-title">
@@ -405,16 +423,21 @@ const MaturityProofSection = () => (
           </h2>
         </div>
         <p className="text-base leading-relaxed text-muted-foreground lg:col-span-6 lg:col-start-7 lg:text-lg">
-          Beaucoup de transformations échouent moins par manque d’intention que par
-          défaut de préparation, d’alignement ou de conditions d’entrée suffisamment
+          Beaucoup de transformations échouent moins par manque d’ambition que par
+          défaut de préparation, d’alignement et de conditions d’entrée suffisamment
           solides.
         </p>
       </div>
 
       <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-hairline bg-hairline md:grid-cols-3">
-        {MATURITY_STATS.map((stat, index) => (
+        {MATURITY_STATS.map((stat, index) => {
+          const Icon = stat.icon;
+          return (
           <article key={stat.value} className="relative flex min-h-64 flex-col bg-surface p-7 lg:p-8">
-            <span className="step-number text-[11px]">0{index + 1}</span>
+            <div className="flex items-center justify-between">
+              <span className="step-number text-[11px]">0{index + 1}</span>
+              <Icon aria-hidden strokeWidth={1.25} className="h-5 w-5 text-ice-blue/70" />
+            </div>
             <p className="mt-6 font-display text-3xl font-light text-ice-blue lg:text-4xl">
               {stat.value}
             </p>
@@ -425,14 +448,15 @@ const MaturityProofSection = () => (
               Source · {stat.source}
             </p>
           </article>
-        ))}
+          );
+        })}
       </div>
 
       <div className="mt-8 flex items-start gap-5 border-l border-ice-blue/35 pl-5 sm:items-center sm:border-l-0 sm:pl-0">
         <span aria-hidden className="hidden h-px w-12 shrink-0 bg-ice-blue/40 sm:block" />
         <p className="max-w-4xl font-display text-base font-light leading-relaxed text-glacier/90 lg:text-lg">
           Ces chiffres n’invitent pas à renoncer à transformer. Ils invitent à
-          instruire lucidement si les conditions sont réellement réunies.
+          vérifier lucidement si le terrain peut porter la transformation.
         </p>
       </div>
     </div>
@@ -443,11 +467,11 @@ const MaturityProofSection = () => (
    SECTION 3 — L'approche (4 temps)
    ========================================================= */
 const STEPS = [
-  { n: "I",   title: "Lire",       text: "Objectiver la maturité, les écarts de perception, les appuis et les fragilités." },
-  { n: "II",  title: "Décider",    text: "Arbitrer entre passage, temporisation, préparation complémentaire ou engagement de la suite." },
-  { n: "III", title: "Structurer", text: "Transformer les enseignements en chantiers, priorités, gouvernance et trajectoire pilotable." },
-  { n: "IV",  title: "Accompagner",text: "Soutenir la mise en œuvre, ajuster les actions et réévaluer ce qui bouge, résiste ou se diffuse." },
-];
+  { n: "I", title: "Lire", text: "Objectiver la maturité, les écarts de perception, les appuis et les fragilités.", icon: Eye },
+  { n: "II", title: "Décider", text: "Arbitrer entre passage, temporisation, préparation complémentaire ou engagement de la suite.", icon: Compass },
+  { n: "III", title: "Structurer", text: "Transformer les enseignements en chantiers, priorités, gouvernance et trajectoire pilotable.", icon: Layers3 },
+  { n: "IV", title: "Accompagner", text: "Soutenir la mise en œuvre, ajuster les actions et réévaluer ce qui bouge, résiste ou se diffuse.", icon: Users },
+] satisfies Array<{ n: string; title: string; text: string; icon: LucideIcon }>;
 
 const ApproachSection = () => (
   <section
@@ -471,19 +495,22 @@ const ApproachSection = () => (
       </div>
 
       <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline lg:grid-cols-4">
-        {STEPS.map((step) => (
+        {STEPS.map((step) => {
+          const Icon = step.icon;
+          return (
           <div
             key={step.n}
             className="group relative bg-surface p-8 transition-colors hover:bg-surface-elev"
           >
             <div className="flex items-baseline justify-between">
               <span className="step-number text-xs">{step.n}</span>
-              <span aria-hidden className="h-px w-10 bg-ice-blue/40 transition-all group-hover:w-16 group-hover:bg-ice-blue" />
+              <Icon aria-hidden strokeWidth={1.25} className="h-5 w-5 text-ice-blue/70" />
             </div>
             <h3 className="mt-8 font-display text-xl font-medium text-glacier">{step.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="mt-10 rounded-2xl border border-ice-blue/25 bg-[hsl(var(--petrol)/0.10)] p-8 lg:p-10">
@@ -518,24 +545,29 @@ const MODULES = [
   {
     title: "Diagnostic organisationnel",
     text: "Lire le fonctionnement réel et qualifier la robustesse d’une suite.",
+    icon: ScanSearch,
   },
   {
     title: "Élan vital",
     text: "Identifier ce qui mobilise encore, ce qui fatigue et ce qui peut être réinvesti.",
+    icon: Activity,
   },
   {
     title: "Futurs possibles",
     text: "Explorer des directions crédibles et un futur souhaitable.",
+    icon: Compass,
   },
   {
     title: "Dilemmes et leviers",
     text: "Rendre visibles les tensions à arbitrer et les leviers activables.",
+    icon: GitBranch,
   },
   {
     title: "Trajectoire",
     text: "Traduire la suite en plan de transformation pilotable.",
+    icon: Map,
   },
-];
+] satisfies Array<{ title: string; text: string; icon: LucideIcon }>;
 
 const ModulesSection = () => (
   <section id="modules" className="relative border-t border-hairline/60">
@@ -552,20 +584,23 @@ const ModulesSection = () => (
       </div>
 
       <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {MODULES.map((m, i) => (
+        {MODULES.map((m, i) => {
+          const Icon = m.icon;
+          return (
           <article key={m.title} className="premium-card p-8">
             <div className="flex items-baseline justify-between">
               <span className="step-number text-[11px]">
                 {String(i + 1).padStart(2, "0")} / {String(MODULES.length).padStart(2, "0")}
               </span>
-              <span aria-hidden className="h-px w-8 bg-ice-blue/40" />
+              <Icon aria-hidden strokeWidth={1.25} className="h-5 w-5 text-ice-blue/65" />
             </div>
             <h3 className="mt-8 font-display text-lg font-medium leading-snug text-glacier">
               {m.title}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.text}</p>
           </article>
-        ))}
+          );
+        })}
 
         {/* Carte-cadre */}
         <article className="rounded-2xl border border-ice-blue/30 bg-[hsl(var(--petrol)/0.10)] p-8">
@@ -593,7 +628,13 @@ const ModulesSection = () => (
 /* =========================================================
    SECTION 5 — Accompagnement
    ========================================================= */
-const CHAIN = ["Diagnostic", "Décision", "Structuration", "Mise en œuvre", "Réévaluation"];
+const CHAIN = [
+  { label: "Diagnostic", icon: ScanSearch },
+  { label: "Décision", icon: Compass },
+  { label: "Structuration", icon: Layers3 },
+  { label: "Mise en œuvre", icon: Users },
+  { label: "Réévaluation", icon: CheckCircle2 },
+] satisfies Array<{ label: string; icon: LucideIcon }>;
 
 const AccompagnementSection = () => (
   <section
@@ -626,19 +667,22 @@ const AccompagnementSection = () => (
               className="absolute bottom-5 left-4 top-5 w-px bg-gradient-to-b from-hairline via-ice-blue/40 to-ice-blue/80 sm:bottom-auto sm:left-5 sm:right-5 sm:top-5 sm:h-px sm:w-auto sm:bg-gradient-to-r"
             />
             <ol className="relative grid gap-7 sm:grid-cols-5 sm:gap-3">
-            {CHAIN.map((step, i) => (
-              <li key={step} className="flex min-w-0 items-center gap-4 sm:flex-col sm:items-start sm:gap-4">
+            {CHAIN.map((step, i) => {
+              const Icon = step.icon;
+              return (
+              <li key={step.label} className="flex min-w-0 items-center gap-4 sm:flex-col sm:items-start sm:gap-4">
                 <span
                   aria-hidden
                   className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ice-blue/40 bg-surface font-display text-[10px] text-ice-blue shadow-soft"
                 >
-                  {String(i + 1).padStart(2, "0")}
+                  <Icon strokeWidth={1.25} className="h-4 w-4" />
                 </span>
                 <span className="min-w-0 font-display text-sm font-medium leading-snug text-glacier/90 sm:text-xs lg:text-sm">
-                  {step}
+                  {step.label}
                 </span>
               </li>
-            ))}
+              );
+            })}
             </ol>
           </div>
         </div>
