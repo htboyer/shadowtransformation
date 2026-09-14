@@ -640,10 +640,6 @@ const AccompagnementSection = () => (
               </li>
             ))}
             </ol>
-            <p className="mt-9 border-l border-ice-blue/35 pl-5 text-sm leading-relaxed text-muted-foreground">
-              Une progression tenue dans la durée : le diagnostic éclaire la décision,
-              la structuration prépare l’action, et la réévaluation permet d’ajuster la mise en œuvre.
-            </p>
           </div>
         </div>
       </div>
