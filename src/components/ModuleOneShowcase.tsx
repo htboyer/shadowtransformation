@@ -21,10 +21,10 @@ const loadPages = (modules: Record<string, { default: string }>) =>
     .map((key) => modules[key].default);
 
 const REPORT_PAGES = loadPages(
-  import.meta.glob("@/assets/deliverables/rapport-*.webp", { eager: true }) as Record<string, { default: string }>,
+  import.meta.glob("../assets/deliverables/rapport-*.webp", { eager: true }) as Record<string, { default: string }>,
 );
 const SUMMARY_PAGES = loadPages(
-  import.meta.glob("@/assets/deliverables/synthese-*.webp", { eager: true }) as Record<string, { default: string }>,
+  import.meta.glob("../assets/deliverables/synthese-*.webp", { eager: true }) as Record<string, { default: string }>,
 );
 
 const TOOL_SCREENS = [
