@@ -4,12 +4,7 @@ import dashboardImage from "@/assets/module-one/dashboard.webp";
 import monitoringImage from "@/assets/module-one/monitoring.webp";
 import analysisImage from "@/assets/module-one/analysis.webp";
 import reportImage from "@/assets/module-one/report.webp";
-import reportPage1 from "@/assets/deliverables/rapport-1.webp";
-import reportPage2 from "@/assets/deliverables/rapport-2.webp";
-import reportPage3 from "@/assets/deliverables/rapport-3.webp";
-import summaryPage1 from "@/assets/deliverables/synthese-1.webp";
-import summaryPage2 from "@/assets/deliverables/synthese-2.webp";
-import summaryPage3 from "@/assets/deliverables/synthese-3.webp";
+import DeliverableViewer from "@/components/DeliverableViewer";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -19,6 +14,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+
+const loadPages = (modules: Record<string, { default: string }>) =>
+  Object.keys(modules)
+    .sort()
+    .map((key) => modules[key].default);
+
+const REPORT_PAGES = loadPages(
+  import.meta.glob("@/assets/deliverables/rapport-*.webp", { eager: true }) as Record<string, { default: string }>,
+);
+const SUMMARY_PAGES = loadPages(
+  import.meta.glob("@/assets/deliverables/synthese-*.webp", { eager: true }) as Record<string, { default: string }>,
+);
 
 const TOOL_SCREENS = [
   { title: "Tableau de bord", image: dashboardImage },
@@ -32,13 +39,21 @@ const DELIVERABLES = [
     title: "Restitution sponsor — rapport",
     description:
       "Un exemple de livrable décisionnel : synthèse exécutive, lecture de maturité, écarts de perception, points d’appui, zones de vigilance et décision de sortie.",
-    pages: [reportPage1, reportPage2, reportPage3],
+    cta: "Consulter le rapport",
+    modalTitle: "Restitution sponsor — rapport complet",
+    modalDescription:
+      "Exemple anonymisé présenté à titre illustratif. Le document est adapté à chaque mission, au mandat et au niveau de confidentialité défini avec le sponsor.",
+    pages: REPORT_PAGES,
   },
   {
     title: "Restitution sponsor — synthèse",
     description:
       "Un support court pour partager les enseignements clés, clarifier les conditions de passage et ouvrir les arbitrages de suite.",
-    pages: [summaryPage1, summaryPage2, summaryPage3],
+    cta: "Consulter la synthèse",
+    modalTitle: "Restitution sponsor — synthèse complète",
+    modalDescription:
+      "Support de restitution court, conçu pour partager les enseignements clés et ouvrir les arbitrages de suite.",
+    pages: SUMMARY_PAGES,
   },
 ];
 
@@ -150,13 +165,14 @@ const ModuleOneShowcase = () => (
               </div>
               <h3 className="mt-6 font-display text-lg font-medium text-glacier">{deliverable.title}</h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{deliverable.description}</p>
-              <PreviewDialog
-                title={deliverable.title}
-                description="Trois pages clés présentées à titre illustratif. Aucun document source n’est proposé au téléchargement."
-                images={deliverable.pages}
+              <DeliverableViewer
+                title={deliverable.modalTitle}
+                description={deliverable.modalDescription}
+                label={deliverable.title}
+                pages={deliverable.pages}
                 trigger={
                   <Button variant="outline" className="mt-7 w-fit border-ice-blue/30 bg-transparent text-glacier hover:bg-secondary">
-                    Consulter un aperçu
+                    {deliverable.cta}
                     <span aria-hidden>→</span>
                   </Button>
                 }
@@ -165,7 +181,7 @@ const ModuleOneShowcase = () => (
           ))}
         </div>
         <p className="mt-6 text-xs leading-relaxed text-muted-foreground/70">
-          Exemples anonymisés — consultation illustrative. Les contenus sont adaptés au contexte, au mandat et au niveau de confidentialité de chaque mission.
+          Exemples anonymisés — consultation illustrative uniquement. Les documents ne sont pas proposés au téléchargement direct.
         </p>
       </div>
     </div>
