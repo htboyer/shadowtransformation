@@ -1,0 +1,268 @@
+{
+  "version": "2026-09-21",
+  "sources": {
+    "rapport_pdf_sha256": "ab27e412b5d739337f327b2fb0956df3138fd4e0c75139f293bcd1e582aaf042",
+    "synthese_pptx_sha256": "65cc12aca5ea52d7ca2f503c3a1986528673e80bc90388bc0f61b8af5af7a3f5"
+  },
+  "pages": [
+    {
+      "file": "rapport-01.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "a654f5b4a1c055bf530a66cfdf89d0bc95a80ab1525f84ddf024be8829808880",
+      "bytes": 190158
+    },
+    {
+      "file": "rapport-02.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "0c375c03c3e2964d99af0427c1c893910f6d9307ad16ee5eeb93d5bcee49086c",
+      "bytes": 143952
+    },
+    {
+      "file": "rapport-03.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "7ae33f4f393e04a4996a75c0be004e34c3e86dc66e7855959a80bbb759bffac5",
+      "bytes": 117252
+    },
+    {
+      "file": "rapport-04.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "465a069867a98d8cfa25c543df7780452b48ce6a48030ae990b25bd285313e76",
+      "bytes": 220846
+    },
+    {
+      "file": "rapport-05.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "f641ee863c932a14d6c68693400d3fd1724d6061ec1380afa069d624ccedba82",
+      "bytes": 117750
+    },
+    {
+      "file": "rapport-06.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "8f811a9364101efd1a06d2ea2c1cb08b6995403edd0d71785fd48073896e0853",
+      "bytes": 170850
+    },
+    {
+      "file": "rapport-07.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "1f60762013707468122e6fb1a71b41c6e0f2827432aa637a21086ef15e29c8a5",
+      "bytes": 232420
+    },
+    {
+      "file": "rapport-08.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "285576021a8543d47e461af309829d8796db9879494a20d7b5e995893abc8d4d",
+      "bytes": 216200
+    },
+    {
+      "file": "rapport-09.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "45e4939984f6c605df472691e0c93b5206cf21efc11e1c25ab6f78f443bc09ef",
+      "bytes": 217890
+    },
+    {
+      "file": "rapport-10.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "d6cd6a6095f08b53c62f82596cb923d01500912d11dab84f391ab0017c7b99d7",
+      "bytes": 208038
+    },
+    {
+      "file": "rapport-11.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "dae492b272d5024959dab4d7af98fce75baee90beeee8a12a28587706256b02c",
+      "bytes": 112026
+    },
+    {
+      "file": "rapport-12.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "6b7f6dbc5b840d920dc27ee2738a4eac2904055c1863c8484d43ab5f65faf14d",
+      "bytes": 133826
+    },
+    {
+      "file": "rapport-13.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "666844f6c8acaf2173e5748797db07737fea512fce98f0173c2e088956b33f78",
+      "bytes": 165310
+    },
+    {
+      "file": "rapport-14.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "5af4af8a6e8dcf2330ac7da22ade8f178d7ee8f224e765c41ad313c969f780a4",
+      "bytes": 293484
+    },
+    {
+      "file": "rapport-15.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "06fa5b18730bae7d2fd8d20ddc6ac247596580014ec2f104952d7380037d7039",
+      "bytes": 180658
+    },
+    {
+      "file": "rapport-16.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "8228980957c72786343ee83fcff5112ea850a909f462f86aff15719554be99c7",
+      "bytes": 179996
+    },
+    {
+      "file": "rapport-17.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "9ee582249ae46706d6bff3e63b2e57e26beba083fbb5ad36c1b982b63c0e1e4a",
+      "bytes": 160588
+    },
+    {
+      "file": "rapport-18.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "34c1959dda09d08f13fafb23f7feb9c79b836a1a9415ba6a41655344a59cf302",
+      "bytes": 184770
+    },
+    {
+      "file": "rapport-19.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "46ccbe4c059e3ffd10e4fa7686a9047cbd17ecf1e0022d70d985294470d1dacd",
+      "bytes": 183120
+    },
+    {
+      "file": "rapport-20.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "89538312e91ffc457bb11f5adce5545231a231ec3ce76ddc966734a85edd300b",
+      "bytes": 178572
+    },
+    {
+      "file": "rapport-21.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "ea340cffa67a93df510c3835e6063c3325062c2fe6db187cce0a4790228cecca",
+      "bytes": 186642
+    },
+    {
+      "file": "rapport-22.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "0767340f39f45db78f96ec4021ca2ceb0f6af77e08b5b037e9262bde4eef91e3",
+      "bytes": 208778
+    },
+    {
+      "file": "rapport-23.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "44269c93e4750ea91e862bbbb921176a8ff5463fe6ea8cb9240253f8bcee8203",
+      "bytes": 234322
+    },
+    {
+      "file": "rapport-24.webp",
+      "width": 1800,
+      "height": 2548,
+      "sha256": "697e242a81a0efcdb8224d83733b097588b2d44e7f0b9b0cffabcc3cb6429982",
+      "bytes": 180674
+    },
+    {
+      "file": "synthese-01.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "716472763c41199fab0e633d7b239172e2112b1f5e8eb1c62a44ff75531dafcd",
+      "bytes": 99690
+    },
+    {
+      "file": "synthese-02.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "8b976854ab20140e7f56e9f9f329ff39ac893d7c696ca898dad7393aa4856b9e",
+      "bytes": 85266
+    },
+    {
+      "file": "synthese-03.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "dc010b6213cb85b56e6decac83d565f4c1adeee1bb658656ac96014b9fe42a8f",
+      "bytes": 73934
+    },
+    {
+      "file": "synthese-04.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "c6d0ecbeea6a2170ffc722e402562cd71ccd844f767b7ec43bbf22fe18c193e4",
+      "bytes": 94030
+    },
+    {
+      "file": "synthese-05.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "72b78abf19cf3a98b57c22f9513dba1a7be52cd78d143cff1952382ec8f1ca30",
+      "bytes": 80792
+    },
+    {
+      "file": "synthese-06.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "831b834a687523dbac6a186cb28294f8e7fdfa5a31f45a5a51024ad68273fcf1",
+      "bytes": 78680
+    },
+    {
+      "file": "synthese-07.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "b308cb21c49c8b40fcc4a07e3260f464cf17192549c00add5f839c82807f6ae9",
+      "bytes": 75024
+    },
+    {
+      "file": "synthese-08.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "95f69f0af023199528d18ba04274b6fe18a2641f9c9cc4ffd595916d0f72893a",
+      "bytes": 76784
+    },
+    {
+      "file": "synthese-09.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "6fb50995b05baaf932496db97a9af2b3c2afed3e7ea5652266fac6d7d091a211",
+      "bytes": 73718
+    },
+    {
+      "file": "synthese-10.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "2c0a1e378de218b70d9462d01d4ee500159f0cc3b1ecb55ae6d8a2ebefc9f77e",
+      "bytes": 76002
+    },
+    {
+      "file": "synthese-11.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "1517794aec2e778586914854ed6880c78b730f4bdb7a3dd11b1c70c217f64dd9",
+      "bytes": 69656
+    },
+    {
+      "file": "synthese-12.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "7eb500ce0af560f43f9b10b6e3758b9f41373316305796f3bd7e4f4df3c7e854",
+      "bytes": 75338
+    },
+    {
+      "file": "synthese-13.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "46da084af17586f474d467a28e054f16f9c7cc00258f98c2bbc22e8ab79c6c7c",
+      "bytes": 71190
+    }
+  ]
+}
