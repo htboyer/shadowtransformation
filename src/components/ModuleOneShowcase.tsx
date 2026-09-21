@@ -38,21 +38,21 @@ const DELIVERABLES = [
   {
     title: "Restitution sponsor — rapport",
     description:
-      "Un exemple de livrable décisionnel : synthèse exécutive, lecture de maturité, écarts de perception, points d’appui, zones de vigilance et décision de sortie.",
+      "Un rapport de 24 pages : synthèse décisionnelle, lecture de maturité, écarts de perception, priorités à vérifier, conditions de la suite et annexes méthodologiques.",
     cta: "Consulter le rapport",
     modalTitle: "Restitution sponsor — rapport complet",
     modalDescription:
-      "Exemple anonymisé présenté à titre illustratif. Le document est adapté à chaque mission, au mandat et au niveau de confidentialité défini avec le sponsor.",
+      "Exemple fictif NovaServices Conseil — rapport de 24 pages, export du 21 septembre 2026. Document de travail : les conditions de la suite et la décision du consultant restent à valider.",
     pages: REPORT_PAGES,
   },
   {
     title: "Restitution sponsor — synthèse",
     description:
-      "Un support court pour partager les enseignements clés, clarifier les conditions de passage et ouvrir les arbitrages de suite.",
+      "Une présentation de 13 diapositives pour partager les enseignements clés, clarifier les conditions de la suite et préparer l’arbitrage du consultant.",
     cta: "Consulter la synthèse",
     modalTitle: "Restitution sponsor — synthèse complète",
     modalDescription:
-      "Support de restitution court, conçu pour partager les enseignements clés et ouvrir les arbitrages de suite.",
+      "Exemple fictif NovaServices Conseil — présentation de 13 diapositives, export du 21 septembre 2026. Support de restitution pour préparer l’arbitrage du consultant.",
     pages: SUMMARY_PAGES,
   },
 ];
@@ -181,7 +181,7 @@ const ModuleOneShowcase = () => (
           ))}
         </div>
         <p className="mt-6 text-xs leading-relaxed text-muted-foreground/70">
-          Exemples anonymisés — consultation illustrative uniquement. Les documents ne sont pas proposés au téléchargement direct.
+          Exemples fictifs — consultation illustrative uniquement. Les documents ne sont pas proposés au téléchargement direct.
         </p>
       </div>
     </div>
