@@ -7,7 +7,10 @@ const VIDEO_URL = "https://youtu.be/qc8XGnFqrIU";
 const EMBED_URL = "https://www.youtube-nocookie.com/embed/qc8XGnFqrIU?autoplay=1&playsinline=1&rel=0";
 
 // Seuls les deux originaux nommés exactement ainsi sont proposés au téléchargement.
-const resources = import.meta.glob("../assets/presentation/*", {
+const resources = import.meta.glob([
+  "../assets/presentation/shadow-transformation-fiche-presentation.pdf",
+  "../assets/presentation/shadow-transformation-presentation.mp4",
+], {
   eager: true,
   query: "?url",
   import: "default",
@@ -40,7 +43,7 @@ const PresentationSection = () => {
           Comprendre le rôle du diagnostic de maturité et les étapes d’un accompagnement de transformation.
         </p>
 
-        <div className="mt-10 grid items-start gap-8 lg:grid-cols-[minmax(0,1.7fr)_minmax(240px,0.7fr)] lg:gap-10">
+        <div className={`mt-10 grid items-start gap-8 lg:gap-10 ${downloads.length > 0 ? "lg:grid-cols-[minmax(0,1.7fr)_minmax(240px,0.7fr)]" : "max-w-4xl lg:grid-cols-1"}`}>
           <div>
             <div className="relative aspect-video overflow-hidden rounded-md border border-hairline bg-surface">
               {playing ? (
@@ -54,7 +57,7 @@ const PresentationSection = () => {
                 />
               ) : (
                 <>
-                  <img src={poster} alt="Aperçu de la présentation Shadow Transformation" className="absolute inset-0 h-full w-full object-cover" width="480" height="360" />
+                  <img src={poster} alt="Aperçu de la présentation Shadow Transformation" className="absolute inset-0 h-full w-full object-cover" width="1280" height="720" loading="lazy" decoding="async" />
                   <div className="absolute inset-0 flex items-center justify-center bg-background/25">
                     <Button
                       type="button"
