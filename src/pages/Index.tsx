@@ -32,6 +32,7 @@ import {
 import logo from "@/assets/logo-mark.png";
 import FounderSection from "@/components/FounderSection";
 import ModuleOneShowcase from "@/components/ModuleOneShowcase";
+import PresentationSection from "@/components/PresentationSection";
 import { Button } from "@/components/ui/button";
 import { ANALYTICS_EVENTS, trackEvent } from "@/lib/analytics";
 
@@ -46,6 +47,7 @@ const Index = () => {
         <SiteNav />
         <main>
           <HeroSection />
+          <PresentationSection />
           <ProblemSection />
           <MaturityProofSection />
           <ApproachSection />
@@ -290,6 +292,10 @@ const HeroSection = () => (
           </a>
         </Button>
       </div>
+
+      <a href="#presentation" className="mt-5 inline-flex text-sm text-ice-blue/80 underline underline-offset-4 transition-colors hover:text-glacier">
+        Découvrir la démarche en vidéo
+      </a>
 
       <div className="mt-20 max-w-3xl border-l border-ice-blue/40 pl-6">
         <p className="font-display text-lg font-light leading-relaxed text-glacier/90 lg:text-xl">
