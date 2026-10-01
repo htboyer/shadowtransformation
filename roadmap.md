@@ -4,3 +4,6 @@
 - [x] Renforcer la frise Accompagnement sur mobile et desktop.
 - [x] Ajouter des icônes linéaires sobres aux preuves, à l’approche, aux modules et à la frise.
 - [x] Aligner les textes statistiques sur la dernière formulation validée.
+- [x] Intégrer la nouvelle vidéo de présentation à la demande, avec poster local et lien YouTube.
+- [x] Préparer les téléchargements conditionnels de la fiche commerciale et du MP4 original, sans substitution.
+- [ ] Déposer les deux originaux commerciaux vérifiés et relancer le déploiement existant (bloqué : fichiers non reçus).
