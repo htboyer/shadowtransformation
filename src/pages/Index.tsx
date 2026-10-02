@@ -466,6 +466,12 @@ const ModulesSection = () => (
           transformation en trajectoire pilotable.
         </p>
       </div>
+      <Link
+        to="/diagnostic-organisationnel/"
+        className="mt-6 inline-flex items-center gap-2 text-sm text-ice-blue underline underline-offset-4 transition-colors hover:text-glacier sm:ml-[3.75rem]"
+      >
+        Le diagnostic organisationnel avant transformation <span aria-hidden>→</span>
+      </Link>
     </div>
   </section>
 );
@@ -505,6 +511,18 @@ const AccompagnementSection = () => (
             en trajectoire, en priorités de transformation, en gouvernance de
             pilotage et en actions concrètes.
           </p>
+          <ul className="mt-6 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8">
+            <li>
+              <Link to="/accompagnement-transformation-ia/" className="inline-flex items-center gap-2 text-ice-blue underline underline-offset-4 transition-colors hover:text-glacier">
+                Accompagner une transformation par l’IA <span aria-hidden>→</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/accompagnement-reorganisation/" className="inline-flex items-center gap-2 text-ice-blue underline underline-offset-4 transition-colors hover:text-glacier">
+                Accompagner une réorganisation <span aria-hidden>→</span>
+              </Link>
+            </li>
+          </ul>
 
           <div className="relative mt-14">
             <div
