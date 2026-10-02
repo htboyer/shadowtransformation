@@ -6,4 +6,4 @@
 - [x] Aligner les textes statistiques sur la dernière formulation validée.
 - [x] Intégrer la nouvelle vidéo de présentation à la demande, avec poster local et lien YouTube.
 - [x] Préparer les téléchargements conditionnels de la fiche commerciale et du MP4 original, sans substitution.
-- [ ] Déposer les deux originaux commerciaux vérifiés et relancer le déploiement existant (bloqué : fichiers non reçus).
+- [x] Déposer les deux originaux commerciaux vérifiés (PDF dans le dépôt ; MP4 externalisé sur le CDN Lovable — dépassement de la limite de dépôt) ; publication assurée par le déploiement existant.
