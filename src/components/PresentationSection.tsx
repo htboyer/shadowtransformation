@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Download, ExternalLink, Play } from "lucide-react";
 import poster from "@/assets/presentation/youtube-poster.jpg";
+import presentationVideo from "../assets/presentation/shadow-transformation-presentation.mp4.asset.json";
 import { Button } from "@/components/ui/button";
 
 const VIDEO_URL = "https://youtu.be/qc8XGnFqrIU";
 const EMBED_URL = "https://www.youtube-nocookie.com/embed/qc8XGnFqrIU?autoplay=1&playsinline=1&rel=0";
 
-// Seuls les deux originaux nommés exactement ainsi sont proposés au téléchargement.
+// Fiche PDF : résolue depuis le fichier exact hébergé sur le site. MP4 : asset CDN externe.
 const resources = import.meta.glob([
   "../assets/presentation/shadow-transformation-fiche-presentation.pdf",
-  "../assets/presentation/shadow-transformation-presentation.mp4",
 ], {
   eager: true,
   query: "?url",
@@ -27,7 +27,12 @@ const downloads = [
     filename: "shadow-transformation-presentation.mp4",
     label: "Télécharger la vidéo (MP4)",
   },
-].filter(({ path }) => Boolean(resources[path]));
+]
+  .map(({ path, ...rest }) => ({
+    ...rest,
+    url: path.endsWith(".mp4") ? presentationVideo.url : resources[path],
+  }))
+  .filter(({ url }) => Boolean(url));
 
 const PresentationSection = () => {
   const [playing, setPlaying] = useState(false);
