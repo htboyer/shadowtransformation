@@ -2,29 +2,31 @@ import { Link } from "react-router-dom";
 import { ARTICLES } from "@/content/articles";
 import { formatDate } from "@/components/site/ContentLayout";
 import { REGARDS_SUBTITLE, REGARDS_TITLE } from "@/seo/routes";
+import type { Article } from "@/content/types";
 
-export const ArticleCards = ({ headingLevel = "h3" }: { headingLevel?: "h2" | "h3" }) => {
+export const ArticleCard = ({ article: a, headingLevel: H }: { article: Article; headingLevel: "h2" | "h3" }) => (
+  <article className="premium-card flex min-w-0 flex-col overflow-hidden">
+    <Link to={a.path} aria-label={`Lire l’analyse : ${a.h1}`} className="block w-full max-w-[600px] self-center">
+      <img src={a.image} alt={a.imageAlt} width={600} height={337} loading="lazy" decoding="async" className="block h-auto w-full" />
+    </Link>
+    <div className="flex flex-1 flex-col p-7">
+      <time dateTime={a.datePublished} className="step-number text-[11px]">{formatDate(a.datePublished)}</time>
+      <H className="mt-6 font-display text-base font-medium leading-snug text-glacier">
+        <Link to={a.path} className="transition-colors hover:text-ice-blue">{a.h1}</Link>
+      </H>
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{a.summary}</p>
+      <Link to={a.path} className="mt-6 inline-flex w-fit items-center gap-2 text-sm text-ice-blue underline underline-offset-4 transition-colors hover:text-glacier" aria-label={`Lire l’analyse : ${a.h1}`}>
+        Lire l’analyse <span aria-hidden>→</span>
+      </Link>
+    </div>
+  </article>
+);
+
+export const ArticleCards = ({ headingLevel = "h3", articles = ARTICLES }: { headingLevel?: "h2" | "h3"; articles?: Article[] }) => {
   const H = headingLevel;
   return (
     <div className="grid gap-6 md:grid-cols-3">
-      {ARTICLES.map((a) => (
-        <article key={a.slug} className="premium-card flex flex-col p-7">
-          <time dateTime={a.datePublished} className="step-number text-[11px]">
-            {formatDate(a.datePublished)}
-          </time>
-          <H className="mt-6 font-display text-base font-medium leading-snug text-glacier">
-            <Link to={a.path} className="transition-colors hover:text-ice-blue">{a.h1}</Link>
-          </H>
-          <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{a.summary}</p>
-          <Link
-            to={a.path}
-            className="mt-6 inline-flex w-fit items-center gap-2 text-sm text-ice-blue underline underline-offset-4 transition-colors hover:text-glacier"
-            aria-label={`Lire l’analyse : ${a.h1}`}
-          >
-            Lire l’analyse <span aria-hidden>→</span>
-          </Link>
-        </article>
-      ))}
+      {articles.map((a) => <ArticleCard key={a.slug} article={a} headingLevel={H} />)}
     </div>
   );
 };

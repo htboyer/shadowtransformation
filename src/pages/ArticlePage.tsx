@@ -1,5 +1,6 @@
 import type { Article } from "@/content/types";
 import { ARTICLES } from "@/content/articles";
+import { ArticleCards } from "@/components/RegardsSection";
 import {
   BlockView,
   Breadcrumb,
@@ -15,7 +16,7 @@ import { AUTHOR_NAME, LINKEDIN_COMPANY, LINKEDIN_HUGUES, absoluteUrl } from "@/l
 const linkClass = "text-ice-blue underline underline-offset-4 transition-colors hover:text-glacier";
 
 const ArticlePage = ({ article }: { article: Article }) => {
-  const others = ARTICLES.filter((a) => a.slug !== article.slug).map((a) => ({ label: a.h1, href: a.path }));
+  const others = ARTICLES.filter((a) => a.slug !== article.slug);
   const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(absoluteUrl(article.path))}`;
   return (
     <SiteShell>
@@ -36,6 +37,11 @@ const ArticlePage = ({ article }: { article: Article }) => {
             {article.summary}
           </p>
         </header>
+
+        <figure className="mx-auto mt-10 w-full max-w-[600px]">
+          <img src={article.image} alt={article.imageAlt} width={600} height={337} decoding="async" fetchPriority="high" className="block h-auto w-full rounded-lg" />
+          <figcaption className="mt-3 text-center text-xs text-muted-foreground">Illustration de la démarche — visuel créé avec l’IA.</figcaption>
+        </figure>
 
         <nav aria-label="Sommaire" className="mt-10 max-w-[70ch] rounded-xl border border-hairline bg-surface/60 p-6">
           <p className="eyebrow text-[10px]">Sommaire</p>
@@ -79,7 +85,10 @@ const ArticlePage = ({ article }: { article: Article }) => {
 
         <ContactCta />
         <RelatedLinks title="Prestation associée" links={article.related} />
-        <RelatedLinks title="Autres lectures" links={others} />
+        <section className="mt-12" aria-labelledby="autres-lectures">
+          <h2 id="autres-lectures" className="font-display text-lg font-medium text-glacier">Autres lectures</h2>
+          <div className="mt-4"><ArticleCards articles={others} headingLevel="h3" /></div>
+        </section>
         {article.sources && <SourcesList sources={article.sources} />}
       </article>
     </SiteShell>

@@ -8,6 +8,8 @@ const HSE_DEMANDS: Source = { label: "Health and Safety Executive — Management
 
 export const ARTICLE_IA: Article = {
   slug: "clarifier-processus-avant-ia",
+  image: "/images/regards/clarifier-processus-avant-ia.webp",
+  imageAlt: "Flux de travail avec étapes de décision et contrôle humain avant l’assistance par l’IA.",
   path: "/regards/clarifier-processus-avant-ia/",
   datePublished: PUBLISHED,
   seoTitle: "Avant l'IA : clarifier les processus de travail | Shadow Transformation",
@@ -79,6 +81,8 @@ export const ARTICLE_IA: Article = {
 
 export const ARTICLE_REORG: Article = {
   slug: "reorganisation-roles-decisions",
+  image: "/images/regards/reorganisation-roles-decisions.webp",
+  imageAlt: "Coordination de plusieurs équipes, clarification d’une décision et transmission d’un dossier.",
   path: "/regards/reorganisation-roles-decisions/",
   datePublished: PUBLISHED,
   seoTitle: "Réorganisation : clarifier les rôles et décisions | Shadow Transformation",
@@ -150,6 +154,8 @@ export const ARTICLE_REORG: Article = {
 
 export const ARTICLE_FATIGUE: Article = {
   slug: "fatigue-changement-disponibilite",
+  image: "/images/regards/fatigue-changement-disponibilite.webp",
+  imageAlt: "Mise en balance des sollicitations de travail et du temps réservé à la contribution.",
   path: "/regards/fatigue-changement-disponibilite/",
   datePublished: PUBLISHED,
   seoTitle: "Fatigue du changement : vérifier la disponibilité | Shadow Transformation",

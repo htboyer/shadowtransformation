@@ -16,6 +16,7 @@ export type SeoMeta = {
   title: string;
   description: string;
   ogType: "website" | "article";
+  image?: string;
   noindex?: boolean;
   jsonLd: Record<string, unknown>[];
 };
@@ -100,12 +101,14 @@ export const PAGES: SeoMeta[] = [
     title: a.seoTitle,
     description: a.description,
     ogType: "article",
+    image: absoluteUrl(a.image),
     jsonLd: [
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         headline: a.h1,
         description: a.description,
+        image: absoluteUrl(a.image),
         url: absoluteUrl(a.path),
         mainEntityOfPage: absoluteUrl(a.path),
         datePublished: a.datePublished,

@@ -28,4 +28,6 @@ export type Article = ContentPage & {
   slug: string;
   summary: string;
   datePublished: string;
+  image: string;
+  imageAlt: string;
 };

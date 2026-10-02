@@ -13,11 +13,11 @@ export const headTags = (m: SeoMeta): HeadTag[] => {
     { tag: "meta", attrs: { property: "og:type", content: m.ogType } },
     { tag: "meta", attrs: { property: "og:locale", content: "fr_FR" } },
     { tag: "meta", attrs: { property: "og:site_name", content: "Shadow Transformation" } },
-    { tag: "meta", attrs: { property: "og:image", content: SHARE_IMAGE } },
+    { tag: "meta", attrs: { property: "og:image", content: m.image ?? SHARE_IMAGE } },
     { tag: "meta", attrs: { name: "twitter:card", content: "summary_large_image" } },
     { tag: "meta", attrs: { name: "twitter:title", content: m.title } },
     { tag: "meta", attrs: { name: "twitter:description", content: m.description } },
-    { tag: "meta", attrs: { name: "twitter:image", content: SHARE_IMAGE } },
+    { tag: "meta", attrs: { name: "twitter:image", content: m.image ?? SHARE_IMAGE } },
   ];
   if (m.noindex) {
     tags.push({ tag: "meta", attrs: { name: "robots", content: "noindex" } });
