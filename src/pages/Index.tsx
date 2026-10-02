@@ -701,10 +701,6 @@ const ContactSection = () => {
           <span aria-hidden>→</span>
         </a>
       </div>
-
-      <p className="mt-14 text-xs uppercase tracking-[0.22em] text-muted-foreground/70">
-        Site complet en préparation
-      </p>
     </div>
   </section>
   );
