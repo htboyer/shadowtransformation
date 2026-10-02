@@ -110,7 +110,7 @@ const NAV = [
 
 export const SiteNav = ({ home = false }: { home?: boolean }) => {
   const a = (id: string) => (home ? `#${id}` : `/#${id}`);
-  const linkClass = "text-sm font-medium tracking-wide text-muted-foreground transition-colors hover:text-glacier md:text-[13px] lg:text-sm";
+  const linkClass = "text-sm font-medium tracking-wide text-muted-foreground transition-colors hover:text-glacier";
   return (
   <header className="sticky top-0 z-40 border-b border-hairline/50 bg-background/75 backdrop-blur-xl">
     <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5 lg:px-10 lg:py-6">
@@ -126,7 +126,7 @@ export const SiteNav = ({ home = false }: { home?: boolean }) => {
           height={56}
           className="h-12 w-12 object-contain drop-shadow-[0_2px_12px_hsl(202_56%_59%/0.35)] transition-opacity group-hover:opacity-95 lg:h-14 lg:w-14"
         />
-        <span className="hidden leading-none sm:flex sm:flex-col md:hidden lg:flex">
+        <span className="hidden leading-none sm:flex sm:flex-col">
           <span className="font-display text-lg font-semibold tracking-tight text-glacier lg:text-xl">
             Shadow
           </span>
@@ -135,7 +135,7 @@ export const SiteNav = ({ home = false }: { home?: boolean }) => {
           </span>
         </span>
       </a>
-      <nav aria-label="Navigation principale" className="hidden items-center gap-5 md:flex lg:gap-7">
+      <nav aria-label="Navigation principale" className="hidden items-center gap-6 lg:flex xl:gap-8">
         {NAV.map((item) => (
           <a key={item.anchor} href={a(item.anchor)} className={linkClass}>
             {item.label}
@@ -155,7 +155,7 @@ export const SiteNav = ({ home = false }: { home?: boolean }) => {
           ÉCHANGE CONFIDENTIEL
         </a>
       </nav>
-      <div className="flex items-center gap-4 md:hidden">
+      <div className="flex items-center gap-4 lg:hidden">
         <Link to="/regards/" className="text-[12px] font-medium tracking-wide text-muted-foreground transition-colors hover:text-glacier">
           Regards
         </Link>
