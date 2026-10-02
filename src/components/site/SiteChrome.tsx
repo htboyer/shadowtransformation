@@ -126,7 +126,7 @@ export const SiteNav = ({ home = false }: { home?: boolean }) => {
           height={56}
           className="h-12 w-12 object-contain drop-shadow-[0_2px_12px_hsl(202_56%_59%/0.35)] transition-opacity group-hover:opacity-95 lg:h-14 lg:w-14"
         />
-        <span className="hidden leading-none sm:flex sm:flex-col">
+        <span className="hidden leading-none sm:flex sm:flex-col lg:hidden xl:flex">
           <span className="font-display text-lg font-semibold tracking-tight text-glacier lg:text-xl">
             Shadow
           </span>
@@ -135,7 +135,7 @@ export const SiteNav = ({ home = false }: { home?: boolean }) => {
           </span>
         </span>
       </a>
-      <nav aria-label="Navigation principale" className="hidden items-center gap-6 lg:flex xl:gap-8">
+      <nav aria-label="Navigation principale" className="hidden items-center gap-5 lg:flex xl:gap-7">
         {NAV.map((item) => (
           <a key={item.anchor} href={a(item.anchor)} className={linkClass}>
             {item.label}
