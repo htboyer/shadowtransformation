@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Download, ExternalLink, Play } from "lucide-react";
 import poster from "@/assets/presentation/youtube-poster.jpg";
+import presentationVideo from "../assets/presentation/shadow-transformation-presentation.mp4.asset.json";
 import { Button } from "@/components/ui/button";
 
 const VIDEO_URL = "https://youtu.be/qc8XGnFqrIU";
 const EMBED_URL = "https://www.youtube-nocookie.com/embed/qc8XGnFqrIU?autoplay=1&playsinline=1&rel=0";
 
-// Seuls les deux originaux nommés exactement ainsi sont proposés au téléchargement.
+// Fiche PDF : résolue depuis le fichier exact hébergé sur le site. MP4 : asset CDN externe.
 const resources = import.meta.glob([
   "../assets/presentation/shadow-transformation-fiche-presentation.pdf",
-  "../assets/presentation/shadow-transformation-presentation.mp4",
 ], {
   eager: true,
   query: "?url",
@@ -27,7 +27,12 @@ const downloads = [
     filename: "shadow-transformation-presentation.mp4",
     label: "Télécharger la vidéo (MP4)",
   },
-].filter(({ path }) => Boolean(resources[path]));
+]
+  .map(({ path, ...rest }) => ({
+    ...rest,
+    url: path.endsWith(".mp4") ? presentationVideo.url : resources[path],
+  }))
+  .filter(({ url }) => Boolean(url));
 
 const PresentationSection = () => {
   const [playing, setPlaying] = useState(false);
@@ -84,9 +89,9 @@ const PresentationSection = () => {
             <aside aria-label="Ressources de présentation" className="border-t border-hairline pt-6 lg:border-t-0 lg:border-l lg:py-2 lg:pl-8">
               <p className="font-display text-sm font-medium text-glacier">Documents de présentation</p>
               <div className="mt-5 flex flex-col items-start gap-3">
-                {downloads.map(({ path, filename, label }) => (
-                  <Button key={path} asChild variant="outline" className="h-auto max-w-full whitespace-normal border-ice-blue/35 bg-transparent px-4 py-3 text-left text-glacier hover:bg-secondary">
-                    <a href={resources[path]} download={filename}>
+                {downloads.map(({ filename, url, label }) => (
+                  <Button key={filename} asChild variant="outline" className="h-auto max-w-full whitespace-normal border-ice-blue/35 bg-transparent px-4 py-3 text-left text-glacier hover:bg-secondary">
+                    <a href={url} download={filename}>
                       <Download aria-hidden className="h-4 w-4" /> {label}
                     </a>
                   </Button>
