@@ -8,3 +8,4 @@
 - [x] Préparer les téléchargements conditionnels de la fiche commerciale et du MP4 original, sans substitution.
 - [x] Déposer les deux originaux commerciaux vérifiés (PDF dans le dépôt ; MP4 externalisé sur le CDN Lovable — dépassement de la limite de dépôt) ; publication assurée par le déploiement existant.
 - [x] Lot SEO/Regards : canonical www, 7 pages pré-rendues (3 prestations, Regards, 3 articles), 404 noindex, sitemap/robots, JSON-LD, liens LinkedIn, docs SEO/éditorial/livraison, contrôles.
+- [x] Illustrations originales de Regards : cartes accueil et hub, pages de lecture et métadonnées article, fichiers WebP locaux sans agrandissement.

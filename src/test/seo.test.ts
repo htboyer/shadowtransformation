@@ -33,6 +33,8 @@ describe("métadonnées SEO", () => {
       expect(ld.headline).toBe(a.h1);
       expect(ld.datePublished).toBe("2026-10-02");
       expect((ld.author as { name: string }).name).toBe("Hugues Temple-Boyer");
+      expect(ld.image).toBe(`https://www.shadowtransformation.fr${a.image}`);
+      expect(renderHead(metaForPath(a.path))).toContain(`property="og:image" content="https://www.shadowtransformation.fr${a.image}"`);
     });
   });
 
