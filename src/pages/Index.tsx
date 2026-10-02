@@ -29,22 +29,23 @@ import {
   Target,
   Users,
 } from "lucide-react";
-import logo from "@/assets/logo-mark.png";
+import RegardsSection from "@/components/RegardsSection";
+import { PageBackdrop, SiteFooter, SiteNav } from "@/components/site/SiteChrome";
+import { Link } from "react-router-dom";
 import FounderSection from "@/components/FounderSection";
 import ModuleOneShowcase from "@/components/ModuleOneShowcase";
 import PresentationSection from "@/components/PresentationSection";
 import { Button } from "@/components/ui/button";
 import { ANALYTICS_EVENTS, trackEvent } from "@/lib/analytics";
 
-const CONTACT_EMAIL = "contact@shadowtransformation.fr";
-const MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Premier échange confidentiel — Shadow Transformation")}&body=${encodeURIComponent("Bonjour, je souhaite échanger au sujet d’une transformation à sécuriser, structurer ou accompagner.")}`;
+import { CONTACT_EMAIL, MAILTO } from "@/lib/site";
 
 const Index = () => {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       <PageBackdrop />
       <div className="relative z-10">
-        <SiteNav />
+        <SiteNav home />
         <main>
           <HeroSection />
           <PresentationSection />
@@ -55,10 +56,11 @@ const Index = () => {
           <ModuleOneShowcase />
           <AccompagnementSection />
           <DeliverablesSection />
+          <RegardsSection />
           <FounderSection />
           <ContactSection />
         </main>
-        <SiteFooter />
+        <SiteFooter home />
       </div>
     </div>
   );
