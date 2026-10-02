@@ -1,4 +1,5 @@
 import founderPhoto from "@/assets/founder.jpg";
+import { LINKEDIN_HUGUES } from "@/lib/site";
 
 /* =========================================================
    SECTION — À propos du fondateur
@@ -92,6 +93,14 @@ const FounderSection = () => (
               transformation crédibles, pilotables et accompagnées.
             </p>
           </div>
+          <a
+            href={LINKEDIN_HUGUES}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex w-fit items-center gap-2 text-sm text-ice-blue underline underline-offset-4 transition-colors hover:text-glacier"
+          >
+            Suivre les analyses de Hugues Temple-Boyer sur LinkedIn <span aria-hidden>↗</span>
+          </a>
 
           {/* Micro-tags sobres — continuité avec la ligne de crédibilité du hero */}
           <div className="mt-10 space-y-3 border-t border-hairline/70 pt-8">

@@ -29,22 +29,23 @@ import {
   Target,
   Users,
 } from "lucide-react";
-import logo from "@/assets/logo-mark.png";
+import RegardsSection from "@/components/RegardsSection";
+import { PageBackdrop, SiteFooter, SiteNav } from "@/components/site/SiteChrome";
+import { Link } from "react-router-dom";
 import FounderSection from "@/components/FounderSection";
 import ModuleOneShowcase from "@/components/ModuleOneShowcase";
 import PresentationSection from "@/components/PresentationSection";
 import { Button } from "@/components/ui/button";
 import { ANALYTICS_EVENTS, trackEvent } from "@/lib/analytics";
 
-const CONTACT_EMAIL = "contact@shadowtransformation.fr";
-const MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Premier échange confidentiel — Shadow Transformation")}&body=${encodeURIComponent("Bonjour, je souhaite échanger au sujet d’une transformation à sécuriser, structurer ou accompagner.")}`;
+import { CONTACT_EMAIL, MAILTO } from "@/lib/site";
 
 const Index = () => {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       <PageBackdrop />
       <div className="relative z-10">
-        <SiteNav />
+        <SiteNav home />
         <main>
           <HeroSection />
           <PresentationSection />
@@ -55,10 +56,11 @@ const Index = () => {
           <ModuleOneShowcase />
           <AccompagnementSection />
           <DeliverablesSection />
+          <RegardsSection />
           <FounderSection />
           <ContactSection />
         </main>
-        <SiteFooter />
+        <SiteFooter home />
       </div>
     </div>
   );
@@ -66,169 +68,6 @@ const Index = () => {
 
 export default Index;
 
-/* =========================================================
-   Arrière-plan : nappes lumineuses + courbes "fantômes"
-   inspirées du langage graphique du logo
-   ========================================================= */
-const PageBackdrop = () => (
-  <div
-    aria-hidden
-    className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-    style={{ background: "var(--gradient-page)" }}
-  >
-    {/* Halo haut-droit (ascendance) */}
-    <div
-      className="absolute -right-40 -top-32 h-[70vh] w-[70vh] rounded-full"
-      style={{
-        background:
-          "radial-gradient(circle, hsl(var(--ice-blue) / 0.16), transparent 65%)",
-      }}
-    />
-    {/* Halo bas-gauche (profondeur) */}
-    <div
-      className="absolute -left-48 top-[55%] h-[65vh] w-[65vh] rounded-full"
-      style={{
-        background:
-          "radial-gradient(circle, hsl(var(--petrol) / 0.22), transparent 70%)",
-      }}
-    />
-
-    {/* Orbites / courbes ascendantes inspirées du logo */}
-    <svg
-      className="absolute inset-0 h-full w-full"
-      viewBox="0 0 1600 2400"
-      preserveAspectRatio="xMidYMid slice"
-      fill="none"
-    >
-      <defs>
-        <linearGradient id="orbitA" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="hsl(202 56% 59%)" stopOpacity="0" />
-          <stop offset="50%" stopColor="hsl(202 56% 59%)" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="hsl(202 56% 59%)" stopOpacity="0" />
-        </linearGradient>
-        <linearGradient id="orbitB" x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="hsl(199 84% 50%)" stopOpacity="0" />
-          <stop offset="50%" stopColor="hsl(199 84% 50%)" stopOpacity="0.28" />
-          <stop offset="100%" stopColor="hsl(199 84% 50%)" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-
-      <path
-        d="M -200 700 C 300 350, 900 250, 1700 520"
-        stroke="url(#orbitA)"
-        strokeWidth="1"
-        opacity="0.55"
-      />
-      <path
-        d="M -200 780 C 350 430, 950 330, 1700 600"
-        stroke="url(#orbitA)"
-        strokeWidth="1"
-        opacity="0.30"
-      />
-      <path
-        d="M -100 1300 C 500 1100, 1100 1400, 1800 1180"
-        stroke="url(#orbitB)"
-        strokeWidth="1"
-        opacity="0.4"
-      />
-      <path
-        d="M -200 2050 C 400 1800, 1100 1900, 1800 1700"
-        stroke="url(#orbitA)"
-        strokeWidth="1"
-        opacity="0.35"
-      />
-
-      <circle
-        cx="1320"
-        cy="380"
-        r="280"
-        stroke="hsl(202 56% 59%)"
-        strokeOpacity="0.10"
-        strokeWidth="1"
-      />
-      <circle
-        cx="1320"
-        cy="380"
-        r="380"
-        stroke="hsl(202 56% 59%)"
-        strokeOpacity="0.06"
-        strokeWidth="1"
-      />
-      <circle
-        cx="220"
-        cy="1700"
-        r="240"
-        stroke="hsl(199 84% 50%)"
-        strokeOpacity="0.08"
-        strokeWidth="1"
-      />
-    </svg>
-  </div>
-);
-
-/* =========================================================
-   Navigation
-   ========================================================= */
-const NAV = [
-  { href: "#approche", label: "Approche" },
-  { href: "#modules", label: "Modules" },
-  { href: "#accompagnement", label: "Accompagnement" },
-  { href: "#livrables", label: "Livrables" },
-  { href: "#contact", label: "Contact" },
-];
-
-const SiteNav = () => (
-  <header className="sticky top-0 z-40 border-b border-hairline/50 bg-background/75 backdrop-blur-xl">
-    <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-10 lg:py-6">
-      <a
-        href="#top"
-        className="group flex items-center gap-4"
-        aria-label="Shadow Transformation — Accueil"
-      >
-        <img
-          src={logo}
-          alt="Shadow Transformation"
-          width={56}
-          height={56}
-          className="h-12 w-12 object-contain drop-shadow-[0_2px_12px_hsl(202_56%_59%/0.35)] transition-opacity group-hover:opacity-95 lg:h-14 lg:w-14"
-        />
-        <span className="hidden leading-none sm:flex sm:flex-col">
-          <span className="font-display text-lg font-semibold tracking-tight text-glacier lg:text-xl">
-            Shadow
-          </span>
-          <span className="mt-1.5 font-display text-[12px] font-medium uppercase tracking-[0.28em] text-ice-blue lg:text-[13px]">
-            Transformation
-          </span>
-        </span>
-      </a>
-      <nav className="hidden items-center gap-6 md:flex lg:gap-8">
-        {NAV.map((item) => (
-          <a
-            key={item.href}
-            href={item.href}
-            className="text-sm font-medium tracking-wide text-muted-foreground transition-colors hover:text-glacier"
-          >
-            {item.label}
-          </a>
-        ))}
-        <a
-          href={MAILTO}
-          onClick={() => trackEvent(ANALYTICS_EVENTS.CTA_HEADER)}
-          className="rounded-full border border-ice-blue/40 px-4 py-2 text-xs font-medium tracking-[0.14em] text-glacier transition-colors hover:border-ice-blue hover:bg-ice-blue/10"
-        >
-          ÉCHANGE CONFIDENTIEL
-        </a>
-      </nav>
-      <a
-        href={MAILTO}
-        onClick={() => trackEvent(ANALYTICS_EVENTS.CTA_HEADER)}
-        className="rounded-full border border-ice-blue/40 px-3 py-1.5 text-[11px] font-medium tracking-[0.12em] text-glacier transition-colors hover:border-ice-blue hover:bg-ice-blue/10 md:hidden"
-      >
-        CONTACT
-      </a>
-    </div>
-  </header>
-);
 
 /* =========================================================
    SECTION 1 — Hero
@@ -627,6 +466,12 @@ const ModulesSection = () => (
           transformation en trajectoire pilotable.
         </p>
       </div>
+      <Link
+        to="/diagnostic-organisationnel/"
+        className="mt-6 inline-flex items-center gap-2 text-sm text-ice-blue underline underline-offset-4 transition-colors hover:text-glacier sm:ml-[3.75rem]"
+      >
+        Le diagnostic organisationnel avant transformation <span aria-hidden>→</span>
+      </Link>
     </div>
   </section>
 );
@@ -666,6 +511,18 @@ const AccompagnementSection = () => (
             en trajectoire, en priorités de transformation, en gouvernance de
             pilotage et en actions concrètes.
           </p>
+          <ul className="mt-6 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8">
+            <li>
+              <Link to="/accompagnement-transformation-ia/" className="inline-flex items-center gap-2 text-ice-blue underline underline-offset-4 transition-colors hover:text-glacier">
+                Accompagner une transformation par l’IA <span aria-hidden>→</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/accompagnement-reorganisation/" className="inline-flex items-center gap-2 text-ice-blue underline underline-offset-4 transition-colors hover:text-glacier">
+                Accompagner une réorganisation <span aria-hidden>→</span>
+              </Link>
+            </li>
+          </ul>
 
           <div className="relative mt-14">
             <div
@@ -853,36 +710,3 @@ const ContactSection = () => {
   );
 };
 
-/* =========================================================
-   Pied de page : épuré, cohérent avec le header
-   ========================================================= */
-const SiteFooter = () => (
-  <footer className="border-t border-hairline/60 bg-background/60">
-    <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-10 text-xs text-muted-foreground/80 md:flex-row md:items-center lg:px-10">
-      <a href="#top" className="flex items-center gap-3" aria-label="Shadow Transformation">
-        <img
-          src={logo}
-          alt="Shadow Transformation"
-          width={32}
-          height={32}
-          className="h-8 w-8 object-contain"
-        />
-        <span className="font-display text-[11px] uppercase tracking-[0.28em] text-ice-blue">
-          Shadow Transformation
-        </span>
-      </a>
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 tracking-wide">
-        <a
-          href={MAILTO}
-          onClick={() => trackEvent(ANALYTICS_EVENTS.EMAIL_CLICK)}
-          className="transition-colors hover:text-glacier"
-        >
-          {CONTACT_EMAIL}
-        </a>
-        <span aria-hidden className="hidden h-3 w-px bg-hairline md:inline-block" />
-        <span>shadowtransformation.fr</span>
-      </div>
-      <div>{new Date().getFullYear()}</div>
-    </div>
-  </footer>
-);
