@@ -89,9 +89,9 @@ const PresentationSection = () => {
             <aside aria-label="Ressources de présentation" className="border-t border-hairline pt-6 lg:border-t-0 lg:border-l lg:py-2 lg:pl-8">
               <p className="font-display text-sm font-medium text-glacier">Documents de présentation</p>
               <div className="mt-5 flex flex-col items-start gap-3">
-                {downloads.map(({ path, filename, label }) => (
-                  <Button key={path} asChild variant="outline" className="h-auto max-w-full whitespace-normal border-ice-blue/35 bg-transparent px-4 py-3 text-left text-glacier hover:bg-secondary">
-                    <a href={resources[path]} download={filename}>
+                {downloads.map(({ filename, url, label }) => (
+                  <Button key={filename} asChild variant="outline" className="h-auto max-w-full whitespace-normal border-ice-blue/35 bg-transparent px-4 py-3 text-left text-glacier hover:bg-secondary">
+                    <a href={url} download={filename}>
                       <Download aria-hidden className="h-4 w-4" /> {label}
                     </a>
                   </Button>
