@@ -1,4 +1,7 @@
 import type { Article, Source } from "./types";
+import processusImage from "../../public/images/regards/clarifier-processus-avant-ia.webp.asset.json";
+import reorganisationImage from "../../public/images/regards/reorganisation-roles-decisions.webp.asset.json";
+import fatigueImage from "../../public/images/regards/fatigue-changement-disponibilite.webp.asset.json";
 
 export const PUBLISHED = "2026-10-02";
 
@@ -8,6 +11,8 @@ const HSE_DEMANDS: Source = { label: "Health and Safety Executive — Management
 
 export const ARTICLE_IA: Article = {
   slug: "clarifier-processus-avant-ia",
+  image: processusImage.url,
+  imageAlt: "Flux de travail avec étapes de décision et contrôle humain avant l’assistance par l’IA.",
   path: "/regards/clarifier-processus-avant-ia/",
   datePublished: PUBLISHED,
   seoTitle: "Avant l'IA : clarifier les processus de travail | Shadow Transformation",
@@ -79,6 +84,8 @@ export const ARTICLE_IA: Article = {
 
 export const ARTICLE_REORG: Article = {
   slug: "reorganisation-roles-decisions",
+  image: reorganisationImage.url,
+  imageAlt: "Coordination de plusieurs équipes, clarification d’une décision et transmission d’un dossier.",
   path: "/regards/reorganisation-roles-decisions/",
   datePublished: PUBLISHED,
   seoTitle: "Réorganisation : clarifier les rôles et décisions | Shadow Transformation",
@@ -150,6 +157,8 @@ export const ARTICLE_REORG: Article = {
 
 export const ARTICLE_FATIGUE: Article = {
   slug: "fatigue-changement-disponibilite",
+  image: fatigueImage.url,
+  imageAlt: "Mise en balance des sollicitations de travail et du temps réservé à la contribution.",
   path: "/regards/fatigue-changement-disponibilite/",
   datePublished: PUBLISHED,
   seoTitle: "Fatigue du changement : vérifier la disponibilité | Shadow Transformation",
