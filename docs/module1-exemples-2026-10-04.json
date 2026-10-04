@@ -1,0 +1,464 @@
+{
+  "version": "2026-10-04",
+  "organisation": "NovaServices Conseil — entreprise fictive",
+  "publication_mode": "Consultation illustrative en images uniquement ; pas de téléchargement direct des documents.",
+  "sources": {
+    "rapport": {
+      "filename": "NovaServices-Module1-Rapport.pdf",
+      "bytes": 864328,
+      "sha256": "15c0bdda4faf7168f0507e8e33d51bffcfd748ec955a7c3991e8a19fb6351760",
+      "pages": 33,
+      "rasterizer": "MuPDF from original PDF"
+    },
+    "synthese": {
+      "filename": "NovaServices-Module1-Restitution.pptx",
+      "bytes": 3875091,
+      "sha256": "c1cb017e05cb3e076989259c4071eb1aa6d423ea92d5c7bc83f197517508361b",
+      "pages": 16,
+      "rasterizer": "LibreOffice 25.2 PDF + MuPDF; Calibri Light non disponible, substitution de rendu Carlito; fichier PPTX original non modifié."
+    }
+  },
+  "images": [
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-01.webp",
+      "kind": "rapport",
+      "page": 1,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 109846,
+      "sha256": "cace8a08cb4c5e2c65b1183643d3cac21e094274b6a3c0e4bde5def76af742c1"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-02.webp",
+      "kind": "rapport",
+      "page": 2,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 144840,
+      "sha256": "4fa39b719dd6698a1ae57e8a8132d7da7f801f819e6b69eaf3147e898c52185d"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-03.webp",
+      "kind": "rapport",
+      "page": 3,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 107468,
+      "sha256": "728797d9f6aa31c41a231584d6f2914e0a9e998ea5d82e8190882ab09a13db22"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-04.webp",
+      "kind": "rapport",
+      "page": 4,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 286474,
+      "sha256": "de63ec5a38358b311487168a9ca4c9b03369234864a4d06342d3d5de9f91b61a"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-05.webp",
+      "kind": "rapport",
+      "page": 5,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 105408,
+      "sha256": "9633f336a8e6bdcfa9b70b218c6015ab62a017d5039b0a25fbdb13ed119dcc45"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-06.webp",
+      "kind": "rapport",
+      "page": 6,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 136296,
+      "sha256": "5df305fa1b0b2a44e6fe6cc3e5cbf71d802a18ed7ed7168938dbb2d61ba05e11"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-07.webp",
+      "kind": "rapport",
+      "page": 7,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 299782,
+      "sha256": "5466ac9b67d415f83f762732fda0fbcd6365bb9d6b7b935e9db24002f41b075f"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-08.webp",
+      "kind": "rapport",
+      "page": 8,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 273730,
+      "sha256": "8f8b0580f135792d9233dfb5477d1af3ca80e0ba75055f97d85f918cf85f6ade"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-09.webp",
+      "kind": "rapport",
+      "page": 9,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 281770,
+      "sha256": "2c59a560cdaecaab482951213bccf912adfce45e761de46e9b483928b098f744"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-10.webp",
+      "kind": "rapport",
+      "page": 10,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 263994,
+      "sha256": "2fdccb737e585d1c6b3fe2e770f26591ed335e3bd3add943664cc78b64e97576"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-11.webp",
+      "kind": "rapport",
+      "page": 11,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 286512,
+      "sha256": "0347c35eb8b92723e266823efe7c2f4f8312ab76d1c067fedc57bb66890106ce"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-12.webp",
+      "kind": "rapport",
+      "page": 12,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 155050,
+      "sha256": "85bbd2824fcb04f7be10495a9f39e17bd83aeb7a3141700231ee26f8e60967ac"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-13.webp",
+      "kind": "rapport",
+      "page": 13,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 296254,
+      "sha256": "b43e0d75064c0efc99270a65c9b5383ca804a98c7ad2e741e88badadbd2aea11"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-14.webp",
+      "kind": "rapport",
+      "page": 14,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 164526,
+      "sha256": "ab4170ffbe02cbb37f63c1785a0f81ce3d4d8c0fbd0add84c3dac90eadd5c20b"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-15.webp",
+      "kind": "rapport",
+      "page": 15,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 311952,
+      "sha256": "1803ecc82979957dd60c967edf79947480f5834b056aa6d556fafea3bb203626"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-16.webp",
+      "kind": "rapport",
+      "page": 16,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 124224,
+      "sha256": "4b4dc3bc2643ccaed88774b18c48ae313381316c48ecc373321cc2cfc280d8a5"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-17.webp",
+      "kind": "rapport",
+      "page": 17,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 300452,
+      "sha256": "39119703b2ae4df8eff3c0c5241ba6455c3656b69143eac19014e218129ef65e"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-18.webp",
+      "kind": "rapport",
+      "page": 18,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 167562,
+      "sha256": "e5f4ea02614ac2f4fa77a18a4a7be8a340d4c6887d99bde264fe7a6cb0d8e7cf"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-19.webp",
+      "kind": "rapport",
+      "page": 19,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 161754,
+      "sha256": "c1e8b1fcd9c268b623ce6834b21e1c9b8592acf159fc5f7ba789411ca17468e4"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-20.webp",
+      "kind": "rapport",
+      "page": 20,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 77892,
+      "sha256": "bb2b828583b2cdc07be87861a847675a13ff2ded3e5e2ba04508b10883d07319"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-21.webp",
+      "kind": "rapport",
+      "page": 21,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 184784,
+      "sha256": "7d832fa158ef888e8d8929165f56090d29a5ecb7db375402070902a364d5d876"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-22.webp",
+      "kind": "rapport",
+      "page": 22,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 203532,
+      "sha256": "b0901e72373a6a25182a618f64ca91bdcd0401c375440722e37e08bb464c6e42"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-23.webp",
+      "kind": "rapport",
+      "page": 23,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 112436,
+      "sha256": "4ea3205adee41bde7a42af62842708e4943749e722570b30ecd48536a6a52346"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-24.webp",
+      "kind": "rapport",
+      "page": 24,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 197848,
+      "sha256": "ad44cefc99943c08ef5e429725f5f9474b266c54721ddc4e28eb04df005469fa"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-25.webp",
+      "kind": "rapport",
+      "page": 25,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 174162,
+      "sha256": "1caa8d9347e09bbf728b8c751916fb65ce4d487695355a7f9662c2cc720e5fac"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-26.webp",
+      "kind": "rapport",
+      "page": 26,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 205822,
+      "sha256": "069c289a4d8e6ee5af882af1dafa682882ba743aed4b9aa7d3ebe7986a943beb"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-27.webp",
+      "kind": "rapport",
+      "page": 27,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 207196,
+      "sha256": "2df4987297890af56464175d81d7c0e4d15b666d1c44b8f014be53c830e7ee59"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-28.webp",
+      "kind": "rapport",
+      "page": 28,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 205160,
+      "sha256": "d0ac96edfd36388233c9d52210a08790ad51508aedb6292a25697e25a1c4682e"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-29.webp",
+      "kind": "rapport",
+      "page": 29,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 206124,
+      "sha256": "d40053b8b1c445c9253bc8d066f2def1f735317998ea97e5ac6c37425bb13486"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-30.webp",
+      "kind": "rapport",
+      "page": 30,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 273260,
+      "sha256": "92df483d65127548056295ce1bf1f826fe9954debd33a5e6e642bdbd05fd1ebc"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-31.webp",
+      "kind": "rapport",
+      "page": 31,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 304776,
+      "sha256": "66dd7b705e45ff8272fca4bb9c64e7538337090e388baa05c8a31666d9ccca03"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-32.webp",
+      "kind": "rapport",
+      "page": 32,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 223186,
+      "sha256": "1bb7c9345f76633a8ae614811b7948606fd0ec2bc7a599cd0b097d1619108a7c"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/rapport-33.webp",
+      "kind": "rapport",
+      "page": 33,
+      "width": 1400,
+      "height": 1982,
+      "bytes": 164332,
+      "sha256": "44647dc4c594413af34e444b85acdc19ad2953bacf65654381a0abcc0abd24db"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-01.webp",
+      "kind": "synthese",
+      "page": 1,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 73536,
+      "sha256": "7943ecf542ef6cbc7741434dc9ec46af1349ccf0dd8b7f9055589414e2bf5be7"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-02.webp",
+      "kind": "synthese",
+      "page": 2,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 135668,
+      "sha256": "0d78259bc3dcc8d378102a1ecea6ea0d89fdf7a8a2787716b8f53dd430a29382"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-03.webp",
+      "kind": "synthese",
+      "page": 3,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 96094,
+      "sha256": "8d2eaca919ec27ac6629f6ff739c3bf946c0507f26d877d45adcb2cbe0e6e0d9"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-04.webp",
+      "kind": "synthese",
+      "page": 4,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 142078,
+      "sha256": "416de1f81daa26456e342466eaed955cc880aba9e2b1b9df9ae4699d320cd777"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-05.webp",
+      "kind": "synthese",
+      "page": 5,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 132532,
+      "sha256": "c2edb3d74e4be0f7a9fab6a08ff743ef407d57fa1e7eef0c59c08242769afe68"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-06.webp",
+      "kind": "synthese",
+      "page": 6,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 135072,
+      "sha256": "eaa7c0f9230dde0077867dbeee5aa506de88db23035c4aa1ff1eace9dc5ed043"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-07.webp",
+      "kind": "synthese",
+      "page": 7,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 142974,
+      "sha256": "7d3084be5e928d65e06c7d409fde9701b76c5fdbb1c702cdb0c5a3a606563d2a"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-08.webp",
+      "kind": "synthese",
+      "page": 8,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 129994,
+      "sha256": "c0f7eb6eadae2a19549f81771569a4973ebac8fde0f967ac0bb031823f3c489f"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-09.webp",
+      "kind": "synthese",
+      "page": 9,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 132026,
+      "sha256": "e448e4d64af26f599ff5ceb278ef62a687094dc501c231ec4d0e085f71167013"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-10.webp",
+      "kind": "synthese",
+      "page": 10,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 152524,
+      "sha256": "8eafdb833ea33b4ca8cfe3e3e6e4f3b8bbe97f0772cd7e32ed2903e0bb3a4415"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-11.webp",
+      "kind": "synthese",
+      "page": 11,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 224968,
+      "sha256": "e76da2f6cc0613d8cd70950ee803bf37ac020694336a15e3d562866f3e9150bf"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-12.webp",
+      "kind": "synthese",
+      "page": 12,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 196320,
+      "sha256": "5b357dc78477ded919282687aaee6a4c7c35d5b200e850d9671776fe3a3f1038"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-13.webp",
+      "kind": "synthese",
+      "page": 13,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 191230,
+      "sha256": "92a11dd7f522f69c61392079693f3ad45093f78df5fff8f84fd719d25959621f"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-14.webp",
+      "kind": "synthese",
+      "page": 14,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 214054,
+      "sha256": "b01d17feab42400f8e4790a1ae64110a9eab09062a663741375ee03ef5649851"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-15.webp",
+      "kind": "synthese",
+      "page": 15,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 116298,
+      "sha256": "079649a73a5182d120053267f40b3bedebd882c28c901bbe326bbeb90d4c8645"
+    },
+    {
+      "path": "src/assets/deliverables/2026-10-04/synthese-16.webp",
+      "kind": "synthese",
+      "page": 16,
+      "width": 1920,
+      "height": 1080,
+      "bytes": 124212,
+      "sha256": "f0ff46c2779520af62fc7485868aaea432417fe5e802ebae94a2182e92440d1f"
+    }
+  ]
+}
