@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { FileText, Maximize2 } from "lucide-react";
+import { Maximize2 } from "lucide-react";
 import dashboardImage from "@/assets/module-one/dashboard.webp";
 import monitoringImage from "@/assets/module-one/monitoring.webp";
 import analysisImage from "@/assets/module-one/analysis.webp";
@@ -21,10 +21,10 @@ const loadPages = (modules: Record<string, { default: string }>) =>
     .map((key) => modules[key].default);
 
 const REPORT_PAGES = loadPages(
-  import.meta.glob("../assets/deliverables/rapport-*.webp", { eager: true }) as Record<string, { default: string }>,
+  import.meta.glob("../assets/deliverables/2026-10-04/rapport-*.webp", { eager: true }) as Record<string, { default: string }>,
 );
 const SUMMARY_PAGES = loadPages(
-  import.meta.glob("../assets/deliverables/synthese-*.webp", { eager: true }) as Record<string, { default: string }>,
+  import.meta.glob("../assets/deliverables/2026-10-04/synthese-*.webp", { eager: true }) as Record<string, { default: string }>,
 );
 
 const TOOL_SCREENS = [
@@ -38,21 +38,21 @@ const DELIVERABLES = [
   {
     title: "Restitution sponsor — rapport",
     description:
-      "Un rapport de 24 pages : synthèse décisionnelle, lecture de maturité, écarts de perception, priorités à vérifier, conditions de la suite et annexes méthodologiques.",
+      "Un rapport de 33 pages : synthèse décisionnelle, lecture de maturité, écarts de perception, priorités à vérifier, conditions de la suite et annexes méthodologiques.",
     cta: "Consulter le rapport",
     modalTitle: "Restitution sponsor — rapport complet",
     modalDescription:
-      "Exemple fictif NovaServices Conseil — rapport de 24 pages, export du 21 septembre 2026. Document de travail : les conditions de la suite et la décision du consultant restent à valider.",
+      "Exemple fictif NovaServices Conseil — rapport de 33 pages, export du 4 octobre 2026. Document de travail : les conditions de la suite et la décision du consultant restent à valider.",
     pages: REPORT_PAGES,
   },
   {
     title: "Restitution sponsor — synthèse",
     description:
-      "Une présentation de 13 diapositives pour partager les enseignements clés, clarifier les conditions de la suite et préparer l’arbitrage du consultant.",
+      "Une présentation de 16 diapositives pour partager les enseignements clés, clarifier les conditions de la suite et préparer l’arbitrage du consultant.",
     cta: "Consulter la synthèse",
     modalTitle: "Restitution sponsor — synthèse complète",
     modalDescription:
-      "Exemple fictif NovaServices Conseil — présentation de 13 diapositives, export du 21 septembre 2026. Support de restitution pour préparer l’arbitrage du consultant.",
+      "Exemple fictif NovaServices Conseil — présentation de 16 diapositives, export du 4 octobre 2026. Support de restitution pour préparer l’arbitrage du consultant.",
     pages: SUMMARY_PAGES,
   },
 ];
@@ -160,9 +160,28 @@ const ModuleOneShowcase = () => (
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {DELIVERABLES.map((deliverable) => (
             <article key={deliverable.title} className="premium-card flex flex-col p-7 sm:p-8">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-ice-blue/30 bg-[hsl(var(--petrol)/0.12)] text-ice-blue">
-                <FileText aria-hidden className="h-4 w-4" />
-              </div>
+              <DeliverableViewer
+                title={deliverable.modalTitle}
+                description={deliverable.modalDescription}
+                label={deliverable.title}
+                pages={deliverable.pages}
+                trigger={
+                  <Button
+                    variant="outline"
+                    type="button"
+                    aria-label={`${deliverable.cta} — aperçu de la première page`}
+                    className="group flex h-60 w-full items-center justify-center overflow-hidden rounded-lg border border-hairline bg-card/40 p-3 transition-colors hover:border-ice-blue/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ice-blue sm:h-72"
+                  >
+                    <img
+                      src={deliverable.pages[0]}
+                      alt={`Première page du document : ${deliverable.title} — NovaServices Conseil, exemple fictif du 4 octobre 2026`}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-contain"
+                    />
+                  </Button>
+                }
+              />
               <h3 className="mt-6 font-display text-lg font-medium text-glacier">{deliverable.title}</h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{deliverable.description}</p>
               <DeliverableViewer

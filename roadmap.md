@@ -9,3 +9,5 @@
 - [x] Déposer les deux originaux commerciaux vérifiés (PDF dans le dépôt ; MP4 externalisé sur le CDN Lovable — dépassement de la limite de dépôt) ; publication assurée par le déploiement existant.
 - [x] Lot SEO/Regards : canonical www, 7 pages pré-rendues (3 prestations, Regards, 3 articles), 404 noindex, sitemap/robots, JSON-LD, liens LinkedIn, docs SEO/éditorial/livraison, contrôles.
 - [x] Illustrations originales de Regards : cartes accueil et hub, pages de lecture et métadonnées article, fichiers WebP locaux sans agrandissement.
+- [x] Actualiser les exemples Module 1 du 4 octobre : 33 pages, 16 diapositives, couvertures cliquables et contrôles.
+- [ ] Confirmer la publication des nouveaux exemples via GitHub Pages — attend la synchronisation et le workflow ; aucun accès GitHub authentifié disponible ici.
