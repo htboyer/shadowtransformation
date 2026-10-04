@@ -19,3 +19,11 @@ Comptage des 33 pages du PDF et des 16 diapositives du PPTX ; intégrité ZIP du
 
 ## Contrôles à faire dans le projet avant publication
 Tests existants ; compilation/prérendu ; contrôle des deux compteurs 33/16 ; couverture, page suivante et dernière page des deux visionneuses ; ouverture par vignette et bouton ; affichage mobile et ordinateur ; fichiers images effectivement accessibles. La présence en ligne doit être contrôlée après réussite du workflow GitHub Pages. Aucun contrôle de production n'est revendiqué par ce kit.
+
+## Contrôles effectués lors de l’intégration
+- Les 49 images du kit ont été décodées ; dimensions, tailles et SHA256 conformes au manifeste. Les originaux PDF/PPTX ne sont pas inclus dans le kit : leurs empreintes sont déclarées par son fournisseur, non recalculées ici.
+- Tests existants : 6/6 réussis. Signal de compilation du preview : build OK. Aucun build/prérendu manuel supplémentaire n’a été exécuté.
+- Navigateur à 1280 et 390 pixels : clic sur chaque couverture et chaque bouton, retour à la page 1, parcours de toutes les 33 pages et 16 diapositives, images chargées et compteurs conformes ; aucune erreur JavaScript ni débordement horizontal de page.
+- Captures examinées des couvertures et des premières/dernières pages. Une première capture de cartes avait été prise avant le chargement différé ; elle a été reprise après décodage des images, sans changement du site.
+- Le composant de visionneuse est inchangé. Seules les listes de pages, dates, comptes et couvertures des deux exemples ont été actualisés ; aucun PDF/PPTX source n’est publié.
+- Publication non confirmée : au contrôle, le site public sert encore les anciens comptes ; le dernier workflow GitHub Pages visible reste le run 36995956563, réussi sur 9f6f5ec25652edc5de2bc95a85e3e53513977bc4. Aucun accès GitHub authentifié n’est disponible ici pour déclencher le workflow. La synchronisation du projet vers GitHub et son déploiement restent nécessaires ; aucun nouveau commit ni déploiement réussi n’est revendiqué.
