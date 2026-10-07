@@ -14,6 +14,7 @@
  */
 
 import { useEffect, useRef, useState } from "react";
+import moduleTwoPoster from "@/assets/presentation/module2-poster.jpg";
 import type { LucideIcon } from "lucide-react";
 import {
   Activity,
@@ -741,11 +742,11 @@ const ModuleTwoVideo = () => {
               />
             ) : (
               <button type="button" onClick={() => setPlaying(true)} aria-label="Lire la présentation du Module 2 sur YouTube"
-                className="absolute inset-0 flex h-full w-full flex-col items-center justify-center gap-4 bg-gradient-hero p-6 text-glacier transition-colors hover:bg-petrol/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-ice-blue">
-                <span className="text-xs uppercase tracking-[0.2em] text-ice-blue">Shadow Transformation</span>
-                <span className="font-display text-2xl font-light sm:text-4xl">Module 2</span>
-                <span className="flex h-14 w-14 items-center justify-center rounded-full border border-ice-blue/50 bg-background/85 sm:h-16 sm:w-16"><Play aria-hidden className="h-6 w-6 fill-current" /></span>
-                <span className="text-sm">Voir la présentation</span>
+                className="group absolute inset-0 h-full w-full text-glacier focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-ice-blue">
+                <img src={moduleTwoPoster} alt="Comprendre le présent pour éclairer la suite — présentation du Module 2" width={1280} height={720} loading="lazy" className="absolute inset-0 h-full w-full object-contain" />
+                <span className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-ice-blue/50 bg-background/90 px-4 py-2 text-sm shadow-soft transition-colors group-hover:bg-petrol sm:bottom-6 sm:px-5 sm:py-3">
+                  <Play aria-hidden className="h-5 w-5 fill-current" /> Voir la présentation
+                </span>
               </button>
             )}
           </div>
