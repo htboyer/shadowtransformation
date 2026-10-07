@@ -743,7 +743,7 @@ const ModuleTwoVideo = () => {
             ) : (
               <button type="button" onClick={() => setPlaying(true)} aria-label="Lire la présentation du Module 2 sur YouTube"
                 className="group absolute inset-0 h-full w-full text-glacier focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-ice-blue">
-                <img src={moduleTwoPoster} alt="Comprendre le présent pour éclairer la suite — présentation du Module 2" width={1280} height={720} loading="lazy" className="absolute inset-0 h-full w-full object-contain" />
+                <img src={moduleTwoPoster} alt="Module 2 — Élan vital : comprendre ce qui anime l’organisation" width={1280} height={720} loading="lazy" className="absolute inset-0 h-full w-full object-contain" />
                 <span className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-ice-blue/50 bg-background/90 px-4 py-2 text-sm shadow-soft transition-colors group-hover:bg-petrol sm:bottom-6 sm:px-5 sm:py-3">
                   <Play aria-hidden className="h-5 w-5 fill-current" /> Voir la présentation
                 </span>
