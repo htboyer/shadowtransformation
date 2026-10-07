@@ -13,7 +13,7 @@
  *   7. <ContactSection />       → Section 7 : Contact / closing
  */
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   Activity,
@@ -21,6 +21,8 @@ import {
   CheckCircle2,
   Compass,
   Eye,
+  ExternalLink,
+  Play,
   GitBranch,
   Layers3,
   Map,
@@ -54,6 +56,7 @@ const Index = () => {
           <ApproachSection />
           <ModulesSection />
           <ModuleOneShowcase />
+          <ModuleTwoVideo />
           <AccompagnementSection />
           <DeliverablesSection />
           <RegardsSection />
@@ -443,6 +446,11 @@ const ModulesSection = () => (
               {m.title}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.text}</p>
+            {i === 1 && (
+              <a href="#module-2-video" className="mt-5 inline-flex items-center gap-2 text-sm text-ice-blue underline underline-offset-4 hover:text-glacier">
+                <Play aria-hidden className="h-4 w-4" /> Découvrir le Module 2 en vidéo
+              </a>
+            )}
           </article>
           );
         })}
@@ -706,3 +714,49 @@ const ContactSection = () => {
   );
 };
 
+
+
+const ModuleTwoVideo = () => {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <section id="module-2-video" aria-labelledby="module-2-video-title" className="scroll-mt-24 border-t border-hairline/60">
+      <div className="mx-auto max-w-6xl px-6 py-20 lg:px-10 lg:py-24">
+        <p className="eyebrow">Module 2 — Présentation vidéo</p>
+        <h2 id="module-2-video-title" className="mt-6 font-display text-3xl font-light leading-tight text-glacier lg:text-4xl">
+          Découvrir le Module 2
+        </h2>
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
+          Une présentation pour comprendre la démarche et ouvrir l’échange sur les besoins de votre organisation.
+        </p>
+        <div className="mt-10 max-w-4xl">
+          <div className="relative aspect-video overflow-hidden rounded-md border border-hairline bg-surface">
+            {playing ? (
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/KkBoC-9Wxm8?autoplay=1&playsinline=1&rel=0"
+                title="Présentation du Module 2 de Shadow Transformation"
+                className="absolute inset-0 h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            ) : (
+              <button type="button" onClick={() => setPlaying(true)} aria-label="Lire la présentation du Module 2 sur YouTube"
+                className="absolute inset-0 flex h-full w-full flex-col items-center justify-center gap-4 bg-gradient-hero p-6 text-glacier transition-colors hover:bg-petrol/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-ice-blue">
+                <span className="text-xs uppercase tracking-[0.2em] text-ice-blue">Shadow Transformation</span>
+                <span className="font-display text-2xl font-light sm:text-4xl">Module 2</span>
+                <span className="flex h-14 w-14 items-center justify-center rounded-full border border-ice-blue/50 bg-background/85 sm:h-16 sm:w-16"><Play aria-hidden className="h-6 w-6 fill-current" /></span>
+                <span className="text-sm">Voir la présentation</span>
+              </button>
+            )}
+          </div>
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-sm">
+            <p className="text-muted-foreground">Le lecteur YouTube se charge à votre demande.</p>
+            <a href="https://youtu.be/KkBoC-9Wxm8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-ice-blue underline underline-offset-4 hover:text-glacier">
+              Voir sur YouTube <ExternalLink aria-hidden className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
