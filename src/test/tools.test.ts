@@ -16,20 +16,9 @@ describe("hypothèses de revue BidCrossCheck", () => {
     expect(Math.round(reviewTimeValue(100000))).toBe(188);
   });
 
-  it("valorise 40 offres à 120 heures et 5 250 à 7 500 euros par an", () => {
-    expect(REVIEW_ASSUMPTIONS.annualOffers).toBe(40);
-    expect(REVIEW_ASSUMPTIONS.annualOffers * REVIEW_ASSUMPTIONS.hoursPerOffer).toBe(120);
-    expect(reviewTimeValue(70000, 40)).toBe(5250);
-    expect(reviewTimeValue(100000, 40)).toBe(7500);
-  });
-
   it("conserve les seuils objectifs de 99 % et strictement plus de 90 %", () => {
     expect(REVIEW_ASSUMPTIONS.arithmeticDetectionTarget).toBe(99);
     expect(REVIEW_ASSUMPTIONS.methodologicalDetectionTargetExclusive).toBe(90);
-  });
-
-  it("identifie les trois écarts de recette de 300 euros, 0,5 jour et 1 jour", () => {
-    expect(REVIEW_ASSUMPTIONS.acceptanceDiscrepancies).toEqual({ euros: 300, overloadDays: 0.5, planningBudgetDays: 1 });
   });
 });
 

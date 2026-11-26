@@ -24,14 +24,12 @@ export const REVIEW_ASSUMPTIONS = {
   annualGrossSalaries: [70_000, 100_000],
   annualHours: 1_600,
   hoursPerOffer: 3,
-  annualOffers: 40,
   arithmeticDetectionTarget: 99,
   methodologicalDetectionTargetExclusive: 90,
-  acceptanceDiscrepancies: { euros: 300, overloadDays: 0.5, planningBudgetDays: 1 },
 } as const;
 
-export const reviewTimeValue = (annualGrossSalary: number, offers = 1) =>
-  annualGrossSalary / REVIEW_ASSUMPTIONS.annualHours * REVIEW_ASSUMPTIONS.hoursPerOffer * offers;
+export const reviewTimeValue = (annualGrossSalary: number) =>
+  annualGrossSalary / REVIEW_ASSUMPTIONS.annualHours * REVIEW_ASSUMPTIONS.hoursPerOffer;
 
 const formatAmount = (value: number) => new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(value);
 
@@ -56,25 +54,25 @@ const BidCrossCheckPage = () => {
           <p className="eyebrow">Offre ouverte · Prix sur demande</p>
           <h1 className="mt-6 break-words font-display text-3xl font-light leading-tight text-glacier lg:text-[44px]">BidCrossCheck</h1>
           <p className="mt-3 font-display text-base text-ice-blue">by Shadow Transformation</p>
-          <p className="mt-8 font-display text-xl font-light leading-snug text-glacier lg:text-2xl">{REVIEW_ASSUMPTIONS.hoursPerOffer} heures de revue managériale visées par offre</p>
-          <p className="mt-4 text-base leading-[1.75] text-muted-foreground">Une hypothèse fondée sur l’expérience métier du fondateur, pas un gain constaté ou garanti. Le gain de temps reste à mesurer selon le dossier.</p>
           <p className="mt-6 text-base leading-[1.75] text-muted-foreground lg:text-lg">
-            BidCrossCheck aide les bureaux d’études (BE) à rapprocher les pièces d’une offre, à repérer les incohérences et à préparer les arbitrages avant dépôt. Une démarche fondée sur {BIDCROSSCHECK.experienceYears} ans d’expérience de préparation et de contrôle d’offres, sans garantie chiffrée ni promesse de résultat automatique.
+            BidCrossCheck aide les bureaux d’études (BE) à rapprocher les pièces d’une offre, à repérer les incohérences et à préparer les arbitrages avant dépôt.
+          </p>
+          <div className="mt-8 grid grid-cols-1 gap-6 border-y border-hairline py-6 sm:grid-cols-2">
+            <div>
+              <p className="font-display text-3xl font-light text-glacier lg:text-4xl">{REVIEW_ASSUMPTIONS.hoursPerOffer} h<sup className="ml-0.5 text-lg text-ice-blue">*</sup></p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Temps moyen économisé par le manager par offre</p>
+            </div>
+            <div>
+              <p className="font-display text-3xl font-light text-glacier lg:text-4xl">{formatAmount(reviewTimeValue(REVIEW_ASSUMPTIONS.annualGrossSalaries[0]))} à {formatAmount(reviewTimeValue(REVIEW_ASSUMPTIONS.annualGrossSalaries[1]))} €<sup className="ml-0.5 text-lg text-ice-blue">*</sup></p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Valeur estimée de ce temps par offre</p>
+            </div>
+          </div>
+          <p className="mt-3 text-xs italic leading-relaxed text-muted-foreground">
+            * Estimation fondée sur {BIDCROSSCHECK.experienceYears} années d’expérience du contrôle d’offres techniques et financières, tous bailleurs confondus. Valorisation sur la base de {formatAmount(REVIEW_ASSUMPTIONS.annualGrossSalaries[0])} à {formatAmount(REVIEW_ASSUMPTIONS.annualGrossSalaries[1])} € de salaire brut annuel et de {formatAmount(REVIEW_ASSUMPTIONS.annualHours)} heures travaillées par an, hors charges et avant coût du crédit.
           </p>
           <Button asChild className={`mt-8 ${actionClass}`}><a href={new URL(clientKit.url, "https://shadowtransformation.lovable.app").href} download="BidCrossCheck_0.39_Client.zip"><Download aria-hidden="true" />Télécharger le kit client</a></Button>
           <p className="mt-3 text-sm text-muted-foreground">ZIP 0.39 · guide DSI inclus</p>
         </header>
-
-        <section aria-labelledby="temps-title" className="mt-16 border-t border-hairline pt-10">
-          <p className="eyebrow">Hypothèse de temps mobilisable</p>
-          <h2 id="temps-title" className="mt-6 font-display text-2xl font-light text-glacier lg:text-[34px]">Du temps de direction pour les arbitrages</h2>
-          <div className="mt-6 max-w-[70ch] space-y-4 text-base leading-[1.75] text-muted-foreground">
-            <p>Sur une base de {formatAmount(REVIEW_ASSUMPTIONS.annualGrossSalaries[0])} à {formatAmount(REVIEW_ASSUMPTIONS.annualGrossSalaries[1])} € de salaire brut annuel et une hypothèse de {formatAmount(REVIEW_ASSUMPTIONS.annualHours)} heures de travail par an, la valorisation se calcule ainsi : salaire brut annuel ÷ heures annuelles × {REVIEW_ASSUMPTIONS.hoursPerOffer} heures.</p>
-            <p>Soit environ {formatAmount(reviewTimeValue(REVIEW_ASSUMPTIONS.annualGrossSalaries[0]))} à {formatAmount(reviewTimeValue(REVIEW_ASSUMPTIONS.annualGrossSalaries[1]))} € de temps de direction mobilisable par offre, avant le prix du crédit et hors charges.</p>
-            <p>Pour {REVIEW_ASSUMPTIONS.annualOffers} offres par an : {REVIEW_ASSUMPTIONS.annualOffers} × {REVIEW_ASSUMPTIONS.hoursPerOffer} h = {REVIEW_ASSUMPTIONS.annualOffers * REVIEW_ASSUMPTIONS.hoursPerOffer} h/an, soit {formatAmount(reviewTimeValue(REVIEW_ASSUMPTIONS.annualGrossSalaries[0], REVIEW_ASSUMPTIONS.annualOffers))} à {formatAmount(reviewTimeValue(REVIEW_ASSUMPTIONS.annualGrossSalaries[1], REVIEW_ASSUMPTIONS.annualOffers))} € selon ces mêmes hypothèses.</p>
-            <p>Cette valorisation théorique du temps n’est ni une économie nette, ni une baisse de dépenses, ni un retour sur investissement démontré. Le temps effectivement dégagé dépend du dossier et de la revue humaine nécessaire.</p>
-          </div>
-        </section>
 
         <section aria-labelledby="revue-title" className="mt-16 border-t border-hairline pt-10">
           <p className="eyebrow">Le périmètre de la revue</p>
@@ -89,25 +87,24 @@ const BidCrossCheckPage = () => {
           </ul>
         </section>
 
-        <section aria-labelledby="fiabilite-title" className="mt-16 border-t border-hairline pt-10">
-          <p className="eyebrow">Fiabilité et limites</p>
-          <h2 id="fiabilite-title" className="mt-6 font-display text-2xl font-light text-glacier lg:text-[34px]">Distinguer les objectifs des preuves opérationnelles</h2>
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
+        <section aria-labelledby="performances-title" className="mt-16 border-t border-hairline pt-10">
+          <h2 id="performances-title" className="font-display text-2xl font-light text-glacier lg:text-[34px]">Performances attendues</h2>
+          <div className="mt-8 grid max-w-[70ch] grid-cols-1 gap-6 border-y border-hairline py-6 sm:grid-cols-2">
             <div>
-              <h3 className="font-display text-lg font-medium text-glacier">Objectifs de détection encore à valider</h3>
-              <p className="mt-3 text-base leading-[1.75] text-muted-foreground">Les objectifs sont de détecter {REVIEW_ASSUMPTIONS.arithmeticDetectionTarget} % des erreurs arithmétiques sur les données chiffrées reconnues et plus de {REVIEW_ASSUMPTIONS.methodologicalDetectionTargetExclusive} % des incohérences méthodologiques relevant des critères couverts. Ce sont des objectifs, pas des taux mesurés ni garantis. Ils restent à valider et ne signifient pas que toutes les pièces ou toutes les incohérences sont couvertes.</p>
-              <p className="mt-4 text-base leading-[1.75] text-muted-foreground">Prérequis : Guide DSI respecté, formats effectivement traités, DAO et additifs à jour, pièces complètes et versions cohérentes, tableaux, unités, devises et périodes lisibles. Même lisibles, les pièces peuvent donner des résultats incomplets ; la revue et la décision restent humaines.</p>
+              <p className="font-display text-3xl font-light text-glacier lg:text-4xl">{REVIEW_ASSUMPTIONS.arithmeticDetectionTarget} %<sup className="ml-0.5 text-lg text-ice-blue">**</sup></p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">des erreurs arithmétiques sur les données chiffrées reconnues</p>
             </div>
             <div>
-              <h3 className="font-display text-lg font-medium text-glacier">Trois écarts attendus retrouvés en recette</h3>
-              <p className="mt-3 text-base leading-[1.75] text-muted-foreground">Sur le dossier de recette, les trois écarts attendus ont été retrouvés : une erreur de {REVIEW_ASSUMPTIONS.acceptanceDiscrepancies.euros} €, une surcharge de {String(REVIEW_ASSUMPTIONS.acceptanceDiscrepancies.overloadDays).replace(".", ",")} jour et {REVIEW_ASSUMPTIONS.acceptanceDiscrepancies.planningBudgetDays} jour d’écart entre planning et budget. Ces constats opérationnels portent sur ce dossier ; ils ne démontrent pas un taux de détection généralisable.</p>
+              <p className="font-display text-3xl font-light text-glacier lg:text-4xl">Plus de {REVIEW_ASSUMPTIONS.methodologicalDetectionTargetExclusive} %<sup className="ml-0.5 text-lg text-ice-blue">**</sup></p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">des incohérences méthodologiques relevant des critères couverts</p>
             </div>
           </div>
-          <div className="mt-8 max-w-[70ch]">
-            <h3 className="font-display text-lg font-medium text-glacier">Des pièces complètes, lisibles et exploitables</h3>
-            <p className="mt-3 text-base leading-[1.75] text-muted-foreground">La revue requiert l’ensemble des pièces applicables : TDR et annexes ou additifs, méthodologie, planning et mobilisation, CV et justificatifs, offre financière ; le devis interne reste facultatif. Fournissez les versions complètes, à jour et lisibles, avec des tableaux et données chiffrées exploitables.</p>
-            <p className="mt-4 text-base leading-[1.75] text-muted-foreground">Utilisez uniquement les formats pris en charge par la version installée, à vérifier dans le kit et le guide DSI avant analyse. Une pièce absente, illisible ou dans un format non pris en charge, ainsi qu’une donnée non reconnue, limite les contrôles et doit être revue par votre équipe. L’absence de signalement ne vaut pas validation de l’offre.</p>
-          </div>
+          <p className="mt-3 max-w-[70ch] text-xs italic leading-relaxed text-muted-foreground">
+            ** Objectifs de détection à confirmer. Ils supposent un dossier complet et à jour, des formats pris en charge et des textes, tableaux, unités et calendriers lisibles. La portée dépend des pièces effectivement exploitées. La validation finale de l’offre reste humaine.
+          </p>
+          <p className="mt-4 max-w-[70ch] text-sm text-muted-foreground">
+            <Link to={BIDCROSSCHECK_CGV_PATH} className="text-ice-blue underline underline-offset-4">Consulter les contraintes d’exploitation et de couverture dans les CGV (projet)</Link>.
+          </p>
         </section>
 
         <section aria-labelledby="maitrise-title" className="mt-16 border-t border-hairline pt-10">

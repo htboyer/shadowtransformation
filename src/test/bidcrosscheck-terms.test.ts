@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { BIDCROSSCHECK_TERMS } from "@/content/bidcrosscheck-terms";
+import { BIDCROSSCHECK_TERMS, BIDCROSSCHECK_TERMS_SECTIONS } from "@/content/bidcrosscheck-terms";
 
 describe("cadre du projet de CGV BidCrossCheck", () => {
   it("reste un projet professionnel daté du 26 novembre 2026", () => {
@@ -12,4 +12,11 @@ describe("cadre du projet de CGV BidCrossCheck", () => {
   it("émet les crédits payants après paiement", () => expect(BIDCROSSCHECK_TERMS.issuanceAfterPayment).toBe(true));
   it("requiert une acceptation explicite", () => expect(BIDCROSSCHECK_TERMS.explicitAcceptanceRequired).toBe(true));
   it("ne conclut aucune vente par demande ou téléchargement", () => expect(BIDCROSSCHECK_TERMS.requestOrDownloadConcludesSale).toBe(false));
+  it("reste concis et sans chiffres marketing, barèmes ni exemples de recette", () => {
+    const text = BIDCROSSCHECK_TERMS_SECTIONS.flatMap((s) => [s.title, ...s.paragraphs]).join(" ");
+    expect(BIDCROSSCHECK_TERMS_SECTIONS).toHaveLength(5);
+    for (const forbidden of ["99 %", "90 %", "131", "188", "300 €", "0,5", "40 offres", "1 600", "70 000", "10, 25"]) {
+      expect(text).not.toContain(forbidden);
+    }
+  });
 });
