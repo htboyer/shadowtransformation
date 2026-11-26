@@ -19,4 +19,13 @@ describe("cadre du projet de CGV BidCrossCheck", () => {
       expect(text).not.toContain(forbidden);
     }
   });
+  it("précise la confidentialité et la sécurité locale sans promesse excessive", () => {
+    const clause = BIDCROSSCHECK_TERMS_SECTIONS.find((s) => s.title.includes("Confidentialité et sécurité des données"));
+    expect(clause).toBeDefined();
+    const text = clause!.paragraphs.join(" ");
+    expect(text).toContain("serveur interne du client");
+    expect(text).toContain("purge relève de la DSI");
+    expect(text).toContain("contact@shadowtransformation.fr");
+    expect(text).not.toMatch(/chiffrement au repos|conformité RGPD garantie/i);
+  });
 });

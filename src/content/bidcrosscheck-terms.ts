@@ -36,9 +36,10 @@ export const BIDCROSSCHECK_TERMS_SECTIONS = [
     ],
   },
   {
-    title: "5. Traitement local et validation finale",
+    title: "5. Confidentialité et sécurité des données",
     paragraphs: [
-      "L’analyse s’exécute localement sur le serveur du BE ; aucun dossier, pièce d’offre ou CV n’est transmis à l’éditeur. BidCrossCheck est un outil d’aide à la relecture : la recevabilité, les arbitrages et la validation finale restent humains, sans garantie de résultat commercial ni décharge générale de responsabilité de l’éditeur au-delà du contrat accepté et du droit applicable.",
+      "Les pièces et les CV sont analysés sur le serveur interne du client ; le rapport est remis au poste utilisateur. Les copies de travail sont supprimées à l’issue du traitement ; après un arrêt brutal, leur purge relève de la DSI. Le registre local conserve les droits, les références de dossier et l’empreinte du DAO. Le client limite les accès aux utilisateurs habilités, protège les postes, les sauvegardes et le stockage temporaire et définit les durées de conservation.",
+      "Les échanges de licence portent sur les données de compte, d’installation et de crédits ; les pièces, rapports et empreintes du DAO restent chez le client. Toute intervention d’assistance nécessitant l’accès à des données du dossier fait l’objet d’un accord préalable définissant les accès et la confidentialité. Tout incident lié au produit est signalé à contact@shadowtransformation.fr. BidCrossCheck reste un outil d’aide à la relecture : la recevabilité, les arbitrages et la validation finale demeurent humains, sans garantie de résultat commercial ni décharge générale de responsabilité au-delà du contrat accepté et du droit applicable.",
     ],
   },
 ] as const;
