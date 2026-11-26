@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { BIDCROSSCHECK, CREDIT_PACKS, KIT_MAILTO, TRIAL_MAILTO, orderMailto } from "@/content/tools";
-import { REVIEW_ASSUMPTIONS, annualEmployerCost, reviewTimeValue } from "@/pages/BidCrossCheckPage";
+import { REVIEW_ASSUMPTIONS, reviewTimeValue, roundedReviewTimeValue } from "@/pages/BidCrossCheckPage";
 
 describe("hypothèses de revue BidCrossCheck", () => {
   it("vise 3 heures par offre sur une base annuelle de 1 600 heures", () => {
@@ -8,15 +8,10 @@ describe("hypothèses de revue BidCrossCheck", () => {
     expect(REVIEW_ASSUMPTIONS.annualHours).toBe(1600);
   });
 
-  it("valorise 3 heures au coût employeur (+45 % par hypothèse) de 190 à 272 euros par offre", () => {
-    expect(REVIEW_ASSUMPTIONS.annualGrossSalaries).toEqual([70000, 100000]);
-    expect(REVIEW_ASSUMPTIONS.employerContributionRate).toBe(0.45);
-    expect(annualEmployerCost(70000)).toBe(101500);
-    expect(annualEmployerCost(100000)).toBe(145000);
-    expect(reviewTimeValue(70000)).toBe(190.3125);
-    expect(reviewTimeValue(100000)).toBe(271.875);
-    expect(Math.round(reviewTimeValue(70000))).toBe(190);
-    expect(Math.round(reviewTimeValue(100000))).toBe(272);
+  it("valorise 3 heures à environ 250 euros par offre sur un coût employeur annuel de 133 000 euros", () => {
+    expect(REVIEW_ASSUMPTIONS.annualEmployerCost).toBe(133000);
+    expect(reviewTimeValue()).toBe(249.375);
+    expect(roundedReviewTimeValue()).toBe(250);
   });
 
   it("conserve les seuils objectifs de 99 % et strictement plus de 90 %", () => {

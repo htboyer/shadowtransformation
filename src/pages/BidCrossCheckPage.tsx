@@ -21,19 +21,18 @@ const reviews = [
 const actionClass = "h-auto min-h-11 whitespace-normal px-5 py-3 text-left leading-relaxed";
 
 export const REVIEW_ASSUMPTIONS = {
-  annualGrossSalaries: [70_000, 100_000],
-  employerContributionRate: 0.45,
+  annualEmployerCost: 133_000,
   annualHours: 1_600,
   hoursPerOffer: 3,
   arithmeticDetectionTarget: 99,
   methodologicalDetectionTargetExclusive: 90,
 } as const;
 
-export const annualEmployerCost = (annualGrossSalary: number) =>
-  Math.round(annualGrossSalary * (1 + REVIEW_ASSUMPTIONS.employerContributionRate));
+export const reviewTimeValue = (annualEmployerCost = REVIEW_ASSUMPTIONS.annualEmployerCost) =>
+  annualEmployerCost / REVIEW_ASSUMPTIONS.annualHours * REVIEW_ASSUMPTIONS.hoursPerOffer;
 
-export const reviewTimeValue = (annualGrossSalary: number) =>
-  annualEmployerCost(annualGrossSalary) / REVIEW_ASSUMPTIONS.annualHours * REVIEW_ASSUMPTIONS.hoursPerOffer;
+export const roundedReviewTimeValue = (annualEmployerCost = REVIEW_ASSUMPTIONS.annualEmployerCost) =>
+  Math.round(reviewTimeValue(annualEmployerCost) / 10) * 10;
 
 const formatAmount = (value: number) => new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(value);
 
@@ -67,12 +66,12 @@ const BidCrossCheckPage = () => {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Temps moyen économisé par le manager par offre</p>
             </div>
             <div>
-              <p className="font-display text-3xl font-light text-glacier lg:text-4xl">{formatAmount(reviewTimeValue(REVIEW_ASSUMPTIONS.annualGrossSalaries[0]))} à {formatAmount(reviewTimeValue(REVIEW_ASSUMPTIONS.annualGrossSalaries[1]))} €<sup className="ml-0.5 text-lg text-ice-blue">*</sup></p>
+              <p className="font-display text-3xl font-light text-glacier lg:text-4xl">{formatAmount(roundedReviewTimeValue())} €<sup className="ml-0.5 text-lg text-ice-blue">*</sup></p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Valeur du temps de direction libéré par offre, au coût employeur</p>
             </div>
           </div>
           <p className="mt-3 text-xs italic leading-relaxed text-muted-foreground">
-            * Gain de temps estimé sur la base de {BIDCROSSCHECK.experienceYears} années d’expérience du contrôle d’offres techniques et financières, tous bailleurs confondus. Valorisation sur {formatAmount(REVIEW_ASSUMPTIONS.annualHours)} heures par an et un coût employeur annuel de {formatAmount(annualEmployerCost(REVIEW_ASSUMPTIONS.annualGrossSalaries[0]))} à {formatAmount(annualEmployerCost(REVIEW_ASSUMPTIONS.annualGrossSalaries[1]))} € ({formatAmount(REVIEW_ASSUMPTIONS.annualGrossSalaries[0])} à {formatAmount(REVIEW_ASSUMPTIONS.annualGrossSalaries[1])} € bruts, majorés de {Math.round(REVIEW_ASSUMPTIONS.employerContributionRate * 100)} % de cotisations patronales par hypothèse). Hors frais de structure et prix du crédit.
+            * Gain de temps estimé sur la base de {BIDCROSSCHECK.experienceYears} années d’expérience du contrôle d’offres techniques et financières, tous bailleurs confondus. La valorisation repose sur un coût employeur annuel moyen estimé à {formatAmount(REVIEW_ASSUMPTIONS.annualEmployerCost)} € pour un manager, sur la base de {formatAmount(REVIEW_ASSUMPTIONS.annualHours)} heures travaillées par an.
           </p>
           <Button asChild className={`mt-8 ${actionClass}`}><a href={new URL(clientKit.url, "https://shadowtransformation.lovable.app").href} download="BidCrossCheck_0.39_Client.zip"><Download aria-hidden="true" />Télécharger le kit client</a></Button>
           <p className="mt-3 text-sm text-muted-foreground">ZIP 0.39 · guide DSI inclus</p>
