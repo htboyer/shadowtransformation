@@ -3,7 +3,7 @@ import { Check, Copy, Download, FileCheck2, Mail, Server, Users } from "lucide-r
 import { Breadcrumb, SiteShell } from "@/components/site/ContentLayout";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { BIDCROSSCHECK, BIDCROSSCHECK_PDF, CREDIT_PACKS, TOOLS_PATH, TRIAL_MAILTO, orderMailto, type CreditPack } from "@/content/tools";
+import { BIDCROSSCHECK, BIDCROSSCHECK_PDF, CREDIT_PACKS, KIT_MAILTO, TOOLS_PATH, TRIAL_MAILTO, orderMailto, type CreditPack } from "@/content/tools";
 import { CONTACT_EMAIL } from "@/lib/site";
 
 const reviews = [
@@ -58,8 +58,7 @@ const BidCrossCheckPage = () => {
           <p className="mt-6 text-base leading-[1.75] text-muted-foreground lg:text-lg">
             BidCrossCheck aide les bureaux d’études (BE) à rapprocher les pièces d’une offre, à repérer les incohérences et à préparer les arbitrages avant dépôt. Une démarche fondée sur {BIDCROSSCHECK.experienceYears} ans d’expérience de préparation et de contrôle d’offres, sans garantie chiffrée ni promesse de résultat automatique.
           </p>
-          <Button asChild className={`mt-8 ${actionClass}`}><a href="/telechargements/BidCrossCheck_0.39_Client.zip" download="BidCrossCheck_0.39_Client.zip"><Download aria-hidden="true" />Télécharger le kit client</a></Button>
-          <p className="mt-3 text-sm text-muted-foreground">ZIP 0.39 · guide DSI inclus</p>
+          <Button asChild className={`mt-8 ${actionClass}`}><a href={KIT_MAILTO}><Mail aria-hidden="true" />Demander le kit et le guide DSI</a></Button>
         </header>
 
         <section aria-labelledby="temps-title" className="mt-16 border-t border-hairline pt-10">
