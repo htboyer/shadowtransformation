@@ -53,17 +53,19 @@ const BidCrossCheckPage = () => {
     <SiteShell>
       <article className="mx-auto max-w-6xl px-6 py-16 lg:px-10 lg:py-24">
         <Breadcrumb items={[{ label: "Nos outils", href: TOOLS_PATH }, { label: "BidCrossCheck" }]} />
-        <header className="mt-10 max-w-[70ch]">
+        <header className="mt-10">
           <p className="eyebrow">Offre ouverte · Prix sur demande</p>
           <h1 className="mt-6 break-words font-display text-3xl font-light leading-tight text-glacier lg:text-[44px]">BidCrossCheck</h1>
           <p className="mt-3 font-display text-base text-ice-blue">by Shadow Transformation</p>
-          <p className="mt-6 text-base leading-[1.75] text-muted-foreground lg:text-lg">
+          <p className="mt-6 max-w-[70ch] text-base leading-[1.75] text-muted-foreground lg:text-lg">
             BidCrossCheck aide les bureaux d’études (BE) à rapprocher les pièces d’une offre, à repérer les incohérences et à préparer les arbitrages avant dépôt.
           </p>
           <p className="mt-6 border-l-2 border-ice-blue/60 pl-5 font-display text-xl font-light leading-snug text-glacier lg:text-2xl">
             Vos dossiers sont analysés sur votre serveur interne.
           </p>
-          <div className="mt-8 grid grid-cols-1 gap-6 border-y border-hairline py-6 sm:grid-cols-2">
+          <div className="mt-8 grid grid-cols-1 gap-8 border-y border-hairline py-6 lg:grid-cols-2 lg:gap-10">
+            <div className="min-w-0 lg:pt-12">
+          <div aria-describedby="gains-note" className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
               <p className="font-display text-3xl font-light text-glacier lg:text-4xl">{REVIEW_ASSUMPTIONS.hoursPerOffer} h<sup className="ml-0.5 text-lg text-ice-blue">*</sup></p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Temps moyen économisé par le manager par offre</p>
@@ -73,10 +75,31 @@ const BidCrossCheckPage = () => {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Valeur du temps de direction libéré par offre, au coût employeur</p>
             </div>
           </div>
-          <p className="mt-3 text-xs italic leading-relaxed text-muted-foreground">
+          <p id="gains-note" className="mt-3 text-xs italic leading-relaxed text-muted-foreground">
             * Gain de temps estimé sur la base de {BIDCROSSCHECK.experienceYears} années d’expérience du contrôle d’offres techniques et financières, tous bailleurs confondus. La valorisation repose sur un coût employeur annuel moyen estimé à {formatAmount(REVIEW_ASSUMPTIONS.annualEmployerCost)} € pour un manager, sur la base de {formatAmount(REVIEW_ASSUMPTIONS.annualHours)} heures travaillées par an.
           </p>
-          <div className="mt-8">
+            </div>
+        <section aria-labelledby="performances-title" className="min-w-0">
+          <h2 id="performances-title" className="mb-4 font-display text-xl font-light leading-8 text-glacier">Performances attendues</h2>
+          <div aria-describedby="performance-note" className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div>
+              <p className="font-display text-3xl font-light text-glacier lg:text-4xl">{REVIEW_ASSUMPTIONS.arithmeticDetectionTarget} %<sup className="ml-0.5 text-lg text-ice-blue">**</sup></p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">des erreurs arithmétiques sur les données chiffrées reconnues</p>
+            </div>
+            <div>
+              <p className="font-display text-3xl font-light text-glacier lg:text-4xl">Plus de {REVIEW_ASSUMPTIONS.methodologicalDetectionTargetExclusive} %<sup className="ml-0.5 text-lg text-ice-blue">**</sup></p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">des incohérences méthodologiques relevant des critères couverts</p>
+            </div>
+          </div>
+          <p id="performance-note" className="mt-3 text-xs italic leading-relaxed text-muted-foreground">
+            ** Performance de détection pour un dossier complet et à jour, téléversé avec des formats pris en charge et des textes, tableaux, unités et calendriers lisibles. La portée dépend des pièces effectivement exploitées. La validation finale de l’offre reste humaine.
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground">
+            <Link to={BIDCROSSCHECK_CGV_PATH} className="text-ice-blue underline underline-offset-4">Consulter les contraintes d’exploitation et de couverture dans les CGV (projet)</Link>.
+          </p>
+        </section>
+          </div>
+          <div className="mt-8 max-w-[70ch]">
             <p className="text-base leading-[1.75] text-muted-foreground">
               Votre DSI installe BidCrossCheck sur le serveur du bureau d’études. Depuis leur navigateur, les collaborateurs habilités accèdent à l’application sur l’intranet et partagent le compteur de crédits du compte. Les pièces sont transférées au serveur interne pour l’analyse ; le rapport revient au poste de l’utilisateur. Les DAO, CV, budgets et rapports restent dans votre environnement. Une fois les crédits activés, l’analyse fonctionne sans connexion Internet. Les échanges avec Shadow Transformation concernent l’activation, les crédits et, si vous les demandez, les mises à jour.
             </p>
@@ -101,25 +124,7 @@ const BidCrossCheckPage = () => {
           </ul>
         </section>
 
-        <section aria-labelledby="performances-title" className="mt-16 border-t border-hairline pt-10">
-          <h2 id="performances-title" className="font-display text-2xl font-light text-glacier lg:text-[34px]">Performances attendues</h2>
-          <div className="mt-8 grid max-w-[70ch] grid-cols-1 gap-6 border-y border-hairline py-6 sm:grid-cols-2">
-            <div>
-              <p className="font-display text-3xl font-light text-glacier lg:text-4xl">{REVIEW_ASSUMPTIONS.arithmeticDetectionTarget} %<sup className="ml-0.5 text-lg text-ice-blue">**</sup></p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">des erreurs arithmétiques sur les données chiffrées reconnues</p>
-            </div>
-            <div>
-              <p className="font-display text-3xl font-light text-glacier lg:text-4xl">Plus de {REVIEW_ASSUMPTIONS.methodologicalDetectionTargetExclusive} %<sup className="ml-0.5 text-lg text-ice-blue">**</sup></p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">des incohérences méthodologiques relevant des critères couverts</p>
-            </div>
-          </div>
-          <p className="mt-3 max-w-[70ch] text-xs italic leading-relaxed text-muted-foreground">
-            ** Performance de détection pour un dossier complet et à jour, téléversé avec des formats pris en charge et des textes, tableaux, unités et calendriers lisibles. La portée dépend des pièces effectivement exploitées. La validation finale de l’offre reste humaine.
-          </p>
-          <p className="mt-4 max-w-[70ch] text-sm text-muted-foreground">
-            <Link to={BIDCROSSCHECK_CGV_PATH} className="text-ice-blue underline underline-offset-4">Consulter les contraintes d’exploitation et de couverture dans les CGV (projet)</Link>.
-          </p>
-        </section>
+
 
         <section aria-labelledby="maitrise-title" className="mt-16 border-t border-hairline pt-10">
           <h2 id="maitrise-title" className="font-display text-2xl font-light text-glacier lg:text-[34px]">L’analyse chez vous. La décision vous appartient.</h2>

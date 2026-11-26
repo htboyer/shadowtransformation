@@ -16,3 +16,4 @@
 - [x] Vérifier les demandes par courriel, les choix de crédits et la navigation sans publier.
 - [x] Préparer et contrôler les CGV BidCrossCheck datées, imprimables et liées à la fiche, ainsi que l’accès au ZIP original, sans publication.
 - [x] Mettre en avant l’analyse sur le serveur interne et le mode d’emploi local sur la fiche BidCrossCheck, avec lien discret vers la clause confidentialité des CGV, sans publication.
+- [x] Rapprocher gains et performances BidCrossCheck, contrôler desktop/mobile sans publication.
