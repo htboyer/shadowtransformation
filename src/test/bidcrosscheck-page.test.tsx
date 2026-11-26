@@ -31,4 +31,22 @@ describe("fiche produit BidCrossCheck", () => {
     const link = screen.getByRole("link", { name: /Confidentialité et sécurité des données/ });
     expect(link).toHaveAttribute("href", `${BIDCROSSCHECK_CGV_PATH}#${BIDCROSSCHECK_TERMS_CONFIDENTIALITY_ANCHOR}`);
   });
+
+  it("nomme la valeur du temps libéré sans répéter le coût employeur, qui reste dans la note", () => {
+    renderPage();
+    expect(screen.getByText("Valeur du temps de direction libéré par offre")).toBeInTheDocument();
+    expect(screen.queryByText(/au coût employeur/)).not.toBeInTheDocument();
+    expect(screen.getByText(/coût employeur annuel moyen estimé à 133 000 €/)).toBeInTheDocument();
+  });
+
+  it("affiche les deux notes italiques un cran sous la taille du texte courant", () => {
+    const { container } = renderPage();
+    for (const id of ["gains-note", "performance-note"]) {
+      const note = container.querySelector(`#${id}`);
+      expect(note).not.toBeNull();
+      expect(note!.className).toContain("text-[11px]");
+      expect(note!.className).not.toContain("text-xs");
+      expect(note!.className).toContain("italic");
+    }
+  });
 });

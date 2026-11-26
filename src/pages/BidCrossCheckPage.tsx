@@ -72,10 +72,10 @@ const BidCrossCheckPage = () => {
             </div>
             <div>
               <p className="font-display text-3xl font-light text-glacier lg:text-4xl">{formatAmount(roundedReviewTimeValue())} €<sup className="ml-0.5 text-lg text-ice-blue">*</sup></p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Valeur du temps de direction libéré par offre, au coût employeur</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Valeur du temps de direction libéré par offre</p>
             </div>
           </div>
-          <p id="gains-note" className="mt-3 text-xs italic leading-relaxed text-muted-foreground">
+          <p id="gains-note" className="mt-3 text-[11px] italic leading-relaxed text-muted-foreground">
             * Gain de temps estimé sur la base de {BIDCROSSCHECK.experienceYears} années d’expérience du contrôle d’offres techniques et financières, tous bailleurs confondus. La valorisation repose sur un coût employeur annuel moyen estimé à {formatAmount(REVIEW_ASSUMPTIONS.annualEmployerCost)} € pour un manager, sur la base de {formatAmount(REVIEW_ASSUMPTIONS.annualHours)} heures travaillées par an.
           </p>
             </div>
@@ -91,7 +91,7 @@ const BidCrossCheckPage = () => {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">des incohérences méthodologiques relevant des critères couverts</p>
             </div>
           </div>
-          <p id="performance-note" className="mt-3 text-xs italic leading-relaxed text-muted-foreground">
+          <p id="performance-note" className="mt-3 text-[11px] italic leading-relaxed text-muted-foreground">
             ** Performance de détection pour un dossier complet et à jour, téléversé avec des formats pris en charge et des textes, tableaux, unités et calendriers lisibles. La portée dépend des pièces effectivement exploitées. La validation finale de l’offre reste humaine.
           </p>
           <p className="mt-4 text-sm text-muted-foreground">
