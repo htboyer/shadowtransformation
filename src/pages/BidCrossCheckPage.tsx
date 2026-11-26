@@ -104,7 +104,7 @@ const BidCrossCheckPage = () => {
             </div>
           </div>
           <p className="mt-3 max-w-[70ch] text-xs italic leading-relaxed text-muted-foreground">
-            ** Objectifs de détection à confirmer. Ils supposent un dossier complet et à jour, des formats pris en charge et des textes, tableaux, unités et calendriers lisibles. La portée dépend des pièces effectivement exploitées. La validation finale de l’offre reste humaine.
+            ** Performance de détection pour un dossier complet et à jour, téléversé avec des formats pris en charge et des textes, tableaux, unités et calendriers lisibles. La portée dépend des pièces effectivement exploitées. La validation finale de l’offre reste humaine.
           </p>
           <p className="mt-4 max-w-[70ch] text-sm text-muted-foreground">
             <Link to={BIDCROSSCHECK_CGV_PATH} className="text-ice-blue underline underline-offset-4">Consulter les contraintes d’exploitation et de couverture dans les CGV (projet)</Link>.
