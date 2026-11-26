@@ -92,10 +92,11 @@
     --ice-blue: var(--print-ink);
   }
   .bcc-cgv-view nav, .bcc-cgv-view footer,
+  .bcc-cgv-view header.sticky,
   .bcc-cgv-view [aria-hidden="true"] { display: none; }
   .bcc-cgv { max-width: none; padding: 0; }
   .bcc-cgv h1, .bcc-cgv h2, .bcc-cgv a, .bcc-cgv .eyebrow {
-    color: hsl(var(--print-ink));
+    color: hsl(var(--print-ink)) !important;
   }
   .bcc-cgv header { margin-top: 0; }
   .bcc-cgv h1, .bcc-cgv h2 { break-after: avoid; }
