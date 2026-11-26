@@ -1,6 +1,7 @@
 import { ARTICLES } from "@/content/articles";
 import { SERVICES } from "@/content/services";
 import { BIDCROSSCHECK_PATH, TOOLS_PATH } from "@/content/tools";
+import { BIDCROSSCHECK_CGV_PATH } from "@/content/bidcrosscheck-terms";
 import type { ContentPage } from "@/content/types";
 import {
   AUTHOR_NAME,
@@ -89,6 +90,14 @@ export const NOT_FOUND_META: SeoMeta = {
 
 export const PAGES: SeoMeta[] = [
   HOME_META,
+  {
+    path: BIDCROSSCHECK_CGV_PATH,
+    title: "BidCrossCheck — CGV clients professionnels (projet) | Shadow Transformation",
+    description: "Projet de conditions générales de vente BidCrossCheck du 26 novembre 2026 pour les clients professionnels. Conditions à compléter et valider avant engagement.",
+    ogType: "website",
+    noindex: true,
+    jsonLd: [breadcrumb([{ name: "Nos outils", path: TOOLS_PATH }, { name: "BidCrossCheck", path: BIDCROSSCHECK_PATH }, { name: "CGV — projet", path: BIDCROSSCHECK_CGV_PATH }])],
+  },
   ...SERVICES.map(servicePage),
   {
     path: TOOLS_PATH,

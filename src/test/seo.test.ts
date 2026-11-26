@@ -4,21 +4,26 @@ import { PAGES, metaForPath } from "@/seo/routes";
 import { renderHead } from "@/seo/head";
 
 describe("métadonnées SEO", () => {
-  it("expose exactement 10 pages indexables avec slash final", () => {
-    expect(PAGES).toHaveLength(10);
+  it("expose 10 pages indexables et un projet CGV non indexable avec slash final", () => {
+    expect(PAGES).toHaveLength(11);
+    expect(PAGES.filter((p) => !p.noindex)).toHaveLength(10);
     PAGES.forEach((p) => expect(p.path.endsWith("/")).toBe(true));
   });
 
   it("titres et descriptions uniques", () => {
-    expect(new Set(PAGES.map((p) => p.title)).size).toBe(10);
-    expect(new Set(PAGES.map((p) => p.description)).size).toBe(10);
+    expect(new Set(PAGES.map((p) => p.title)).size).toBe(11);
+    expect(new Set(PAGES.map((p) => p.description)).size).toBe(11);
   });
 
   it("canonical www pour chaque page, noindex pour une URL inconnue", () => {
     PAGES.forEach((p) => {
       const head = renderHead(p);
-      expect(head).toContain(`<link rel="canonical" href="https://www.shadowtransformation.fr${p.path}"`);
-      expect(head).not.toContain("noindex");
+      if (p.noindex) {
+        expect(head).toContain("noindex");
+      } else {
+        expect(head).toContain(`<link rel="canonical" href="https://www.shadowtransformation.fr${p.path}"`);
+        expect(head).not.toContain("noindex");
+      }
       expect(head).not.toContain("lovable.app");
     });
     const missing = renderHead(metaForPath("/inconnue/"));

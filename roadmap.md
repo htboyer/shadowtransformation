@@ -14,3 +14,4 @@
 - [x] Préparer Nos outils et BidCrossCheck uniquement en prévisualisation, avec navigation desktop/mobile.
 - [x] Copier le PDF BidCrossCheck original et vérifier ses 6 pages et son téléchargement.
 - [x] Vérifier les demandes par courriel, les choix de crédits et la navigation sans publier.
+- [x] Préparer et contrôler les CGV BidCrossCheck datées, imprimables et liées à la fiche, ainsi que l’accès au ZIP original, sans publication.

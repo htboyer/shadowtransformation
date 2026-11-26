@@ -18,6 +18,8 @@
     --glacier:    197 67% 95%;   /* #EAF6FB bleu glacier */
     --pearl:      260 5% 85%;    /* #D8D6DC gris perle */
     --silver:     217 9% 80%;    /* #C7CCD4 argent doux */
+    --print-paper: 0 0% 100%;
+    --print-ink: 0 0% 10%;
 
     /* Tokens sémantiques (mode sombre par défaut) — V2 : plus de respiration lumineuse */
     --background: 220 60% 8%;
@@ -77,6 +79,27 @@
     --sidebar-border: 210 25% 22%;
     --sidebar-ring: 202 56% 59%;
   }
+}
+
+@media print {
+  body:has(.bcc-cgv-view), .bcc-cgv-view, .bcc-cgv-view .bg-background {
+    background: hsl(var(--print-paper));
+    color: hsl(var(--print-ink));
+  }
+  .bcc-cgv-view {
+    --glacier: var(--print-ink);
+    --muted-foreground: var(--print-ink);
+    --ice-blue: var(--print-ink);
+  }
+  .bcc-cgv-view nav, .bcc-cgv-view footer,
+  .bcc-cgv-view [aria-hidden="true"] { display: none; }
+  .bcc-cgv { max-width: none; padding: 0; }
+  .bcc-cgv h1, .bcc-cgv h2, .bcc-cgv a, .bcc-cgv .eyebrow {
+    color: hsl(var(--print-ink));
+  }
+  .bcc-cgv header { margin-top: 0; }
+  .bcc-cgv h1, .bcc-cgv h2 { break-after: avoid; }
+  .bcc-cgv p { orphans: 3; widows: 3; }
 }
 
 @layer base {

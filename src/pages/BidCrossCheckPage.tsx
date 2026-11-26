@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Check, Copy, Download, FileCheck2, Mail, Server, Users } from "lucide-react";
 import { Breadcrumb, SiteShell } from "@/components/site/ContentLayout";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { BIDCROSSCHECK, BIDCROSSCHECK_PDF, CREDIT_PACKS, KIT_MAILTO, TOOLS_PATH, TRIAL_MAILTO, orderMailto, type CreditPack } from "@/content/tools";
+import { BIDCROSSCHECK, BIDCROSSCHECK_PDF, CREDIT_PACKS, TOOLS_PATH, TRIAL_MAILTO, orderMailto, type CreditPack } from "@/content/tools";
+import { BIDCROSSCHECK_CGV_PATH } from "@/content/bidcrosscheck-terms";
+import clientKit from "@/assets/tools/BidCrossCheck_0.39_Client.zip.asset.json";
 import { CONTACT_EMAIL } from "@/lib/site";
 
 const reviews = [
@@ -58,7 +61,8 @@ const BidCrossCheckPage = () => {
           <p className="mt-6 text-base leading-[1.75] text-muted-foreground lg:text-lg">
             BidCrossCheck aide les bureaux d’études (BE) à rapprocher les pièces d’une offre, à repérer les incohérences et à préparer les arbitrages avant dépôt. Une démarche fondée sur {BIDCROSSCHECK.experienceYears} ans d’expérience de préparation et de contrôle d’offres, sans garantie chiffrée ni promesse de résultat automatique.
           </p>
-          <Button asChild className={`mt-8 ${actionClass}`}><a href={KIT_MAILTO}><Mail aria-hidden="true" />Demander le kit et le guide DSI</a></Button>
+          <Button asChild className={`mt-8 ${actionClass}`}><a href={new URL(clientKit.url, "https://shadowtransformation.lovable.app").href} download="BidCrossCheck_0.39_Client.zip"><Download aria-hidden="true" />Télécharger le kit client</a></Button>
+          <p className="mt-3 text-sm text-muted-foreground">ZIP 0.39 · guide DSI inclus</p>
         </header>
 
         <section aria-labelledby="temps-title" className="mt-16 border-t border-hairline pt-10">
@@ -92,6 +96,7 @@ const BidCrossCheckPage = () => {
             <div>
               <h3 className="font-display text-lg font-medium text-glacier">Objectifs de détection encore à valider</h3>
               <p className="mt-3 text-base leading-[1.75] text-muted-foreground">Les objectifs sont de détecter {REVIEW_ASSUMPTIONS.arithmeticDetectionTarget} % des erreurs arithmétiques sur les données chiffrées reconnues et plus de {REVIEW_ASSUMPTIONS.methodologicalDetectionTargetExclusive} % des incohérences méthodologiques relevant des critères couverts. Ce sont des objectifs, pas des taux mesurés ni garantis. Ils restent à valider et ne signifient pas que toutes les pièces ou toutes les incohérences sont couvertes.</p>
+              <p className="mt-4 text-base leading-[1.75] text-muted-foreground">Prérequis : Guide DSI respecté, formats effectivement traités, DAO et additifs à jour, pièces complètes et versions cohérentes, tableaux, unités, devises et périodes lisibles. Même lisibles, les pièces peuvent donner des résultats incomplets ; la revue et la décision restent humaines.</p>
             </div>
             <div>
               <h3 className="font-display text-lg font-medium text-glacier">Trois écarts attendus retrouvés en recette</h3>
@@ -134,6 +139,7 @@ const BidCrossCheckPage = () => {
         <section aria-labelledby="credits-title" className="mt-16">
           <p className="eyebrow">Essai et commande</p>
           <h2 id="credits-title" className="mt-6 font-display text-2xl font-light text-glacier lg:text-[34px]">Un compte partagé pour votre équipe</h2>
+          <p className="mt-6 max-w-[70ch] text-base leading-[1.75] text-muted-foreground"><Link to={BIDCROSSCHECK_CGV_PATH} className="text-ice-blue underline underline-offset-4">Conditions générales de vente — clients professionnels</Link> · Version projet du 26 novembre 2026. Le téléchargement et les courriels de demande ne concluent pas une vente ; le devis et les CGV datées nécessitent une acceptation explicite.</p>
           <div className="mt-6 flex max-w-[70ch] items-start gap-3">
             <Users className="mt-1 h-5 w-5 shrink-0 text-ice-blue" aria-hidden="true" strokeWidth={1.5} />
             <p className="text-base leading-[1.75] text-muted-foreground">Le compte est celui de votre BE ou de votre département, avec un compteur de crédits partagé. Les demandes d’essai et les commandes se font par courriel. Prix sur demande.</p>
