@@ -11,3 +11,6 @@
 - [x] Illustrations originales de Regards : cartes accueil et hub, pages de lecture et métadonnées article, fichiers WebP locaux sans agrandissement.
 - [x] Actualiser les exemples Module 1 du 4 octobre : 33 pages, 16 diapositives, couvertures cliquables et contrôles.
 - [ ] Confirmer la publication des nouveaux exemples via GitHub Pages — attend la synchronisation et le workflow ; aucun accès GitHub authentifié disponible ici.
+- [x] Préparer Nos outils et BidCrossCheck uniquement en prévisualisation, avec navigation desktop/mobile.
+- [x] Copier le PDF BidCrossCheck original et vérifier ses 6 pages et son téléchargement.
+- [x] Vérifier les demandes par courriel, les choix de crédits et la navigation sans publier.

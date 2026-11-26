@@ -10,6 +10,9 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import RegardsPage from "./pages/RegardsPage";
 import ServicePage from "./pages/ServicePage";
+import ToolsPage from "./pages/ToolsPage";
+import BidCrossCheckPage from "./pages/BidCrossCheckPage";
+import { BIDCROSSCHECK_PATH, TOOLS_PATH } from "@/content/tools";
 
 /** Arbre partagé par le rendu navigateur (BrowserRouter) et le pré-rendu (StaticRouter). */
 const AppRoutes = () => (
@@ -23,6 +26,8 @@ const AppRoutes = () => (
         <Route key={p.path} path={p.path} element={<ServicePage page={p} />} />
       ))}
       <Route path="/regards/" element={<RegardsPage />} />
+      <Route path={TOOLS_PATH} element={<ToolsPage />} />
+      <Route path={BIDCROSSCHECK_PATH} element={<BidCrossCheckPage />} />
       {ARTICLES.map((a) => (
         <Route key={a.path} path={a.path} element={<ArticlePage article={a} />} />
       ))}

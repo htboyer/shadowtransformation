@@ -135,7 +135,7 @@ export const SiteNav = ({ home = false }: { home?: boolean }) => {
           </span>
         </span>
       </a>
-      <nav aria-label="Navigation principale" className="hidden items-center gap-5 lg:flex xl:gap-7">
+      <nav aria-label="Navigation principale" className="hidden items-center gap-3 lg:flex xl:gap-4">
         {NAV.map((item) => (
           <a key={item.anchor} href={a(item.anchor)} className={linkClass}>
             {item.label}
@@ -143,6 +143,9 @@ export const SiteNav = ({ home = false }: { home?: boolean }) => {
         ))}
         <Link to="/regards/" className={linkClass}>
           Regards
+        </Link>
+        <Link to="/outils/" className={`${linkClass} whitespace-nowrap`}>
+          Nos outils
         </Link>
         <a href={a("contact")} className={linkClass}>
           Contact
@@ -155,9 +158,12 @@ export const SiteNav = ({ home = false }: { home?: boolean }) => {
           ÉCHANGE CONFIDENTIEL
         </a>
       </nav>
-      <div className="flex items-center gap-4 lg:hidden">
+      <div className="flex items-center gap-3 lg:hidden">
         <Link to="/regards/" className="text-[12px] font-medium tracking-wide text-muted-foreground transition-colors hover:text-glacier">
           Regards
+        </Link>
+        <Link to="/outils/" className="whitespace-nowrap text-[12px] font-medium tracking-wide text-muted-foreground transition-colors hover:text-glacier">
+          Nos outils
         </Link>
         <a
           href={MAILTO}

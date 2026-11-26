@@ -7,3 +7,4 @@
 - Store editorial and service content as typed data in `src/content/`; adding an entry automatically creates its route, card, JSON-LD and sitemap entry.
 - Serve Regards illustrations as small versioned WebP files from `public/images/regards/` and reference them from article data; this keeps GitHub Pages images and social metadata on the site's own domain without enlarging the source images.
 - Load Module 1 examples only from the active dated WebP folder, keeping source documents private and using the existing viewer for full-cover previews; this prevents mixing document versions or adding direct downloads.
+- Keep tool catalogue and BidCrossCheck mail requests in `src/content/tools.ts`, render both tools routes through the shared site shell and metadata table, and serve the unchanged example PDF from its explicit public download path; this preserves static pre-rendering without accounts, payments or server forms.

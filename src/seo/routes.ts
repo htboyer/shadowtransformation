@@ -1,5 +1,6 @@
 import { ARTICLES } from "@/content/articles";
 import { SERVICES } from "@/content/services";
+import { BIDCROSSCHECK_PATH, TOOLS_PATH } from "@/content/tools";
 import type { ContentPage } from "@/content/types";
 import {
   AUTHOR_NAME,
@@ -89,6 +90,20 @@ export const NOT_FOUND_META: SeoMeta = {
 export const PAGES: SeoMeta[] = [
   HOME_META,
   ...SERVICES.map(servicePage),
+  {
+    path: TOOLS_PATH,
+    title: "Outils et publications | Shadow Transformation",
+    description: "Découvrez BidCrossCheck, la gamme M1 et M2, Résonance et les livrets IA et moi. BidCrossCheck est la seule offre ouverte ici, prix sur demande.",
+    ogType: "website",
+    jsonLd: [breadcrumb([{ name: "Nos outils", path: TOOLS_PATH }])],
+  },
+  {
+    path: BIDCROSSCHECK_PATH,
+    title: "BidCrossCheck — Relecture d’offre | Shadow Transformation",
+    description: "Relecture des TDR, de la méthodologie, du planning, des CV et de l’offre financière sur le serveur du BE. Validation humaine, essai et crédits sur demande.",
+    ogType: "website",
+    jsonLd: [breadcrumb([{ name: "Nos outils", path: TOOLS_PATH }, { name: "BidCrossCheck", path: BIDCROSSCHECK_PATH }])],
+  },
   {
     path: REGARDS_PATH,
     title: `${REGARDS_TITLE} | Shadow Transformation`,

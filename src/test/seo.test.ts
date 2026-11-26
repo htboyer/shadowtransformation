@@ -4,14 +4,14 @@ import { PAGES, metaForPath } from "@/seo/routes";
 import { renderHead } from "@/seo/head";
 
 describe("métadonnées SEO", () => {
-  it("expose exactement 8 pages indexables avec slash final", () => {
-    expect(PAGES).toHaveLength(8);
+  it("expose exactement 10 pages indexables avec slash final", () => {
+    expect(PAGES).toHaveLength(10);
     PAGES.forEach((p) => expect(p.path.endsWith("/")).toBe(true));
   });
 
   it("titres et descriptions uniques", () => {
-    expect(new Set(PAGES.map((p) => p.title)).size).toBe(8);
-    expect(new Set(PAGES.map((p) => p.description)).size).toBe(8);
+    expect(new Set(PAGES.map((p) => p.title)).size).toBe(10);
+    expect(new Set(PAGES.map((p) => p.description)).size).toBe(10);
   });
 
   it("canonical www pour chaque page, noindex pour une URL inconnue", () => {
