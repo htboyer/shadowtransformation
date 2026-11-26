@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { BIDCROSSCHECK_TERMS, BIDCROSSCHECK_TERMS_SECTIONS } from "@/content/bidcrosscheck-terms";
+import { BIDCROSSCHECK_TERMS, BIDCROSSCHECK_TERMS_SECTIONS, BIDCROSSCHECK_TERMS_CONFIDENTIALITY_ANCHOR } from "@/content/bidcrosscheck-terms";
 
 describe("cadre du projet de CGV BidCrossCheck", () => {
   it("reste un projet professionnel daté du 26 novembre 2026", () => {
@@ -18,6 +18,9 @@ describe("cadre du projet de CGV BidCrossCheck", () => {
     for (const forbidden of ["99 %", "90 %", "131", "188", "190", "272", "250 €", "133 000", "101 500", "145 000", "45 %", "300 €", "0,5", "40 offres", "1 600", "70 000", "10, 25"]) {
       expect(text).not.toContain(forbidden);
     }
+  });
+  it("expose une ancre stable pour la clause confidentialité", () => {
+    expect(BIDCROSSCHECK_TERMS_CONFIDENTIALITY_ANCHOR).toBe("5-confidentialite-et-securite-des-donnees");
   });
   it("précise la confidentialité et la sécurité locale sans promesse excessive", () => {
     const clause = BIDCROSSCHECK_TERMS_SECTIONS.find((s) => s.title.includes("Confidentialité et sécurité des données"));

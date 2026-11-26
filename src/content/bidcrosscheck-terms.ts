@@ -43,3 +43,21 @@ export const BIDCROSSCHECK_TERMS_SECTIONS = [
     ],
   },
 ] as const;
+
+/** Ancre d’une section des CGV, utilisable en lien depuis les autres pages. */
+export const termsSectionId = (title: string) =>
+  title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+const confidentialitySection = BIDCROSSCHECK_TERMS_SECTIONS.find((section) =>
+  section.title.includes("Confidentialité et sécurité des données"),
+);
+
+/** Ancre de la clause « Confidentialité et sécurité des données ». */
+export const BIDCROSSCHECK_TERMS_CONFIDENTIALITY_ANCHOR = confidentialitySection
+  ? termsSectionId(confidentialitySection.title)
+  : "";

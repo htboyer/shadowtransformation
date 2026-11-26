@@ -5,7 +5,7 @@ import { Breadcrumb, SiteShell } from "@/components/site/ContentLayout";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BIDCROSSCHECK, BIDCROSSCHECK_PDF, CREDIT_PACKS, TOOLS_PATH, TRIAL_MAILTO, orderMailto, type CreditPack } from "@/content/tools";
-import { BIDCROSSCHECK_CGV_PATH } from "@/content/bidcrosscheck-terms";
+import { BIDCROSSCHECK_CGV_PATH, BIDCROSSCHECK_TERMS_CONFIDENTIALITY_ANCHOR } from "@/content/bidcrosscheck-terms";
 import clientKit from "@/assets/tools/BidCrossCheck_0.39_Client.zip.asset.json";
 import { CONTACT_EMAIL } from "@/lib/site";
 
@@ -60,6 +60,9 @@ const BidCrossCheckPage = () => {
           <p className="mt-6 text-base leading-[1.75] text-muted-foreground lg:text-lg">
             BidCrossCheck aide les bureaux d’études (BE) à rapprocher les pièces d’une offre, à repérer les incohérences et à préparer les arbitrages avant dépôt.
           </p>
+          <p className="mt-6 border-l-2 border-ice-blue/60 pl-5 font-display text-xl font-light leading-snug text-glacier lg:text-2xl">
+            Vos dossiers sont analysés sur votre serveur interne.
+          </p>
           <div className="mt-8 grid grid-cols-1 gap-6 border-y border-hairline py-6 sm:grid-cols-2">
             <div>
               <p className="font-display text-3xl font-light text-glacier lg:text-4xl">{REVIEW_ASSUMPTIONS.hoursPerOffer} h<sup className="ml-0.5 text-lg text-ice-blue">*</sup></p>
@@ -73,6 +76,14 @@ const BidCrossCheckPage = () => {
           <p className="mt-3 text-xs italic leading-relaxed text-muted-foreground">
             * Gain de temps estimé sur la base de {BIDCROSSCHECK.experienceYears} années d’expérience du contrôle d’offres techniques et financières, tous bailleurs confondus. La valorisation repose sur un coût employeur annuel moyen estimé à {formatAmount(REVIEW_ASSUMPTIONS.annualEmployerCost)} € pour un manager, sur la base de {formatAmount(REVIEW_ASSUMPTIONS.annualHours)} heures travaillées par an.
           </p>
+          <div className="mt-8">
+            <p className="text-base leading-[1.75] text-muted-foreground">
+              Votre DSI installe BidCrossCheck sur le serveur du bureau d’études. Depuis leur navigateur, les collaborateurs habilités accèdent à l’application sur l’intranet et partagent le compteur de crédits du compte. Les pièces sont transférées au serveur interne pour l’analyse ; le rapport revient au poste de l’utilisateur. Les DAO, CV, budgets et rapports restent dans votre environnement. Une fois les crédits activés, l’analyse fonctionne sans connexion Internet. Les échanges avec Shadow Transformation concernent l’activation, les crédits et, si vous les demandez, les mises à jour.
+            </p>
+            <p className="mt-3 text-sm">
+              <Link to={`${BIDCROSSCHECK_CGV_PATH}#${BIDCROSSCHECK_TERMS_CONFIDENTIALITY_ANCHOR}`} className="text-ice-blue underline underline-offset-4">Confidentialité et sécurité des données (CGV, projet)</Link>
+            </p>
+          </div>
           <Button asChild className={`mt-8 ${actionClass}`}><a href={new URL(clientKit.url, "https://shadowtransformation.lovable.app").href} download="BidCrossCheck_0.39_Client.zip"><Download aria-hidden="true" />Télécharger le kit client</a></Button>
           <p className="mt-3 text-sm text-muted-foreground">ZIP 0.39 · guide DSI inclus</p>
         </header>
@@ -115,8 +126,8 @@ const BidCrossCheckPage = () => {
           <div className="mt-8 grid gap-8 md:grid-cols-2">
             <div>
               <Server className="h-6 w-6 text-ice-blue" aria-hidden="true" strokeWidth={1.5} />
-              <h3 className="mt-4 font-display text-lg font-medium text-glacier">Sur le serveur du BE</h3>
-              <p className="mt-3 text-base leading-[1.75] text-muted-foreground">L’analyse s’effectue sur le serveur de votre bureau d’études. Le kit et le guide destiné à votre DSI permettent de préparer l’installation. Aucune pièce d’offre n’est à transmettre par courriel à Shadow Transformation.</p>
+              <h3 className="mt-4 font-display text-lg font-medium text-glacier">Aucune pièce d’offre à transmettre</h3>
+              <p className="mt-3 text-base leading-[1.75] text-muted-foreground">Le kit et le guide destiné à votre DSI préparent l’installation sur votre serveur. Aucune pièce d’offre n’est à transmettre par courriel à Shadow Transformation.</p>
             </div>
             <div>
               <FileCheck2 className="h-6 w-6 text-ice-blue" aria-hidden="true" strokeWidth={1.5} />

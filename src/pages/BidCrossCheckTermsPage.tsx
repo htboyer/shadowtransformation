@@ -3,7 +3,7 @@ import { Printer } from "lucide-react";
 import { Breadcrumb, Prose, SiteShell } from "@/components/site/ContentLayout";
 import { Button } from "@/components/ui/button";
 import { BIDCROSSCHECK_PATH, TOOLS_PATH } from "@/content/tools";
-import { BIDCROSSCHECK_TERMS_SECTIONS } from "@/content/bidcrosscheck-terms";
+import { BIDCROSSCHECK_TERMS_SECTIONS, termsSectionId } from "@/content/bidcrosscheck-terms";
 import { CONTACT_EMAIL } from "@/lib/site";
 
 const BidCrossCheckTermsPage = () => (
@@ -18,7 +18,7 @@ const BidCrossCheckTermsPage = () => (
           <Button variant="outline" onClick={() => window.print()} className="mt-6 print:hidden"><Printer aria-hidden="true" />Imprimer</Button>
         </header>
         <div className="mt-10"><Prose>
-          {BIDCROSSCHECK_TERMS_SECTIONS.map((section) => <section key={section.title} className="space-y-4"><h2>{section.title}</h2>{section.paragraphs.map((text) => <p key={text}>{text}</p>)}</section>)}
+          {BIDCROSSCHECK_TERMS_SECTIONS.map((section) => <section key={section.title} id={termsSectionId(section.title)} className="scroll-mt-24 space-y-4"><h2>{section.title}</h2>{section.paragraphs.map((text) => <p key={text}>{text}</p>)}</section>)}
           <section className="space-y-4">
             <h2>6. Contact et références</h2>
             <p>Contact : <a href={`mailto:${CONTACT_EMAIL}`} className="break-all text-ice-blue underline underline-offset-4">{CONTACT_EMAIL}</a>.</p>
