@@ -17,13 +17,21 @@ describe("fiche produit BidCrossCheck", () => {
     expect(screen.getByText("Vos dossiers sont analysés sur votre serveur interne.")).toBeInTheDocument();
   });
 
-  it("explique l’installation et le périmètre local avant le téléchargement du kit", () => {
+  it("place l’explication DSI et son lien sous le titre de la section L’analyse chez vous", () => {
     const { container } = renderPage();
-    const explanation = screen.getByText(/Votre DSI installe BidCrossCheck sur le serveur du bureau d’études/);
+    const title = screen.getByRole("heading", { name: "L’analyse chez vous. La décision vous appartient." });
+    const section = title.closest("section");
+    const explanations = screen.getAllByText(/Votre DSI installe BidCrossCheck sur le serveur du bureau d’études/);
+    const explanation = explanations[0];
+    const confidentialityLink = screen.getByRole("link", { name: /Confidentialité et sécurité des données/ });
     const download = container.querySelector('a[download="BidCrossCheck_0.39_Client.zip"]');
-    expect(explanation).toBeInTheDocument();
+
+    expect(section).not.toBeNull();
+    expect(explanations).toHaveLength(1);
+    expect(section).toContainElement(explanation);
+    expect(section).toContainElement(confidentialityLink);
+    expect(title.compareDocumentPosition(explanation) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(download).not.toBeNull();
-    expect(explanation.compareDocumentPosition(download!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 
   it("relie discrètement la clause confidentialité et sécurité des CGV", () => {

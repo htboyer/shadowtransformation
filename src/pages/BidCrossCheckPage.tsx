@@ -99,14 +99,6 @@ const BidCrossCheckPage = () => {
           </p>
         </section>
           </div>
-          <div className="mt-8 max-w-[70ch]">
-            <p className="text-base leading-[1.75] text-muted-foreground">
-              Votre DSI installe BidCrossCheck sur le serveur du bureau d’études. Depuis leur navigateur, les collaborateurs habilités accèdent à l’application sur l’intranet et partagent le compteur de crédits du compte. Les pièces sont transférées au serveur interne pour l’analyse ; le rapport revient au poste de l’utilisateur. Les DAO, CV, budgets et rapports restent dans votre environnement. Une fois les crédits activés, l’analyse fonctionne sans connexion Internet. Les échanges avec Shadow Transformation concernent l’activation, les crédits et, si vous les demandez, les mises à jour.
-            </p>
-            <p className="mt-3 text-sm">
-              <Link to={`${BIDCROSSCHECK_CGV_PATH}#${BIDCROSSCHECK_TERMS_CONFIDENTIALITY_ANCHOR}`} className="text-ice-blue underline underline-offset-4">Confidentialité et sécurité des données (CGV, projet)</Link>
-            </p>
-          </div>
           <Button asChild className={`mt-8 ${actionClass}`}><a href={new URL(clientKit.url, "https://shadowtransformation.lovable.app").href} download="BidCrossCheck_0.39_Client.zip"><Download aria-hidden="true" />Télécharger le kit client</a></Button>
           <p className="mt-3 text-sm text-muted-foreground">ZIP 0.39 · guide DSI inclus</p>
         </header>
@@ -128,6 +120,14 @@ const BidCrossCheckPage = () => {
 
         <section aria-labelledby="maitrise-title" className="mt-16 border-t border-hairline pt-10">
           <h2 id="maitrise-title" className="font-display text-2xl font-light text-glacier lg:text-[34px]">L’analyse chez vous. La décision vous appartient.</h2>
+          <div className="mt-8 max-w-[70ch]">
+            <p className="text-base leading-[1.75] text-muted-foreground">
+              Votre DSI installe BidCrossCheck sur le serveur du bureau d’études. Depuis leur navigateur, les collaborateurs habilités accèdent à l’application sur l’intranet et partagent le compteur de crédits du compte. Les pièces sont transférées au serveur interne pour l’analyse ; le rapport revient au poste de l’utilisateur. Les DAO, CV, budgets et rapports restent dans votre environnement. Une fois les crédits activés, l’analyse fonctionne sans connexion Internet. Les échanges avec Shadow Transformation concernent l’activation, les crédits et, si vous les demandez, les mises à jour.
+            </p>
+            <p className="mt-3 text-sm">
+              <Link to={`${BIDCROSSCHECK_CGV_PATH}#${BIDCROSSCHECK_TERMS_CONFIDENTIALITY_ANCHOR}`} className="text-ice-blue underline underline-offset-4">Confidentialité et sécurité des données (CGV, projet)</Link>
+            </p>
+          </div>
           <div className="mt-8 grid gap-8 md:grid-cols-2">
             <div>
               <Server className="h-6 w-6 text-ice-blue" aria-hidden="true" strokeWidth={1.5} />
