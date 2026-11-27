@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 import BidCrossCheckPage from "@/pages/BidCrossCheckPage";
@@ -56,5 +56,17 @@ describe("fiche produit BidCrossCheck", () => {
       expect(note!.className).not.toContain("text-xs");
       expect(note!.className).toContain("italic");
     }
+  });
+
+  it("affiche le barème B2B HT, l’essai gratuit, la relance incluse et associe la sélection à la demande par courriel", () => {
+    renderPage();
+    expect(screen.queryByText(/prix sur demande/i)).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Essai gratuit · 1 crédit" })).toBeInTheDocument();
+    expect(screen.getByText(/Un crédit ouvre la revue d’un dossier ; une relance est incluse pour le même dossier et le même DAO inchangé/)).toBeInTheDocument();
+    expect(screen.getAllByText("Droit aux mises à jour inclus")).toHaveLength(3);
+
+    fireEvent.click(screen.getByRole("button", { name: /25 crédits/ }));
+    const orderLink = screen.getByRole("link", { name: /Demander la commande · 25 crédits \(1 800 € HT\)/ });
+    expect(orderLink.getAttribute("href")).toContain(encodeURIComponent("1 800 € HT"));
   });
 });

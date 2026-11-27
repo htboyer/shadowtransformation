@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { BIDCROSSCHECK, CREDIT_PACKS, KIT_MAILTO, TRIAL_MAILTO, orderMailto } from "@/content/tools";
+import { BIDCROSSCHECK, CREDIT_PACKS, CREDIT_PACK_OFFERS, KIT_MAILTO, TRIAL_MAILTO, orderMailto } from "@/content/tools";
 import { REVIEW_ASSUMPTIONS, reviewTimeValue, roundedReviewTimeValue } from "@/pages/BidCrossCheckPage";
 
 describe("hypothèses de revue BidCrossCheck", () => {
@@ -23,6 +23,23 @@ describe("hypothèses de revue BidCrossCheck", () => {
 describe("modalités BidCrossCheck", () => {
   it("propose uniquement les commandes de 1, 10, 25 ou 50 crédits", () => {
     expect(CREDIT_PACKS).toEqual([1, 10, 25, 50]);
+  });
+
+  it("associe le barème B2B HT et le droit aux mises à jour aux formules", () => {
+    expect(CREDIT_PACK_OFFERS).toEqual([
+      { credits: 1, priceHt: 100, unitPriceHt: 100, includesUpdates: false },
+      { credits: 10, priceHt: 900, unitPriceHt: 90, includesUpdates: true },
+      { credits: 25, priceHt: 1800, unitPriceHt: 72, includesUpdates: true },
+      { credits: 50, priceHt: 3200, unitPriceHt: 64, includesUpdates: true },
+    ]);
+  });
+
+  it("inclut le pack et son prix HT dans chaque lien mailto de demande de commande", () => {
+    for (const [credits, expectedPrice] of [[1, "100 € HT"], [10, "900 € HT"], [25, "1 800 € HT"], [50, "3 200 € HT"]] as const) {
+      const url = new URL(orderMailto(credits));
+      expect(url.searchParams.get("subject")).toContain(expectedPrice);
+      expect(url.searchParams.get("body")).toContain(expectedPrice);
+    }
   });
 
   it("fonde l’offre sur 17 ans d’expérience métier", () => {

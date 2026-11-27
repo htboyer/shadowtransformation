@@ -5,6 +5,22 @@ export const BIDCROSSCHECK_PATH = "/outils/bidcrosscheck/";
 export const BIDCROSSCHECK_PDF = "/telechargements/BidCrossCheck_Rapport_composite.pdf";
 export const CREDIT_PACKS = [1, 10, 25, 50] as const;
 export type CreditPack = (typeof CREDIT_PACKS)[number];
+export interface CreditPackOffer {
+  credits: CreditPack;
+  priceHt: number;
+  unitPriceHt: number;
+  includesUpdates: boolean;
+}
+export const CREDIT_PACK_OFFERS: readonly CreditPackOffer[] = [
+  { credits: 1, priceHt: 100, unitPriceHt: 100, includesUpdates: false },
+  { credits: 10, priceHt: 900, unitPriceHt: 90, includesUpdates: true },
+  { credits: 25, priceHt: 1_800, unitPriceHt: 72, includesUpdates: true },
+  { credits: 50, priceHt: 3_200, unitPriceHt: 64, includesUpdates: true },
+] as const;
+export const getCreditPackOffer = (credits: CreditPack): CreditPackOffer =>
+  CREDIT_PACK_OFFERS.find((offer) => offer.credits === credits) ?? CREDIT_PACK_OFFERS[0]!;
+export const formatEuroHt = (amount: number) =>
+  `${new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(amount).replace(/\u202f/g, " ")} € HT`;
 export const BIDCROSSCHECK = {
   experienceYears: 17,
   trialCredits: 1,
@@ -50,7 +66,12 @@ export const TRIAL_MAILTO = emailLink(
   `${introduction}\nJe souhaite demander mon crédit d’essai BidCrossCheck pour notre compte BE ou département, avec compteur partagé.\n\nAprès installation, je joins à ce courriel le fichier demande.json généré lors de l’installation. Si l’installation n’est pas encore faite, je demande d’abord le kit et le guide DSI, puis je reviens avec demande.json.\n\nAucune pièce d’offre à transmettre : je ne joins ni TDR, ni méthodologie, ni planning, ni CV, ni offre financière, ni devis interne.\n\nCordialement,`,
 );
 
-export const orderMailto = (credits: CreditPack) => emailLink(
-  `BidCrossCheck — Commande de ${credits} crédit${credits > 1 ? "s" : ""}`,
-  `${introduction}\nJe souhaite commander ${credits} crédit${credits > 1 ? "s" : ""} BidCrossCheck pour notre compte BE ou département, avec compteur partagé. Merci de me communiquer le prix et les modalités de commande.\n\nJe ne transmets aucune pièce d’offre dans ce courriel.\n\nCordialement,`,
-);
+export const orderMailto = (credits: CreditPack) => {
+  const offer = getCreditPackOffer(credits);
+  const label = `${credits} crédit${credits > 1 ? "s" : ""}`;
+  const price = formatEuroHt(offer.priceHt);
+  return emailLink(
+    `BidCrossCheck — Demande de commande (${label} · ${price})`,
+    `${introduction}\nJe souhaite adresser une demande de commande pour la formule ${label} BidCrossCheck au tarif de ${price} (${offer.unitPriceHt} €/crédit) pour notre compte BE ou département, avec compteur partagé.${offer.includesUpdates ? " Formule avec droit aux mises à jour." : ""}\n\nMerci de nous transmettre le devis et les modalités de règlement.\n\nJe ne transmets aucune pièce d’offre dans ce courriel.\n\nCordialement,`,
+  );
+};

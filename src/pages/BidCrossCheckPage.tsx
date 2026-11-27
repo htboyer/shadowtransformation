@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { Check, Copy, Download, FileCheck2, Mail, Server, Users } from "lucide-react";
 import { Breadcrumb, SiteShell } from "@/components/site/ContentLayout";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { BIDCROSSCHECK, BIDCROSSCHECK_PDF, CREDIT_PACKS, TOOLS_PATH, TRIAL_MAILTO, orderMailto, type CreditPack } from "@/content/tools";
+import { BIDCROSSCHECK, BIDCROSSCHECK_PDF, CREDIT_PACK_OFFERS, TOOLS_PATH, TRIAL_MAILTO, formatEuroHt, getCreditPackOffer, orderMailto, type CreditPack } from "@/content/tools";
 import { BIDCROSSCHECK_CGV_PATH, BIDCROSSCHECK_TERMS_CONFIDENTIALITY_ANCHOR } from "@/content/bidcrosscheck-terms";
 import clientKit from "@/assets/tools/BidCrossCheck_0.39_Client.zip.asset.json";
 import { CONTACT_EMAIL } from "@/lib/site";
@@ -37,8 +36,9 @@ export const roundedReviewTimeValue = (annualEmployerCost = REVIEW_ASSUMPTIONS.a
 const formatAmount = (value: number) => new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(value);
 
 const BidCrossCheckPage = () => {
-  const [credits, setCredits] = useState<CreditPack>(1);
+  const [credits, setCredits] = useState<CreditPack>(10);
   const [copyStatus, setCopyStatus] = useState("");
+  const selectedOffer = getCreditPackOffer(credits);
 
   const copyEmail = async () => {
     try {
@@ -54,7 +54,7 @@ const BidCrossCheckPage = () => {
       <article className="mx-auto max-w-6xl px-6 py-16 lg:px-10 lg:py-24">
         <Breadcrumb items={[{ label: "Nos outils", href: TOOLS_PATH }, { label: "BidCrossCheck" }]} />
         <header className="mt-10">
-          <p className="eyebrow">Offre ouverte · Prix sur demande</p>
+          <p className="eyebrow">Offre ouverte</p>
           <h1 className="mt-6 break-words font-display text-3xl font-light leading-tight text-glacier lg:text-[44px]">BidCrossCheck</h1>
           <p className="mt-3 font-display text-base text-ice-blue">by Shadow Transformation</p>
           <p className="mt-6 max-w-[70ch] text-base leading-[1.75] text-muted-foreground lg:text-lg">
@@ -153,31 +153,51 @@ const BidCrossCheckPage = () => {
         </section>
 
         <section aria-labelledby="credits-title" className="mt-16">
-          <p className="eyebrow">Essai et commande</p>
+          <p className="eyebrow">Formules, essai et commande</p>
           <h2 id="credits-title" className="mt-6 font-display text-2xl font-light text-glacier lg:text-[34px]">Un compte partagé pour votre équipe</h2>
           <p className="mt-6 max-w-[70ch] text-base leading-[1.75] text-muted-foreground"><Link to={BIDCROSSCHECK_CGV_PATH} className="text-ice-blue underline underline-offset-4">Conditions générales de vente — clients professionnels</Link> · Version projet du 26 novembre 2026. Le téléchargement et les courriels de demande ne concluent pas une vente ; le devis et les CGV datées nécessitent une acceptation explicite.</p>
           <div className="mt-6 flex max-w-[70ch] items-start gap-3">
             <Users className="mt-1 h-5 w-5 shrink-0 text-ice-blue" aria-hidden="true" strokeWidth={1.5} />
-            <p className="text-base leading-[1.75] text-muted-foreground">Le compte est celui de votre BE ou de votre département, avec un compteur de crédits partagé. Les demandes d’essai et les commandes se font par courriel. Prix sur demande.</p>
+            <p className="text-base leading-[1.75] text-muted-foreground">Le compte est celui de votre BE ou de votre département, avec un compteur de crédits partagé. Un crédit ouvre la revue d’un dossier ; une relance est incluse pour le même dossier et le même DAO inchangé.</p>
           </div>
-          <div className="mt-10 grid gap-10 md:grid-cols-2">
-            <div>
-              <h3 className="font-display text-xl font-light text-glacier">Demander votre crédit d’essai</h3>
-              <p className="mt-4 text-base leading-[1.75] text-muted-foreground">Après installation, joignez le fichier <code className="text-glacier">demande.json</code> à votre demande de crédit d’essai. Aucune pièce d’offre à transmettre. Si vous n’avez pas encore installé BidCrossCheck, demandez d’abord le kit et le guide DSI.</p>
-              <Button asChild variant="outline" className={`mt-6 ${actionClass}`}><a href={TRIAL_MAILTO}><Mail aria-hidden="true" />Demander mon crédit d’essai</a></Button>
+          <div className="mt-8 rounded-md border border-border/60 bg-card/40 p-6">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="max-w-[60ch]">
+                <h3 className="font-display text-lg font-medium text-glacier">Essai gratuit · 1 crédit</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Après installation, joignez <code className="text-glacier">demande.json</code> à votre demande. Aucune pièce d’offre à transmettre.</p>
+              </div>
+              <Button asChild variant="outline" className={`shrink-0 ${actionClass}`}><a href={TRIAL_MAILTO}><Mail aria-hidden="true" />Demander mon crédit d’essai</a></Button>
             </div>
-            <div>
-              <h3 className="font-display text-xl font-light text-glacier">Commander des crédits</h3>
-              <p className="mt-4 text-base leading-[1.75] text-muted-foreground">Choisissez 1, 10, 25 ou 50 crédits. Le prix et les modalités vous seront communiqués par courriel ; aucun paiement n’est demandé sur le site.</p>
-              <label id="credit-pack-label" className="mt-6 block text-sm text-muted-foreground">Nombre de crédits</label>
-              <Select value={String(credits)} onValueChange={(value) => {
-                const pack = CREDIT_PACKS.find((candidate) => String(candidate) === value);
-                if (pack !== undefined) setCredits(pack);
-              }}>
-                <SelectTrigger aria-labelledby="credit-pack-label" className="mt-2 w-full max-w-xs"><SelectValue /></SelectTrigger>
-                <SelectContent>{CREDIT_PACKS.map((pack) => <SelectItem key={pack} value={String(pack)}>{pack} crédit{pack > 1 ? "s" : ""}</SelectItem>)}</SelectContent>
-              </Select>
-              <Button asChild className={`mt-4 ${actionClass}`}><a href={orderMailto(credits)}><Mail aria-hidden="true" />Commander {credits} crédit{credits > 1 ? "s" : ""} par courriel</a></Button>
+          </div>
+          <div className="mt-8" role="group" aria-labelledby="packs-title">
+            <h3 id="packs-title" className="font-display text-xl font-light text-glacier">Choisir une formule (tarifs HT)</h3>
+            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {CREDIT_PACK_OFFERS.map((offer) => {
+                const selected = offer.credits === credits;
+                return (
+                  <button
+                    key={offer.credits}
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => setCredits(offer.credits)}
+                    className={`flex flex-col rounded-md border p-5 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ice-blue ${selected ? "border-ice-blue bg-card/80" : "border-border/60 bg-card/30 hover:border-ice-blue/50"}`}
+                  >
+                    <span className="font-display text-lg font-medium text-glacier">{offer.credits} crédit{offer.credits > 1 ? "s" : ""}</span>
+                    <span className="mt-3 font-display text-2xl font-light text-glacier">{formatEuroHt(offer.priceHt)}</span>
+                    <span className="mt-1 text-sm text-muted-foreground">{offer.unitPriceHt} €/crédit</span>
+                    {offer.includesUpdates && <span className="mt-3 text-xs text-ice-blue">Droit aux mises à jour inclus</span>}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+              <Button asChild className={actionClass}>
+                <a href={orderMailto(credits)}>
+                  <Mail aria-hidden="true" />
+                  Demander la commande · {selectedOffer.credits} crédit{selectedOffer.credits > 1 ? "s" : ""} ({formatEuroHt(selectedOffer.priceHt)})
+                </a>
+              </Button>
+              <p className="text-sm leading-relaxed text-muted-foreground">L’envoi du courriel constitue une demande de commande ; aucun paiement en ligne n’est ouvert sur le site.</p>
             </div>
           </div>
           <div className="mt-12 border-t border-hairline pt-8">

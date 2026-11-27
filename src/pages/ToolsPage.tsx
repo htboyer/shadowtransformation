@@ -21,7 +21,7 @@ const ToolsPage = () => (
       <section aria-labelledby="bidcrosscheck-title" className="mt-14 border-y border-hairline py-10 lg:py-12">
         <div className="flex items-center gap-3 text-ice-blue">
           <FileCheck2 className="h-6 w-6 shrink-0" aria-hidden="true" strokeWidth={1.5} />
-          <span className="text-sm font-medium">Offre ouverte · Prix sur demande</span>
+          <span className="text-sm font-medium">Offre ouverte</span>
         </div>
         <h2 id="bidcrosscheck-title" className="mt-6 font-display text-2xl font-light text-glacier lg:text-[34px]">BidCrossCheck</h2>
         <p className="mt-3 text-sm text-ice-blue">by Shadow Transformation</p>
